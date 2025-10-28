@@ -916,7 +916,7 @@ def page_renew():
             adoption = st.slider(f"{source_name} adoption level (%)", 0, 100, 50,
                                  key=f"{source_name}_adopt")
             annual_cost = st.number_input("💰 Current annual energy cost ($)", 500, 10000, 2500,
-                                          step=100, key=f"{source_name}_cost")
+                                          step=50, key=f"{source_name}_cost")
 
         with_adoption_savings = annual_cost * (adoption / 100) * eff
         cost_with = annual_cost - with_adoption_savings
