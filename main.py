@@ -835,8 +835,8 @@ def page_ac():
 def page_energy(): st.markdown("# Energy Saving\n"+ENERGY_SAVING_MD)
 
 
-import streamlit as st
-import plotly.graph_objects as go
+
+
 
 
 # ----- Helper function to calculate energy savings based on behavior -----
