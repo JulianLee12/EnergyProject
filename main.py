@@ -2,7 +2,7 @@ import html
 import streamlit.components.v1 as components
 imageCarouselComponent = components.declare_component("image-carousel-component", path="frontend/public")
 import altair as alt
-import plotly.graph_objects as go
+
 
 import streamlit as st
 import pandas as pd
