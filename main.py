@@ -1225,10 +1225,46 @@ def page_conserve():
                     st.write(f"✅ Q{i+1}: {explanations[i]}")
                 else:
                     st.write(f"❌ Q{i+1}: {explanations[i]}")
+    st.markdown("---")
+    tabss = st.tabs([
+        "Refrigerators",
+        "Smartphones",
+        "Freezers",
+        "Dryers",
+    ])
+    with tabss[0]:
+        st.subheader("Energy Efficient Models")
+        st.markdown("When looking for refrigerators, typically designs with top freezer, or just smaller sizes tend to be more energy efficient. The most important thing to be looking for is that the model has a Energy Star on it and has a lower Global Warming Potential(GWP).")
+        st.subheader("High Energy Consumption Models")
+        st.markdown("Models that are old and have outdated technology often are the least energy efficient. Refrigerators with energy intensive function such as, built in ice makers or water dispensers has a higher energy usage.")
+        st.subheader("Key Factors")
+
+    with tabss[1]:
+        st.subheader("Energy Efficient Models")
+        st.markdown("Smartphones that are newer or have smaller chips are more energy efficient than others. Larger batteries, and memory storage also can contribute. Settings that can be easily changed that can help reduce you energy usage includes lowering your screen brightness, disabling unnecessary wireless functions (Bluetooth, Wi-Fi, GPS) and power saving models can all minimize energy utilization.")
+        st.subheader("High Energy Consumption Models")
+        st.markdown("Smartphones that are high is size, resolution, and ones that use power-draining hardware can lead to high energy consumption.")
+        st.subheader("Key Factors")
+        st.markdown("")
+
+    with tabss[2]:
+        st.subheader("Energy Efficient Models")
+        st.markdown("Chest Freezers are the most efficient because their design minimizes cold air loss when it is opened. Another reason is because of its smaller size. ")
+        st.subheader("High Energy Consumption Models")
+        st.markdown("Upright freezers with an automatic defrost functions, because when it's opened a lot more cold air is released.")
+        st.subheader("Key Factors")
+        st.markdown("")
+
+    with tabss[3]:
+        st.subheader("Energy Efficient Models")
+        st.markdown("The most energy-efficient dryer is a heat pump dryer. This is because it uses a closed-loop system to recycle the heat. and can use 50% less energy than a standard one can.")
+        st.subheader("High Energy Consumption Models")
+        st.markdown("Models that are vented and standard tend to use more energy. Vented models vent hot, moist air outside which might clogg the ventilation system which causes extened drying time. ")
+        st.subheader("Key Factors")
+        st.markdown("")
 
 def page_contact():
     st.markdown("# Contact Us")
-
     st.markdown("""
     Have a question or suggestion? Get in touch with our team using the form below.
     """)
