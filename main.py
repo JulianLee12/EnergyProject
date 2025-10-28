@@ -1,0 +1,1315 @@
+import html
+import streamlit.components.v1 as components
+imageCarouselComponent = components.declare_component("image-carousel-component", path="frontend/public")
+import altair as alt
+import plotly.graph_objects as go
+
+import streamlit as st
+import pandas as pd
+
+st.set_page_config(page_title="PowerInfo", layout="wide")
+
+# =========================================
+# Global CSS (eco + modern; animation + remove all top whitespace)
+# =========================================
+CUSTOM_CSS = """
+<style>
+:root{
+  --bg: #F0FCF5;
+  --card: #ffffff;
+  --accent: #2e7d32;
+  --accent-soft: #A5D6A7;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --shadow: 0 8px 24px rgba(0,0,0,.08);
+  --shadow-hover: 0 16px 40px rgba(0,0,0,.14);
+  --radius: 18px;
+}
+
+/* REMOVE TOP STREAMLIT HEADER & PADDING */
+/* MINIMAL HEADER (keeps sidebar + deploy buttons working) */
+/* MINIMAL HEADER (keeps sidebar + deploy buttons working) */
+/* Keep header tiny but visible so sidebar/deploy stay on-screen */
+header[data-testid="stHeader"] {
+  height: 36px !important;
+  min-height: 36px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+/* nice breathing room from top */
+.block-container {
+  padding-top: 30px !important;
+  margin-top: 0 !important;
+}
+
+
+html, body, [data-testid="stAppViewContainer"] { background: var(--bg); }
+h1, h2, h3, h4, h5, h6 { color: var(--text); }
+
+/* Hero */
+.hero {
+  background: linear-gradient(120deg, rgba(165,214,167,.35), rgba(255,255,255,0));
+  border: 1px solid rgba(46,125,50,.12);
+  border-radius: var(--radius);
+  padding: 28px 28px;
+  margin-bottom: 12px;
+}
+.hero h1 { margin: 0 0 6px 0; font-size: 34px; line-height: 1.15; }
+.hero p  { margin: 6px 0 0 0; font-size: 16px; color: var(--muted); }
+
+/* Card row */
+.fan-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 28px;
+  padding: 10px 0 4px 0;
+  margin: 8px auto 0 auto;
+  max-width: 1100px;
+  position: relative;
+}
+
+.fan-card {
+  width: 340px;
+  height: 230px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(46,125,50,.12);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
+  will-change: transform;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: slidefade .60s ease forwards;
+}
+
+/* Slide fade */
+@keyframes slidefade {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Fan angles */
+.fan-card.water  { animation-delay: .05s;  transform: rotate(-3.2deg) translateY(8px); }
+.fan-card.hvac   { animation-delay: .15s;  transform: rotate(0deg) translateY(-6px) scale(1.05); }
+.fan-card.energy { animation-delay: .25s;  transform: rotate(3.2deg) translateY(8px); }
+
+/* Hover nicer */
+.fan-card:hover {
+  transform: translateY(-6px) scale(1.02) rotate(0deg) !important;
+  box-shadow: var(--shadow-hover);
+  filter: saturate(1.03);
+}
+
+.fan-card h3 { margin: 0; font-size: 22px; color: var(--text); }
+.fan-card p  { margin: 0; font-size: 14px; color: var(--muted); }
+
+.fan-card .illus {
+  margin-top: auto; height: 60px; border-radius: 12px;
+  background: linear-gradient(90deg,#e8f5e9,#f1f8f4);
+  border: 1px dashed #cde9d4;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:#4b5563;
+}
+
+/* Responsive fix */
+@media (max-width: 1000px) {
+  .fan-wrap { flex-direction: column; align-items: stretch; gap: 14px; }
+  .fan-card { width:100%; height:auto; transform:none !important; }
+}
+
+/* Footer */
+.footer {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(255,255,255,.94);
+  border-top: 1px solid rgba(0,0,0,.06);
+  backdrop-filter: blur(6px);
+  padding: 8px 16px;
+  display:flex;justify-content:center;align-items:center;
+  font-size:13px;color:var(--muted);
+  z-index:9999;
+}
+</style>
+"""
+st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
+
+# =========================================
+# TEXT CONTENT (same as before, omitted for brevity here)
+# =========================================
+# =========================================
+# Content (TEXT ONLY, headings styled)
+# =========================================
+
+WATER_SAVING_MD = """
+### What is the main use of water in households?
+Toilets, Showering, tap water, laundry machines and leaks seem to be the main cause of water usage in households with bathtubs and dishwashers also playing a role. Each litre of water costs around $0.0014 to $0.0021 depending on the season.
+
+### Why is water important?
+Water is a key resource in everyone's lives, as they need it to drink, wash, and much more. Water is one of the most important thing in people's households, but there is limited amount of it. In Vancouver, water is super pure and drinkable, so we must not take it for granted and make sure to conserve as much water as we can, or else we might not have enough to sustain future generations.
+"""
+
+
+TOILETS_MD = """
+### How Can Toilets Help Save Water?
+
+#### Background
+Background: Toilets use 6 litres of water every flush, and an average person urinates 6 to 8 times a day. Toilets are the biggest contributor to the amount of water used in households.
+
+### Dual-flush toilets
+Dual flush toilets for flushing less water when you pee, and using more water to flush when you poo. This cuts your water usage by up to 67% of water use from originally with a single-flush toilet, because you pee more than you poo everyday (unless you are in some condition) so halving the water flushed when you urinate will more than likely help save you lots of water used and save lots of money in your utility bill depending on how long you have it for. these dual flush toilets cost around 300 dollars for an average dual flush toilet, though buying just the buttons only cost on average around $10 for the button, but be sure to check the product for special conversion kits for standard toilets, because some of them don't have it and it could be hard to install. Overall, buying a whole toilet would gradually be able to save money over time, but with a button, it would be sure to save money and do a small without spending that much money.
+
+### Flushing Once After a Few Urinations
+This tip is controversial, but only flushing the toilet once after a few people urinate could save many litres of water, so you don't have to flush all the time. "If it's yellow, let it mellow. If it's brown, flush it down." If you think this is gross, think that pee doesn't really have an odor to it and that it saves, for example, a household with a family of 4, who all pee 6 times a day, you could flush every 4 times someone pees in a washroom which turns 4 people peeing into 1 person. This would save 108 litres of water a day with a normal toilet (6 litres per flush) and 54 litres with a dual-flush toilet (3 litres per flush). With a dual-flush toilet, you could be saving almost 1 cent everyday, and a normal toilet would save around 2 cents everyday. For a year, that's $3.56 for a dual flush, or $7.12 for a regular toilet. This might not seem like a lot, but it is doing a lot for the environment and saving lots of water. It's a completely free way of saving a few quick bucks.
+
+### Old toilets vs new
+In BC, a law came into effect in september 30, 2005 to change the capacity of water allowed to flush in one use from bein required to use over 13.2 litres of water to 6 litres per flush or lower. That means if you have an old toilet before laws were enacted, getting a new toilet may be easier to get clogged while pooping, but you will at least cut the amount of water used by toilets in half. It's like comparing 3 2-litre coke bottles to 6 2-litre coke bottles. In canada, even toilet water is drinking grade, so would you want to waste 6.2 more litres of bottled drinking quality water?
+
+### Sand In Bottles
+If these tips are used in your daily life and appliances, it could cut more that half your utility bill in the future.
+"""
+
+
+SHOWER_MD = """
+### How can Showers help save water?
+
+#### Background
+Background: Showering is tied for 2nd most water used in , people usually take 1-2 showers a day, and a 5 minute shower uses up around 75 litres of water.
+
+- Use low flow head instead to reduce the amount of water pumping out at a time
+- Turn off water when u use soap and dont need water (Images referenced on the original page.)
+
+### Showering vs Bathing
+A 5 minute shower uses up around 75 litres of water, while bathing uses around 90 litres of water for a full bath. Therefore, if you take longer showers that 5 minutes on average, bathing could save a bit of water each time you do it - gradually building up while also not feeling claustrophobic in the shower stall. (Images referenced on the original page.)
+
+### Using low-flow shower heads
+Low-flow shower heads are anything under 6.8 lpm (litres per minute), and have a huge range of numbers that would be considered low-flow. These showerheads could be using 1 litre less water every minute, but could still feel the same and take the same amount of time when showering.
+"""
+HVAC_MD = """
+### What is HVAC
+HVAC stands for Heating, Ventilation, and AC/Air Conditioning.
+
+### Why is HVAC important?
+HVAC is important because it can save you lots of money and energy if you get the right appliances and things similar to that.
+"""
+
+
+HEATING_MD = """
+### Heat Pumps
+Most of the time if you have a traditional of an really old electric or oil furnace, that could be really bad for the environment and consume a lot of energy meaning it will be really expensive. Heat pumps on the other hand is still expensive in the initial cost but could save you up to 50%. Not only that, they are generally good for the environment. (Images referenced on the original page.)
+
+### Gas vs Electric Stoves
+- Gas stove requires less energy than an electric stove so if you switch from an electric to an gas stove then you could save up to 2000$ annually.
+- If you want to do better for environment use an electric stove because although gas stoves use less energy, they releases double the amount of greenhouse emissions. (Images referenced on the original page.)
+
+### Alternative Heating
+- Another good option for house heating is boilers. They heat water to create steam, and send them to be circulated through pipes all around the house to heat the home.
+- Finally there is a hybrid heating. This is a combination of two heating systems in order to maximize efficiency.
+"""
+
+
+VENTILATION_MD = """
+### Types of Ventilation Systems and How They Work
+- All of the ventilation systems need to have air pressure in order to move the air around the pipes carrying the air from place to place
+- This air pressure is created by a form of fans forcing the air through a series of ducts and vents.
+- A type of ventilation is called natural ventilation. This relies on natural things such as wind and temperature difference between indoor and outdoor air to create pressure difference.
+- Another form of ventilation is called supply ventilation. This uses a fan in order to push fresh air from outside into the building creating a positive pressure that forces the stale air out through leaks and exhaust fans
+"""
+
+
+ENERGY_SAVING_MD = """
+Without switching to renewable energy, our world would be polluted with excessive carbon emission and trigger immense climate change as well and affecting our health. Switching to renewable energy is important because we need to protect the environment. By reducing our greenhouse gas emissions and pollution we can lower our costs and reducing utility bills.
+"""
+
+
+RENEWABLES_MD = """
+### Why we should switch to renewable energy sources.
+Switching to renewable energy sources could provide cheaper energy bills as well as a constant supply and clean energy. Switching to renewable energy sources allows us to combat climate change as well as improving the air quality and the cleanliness of the water. Using renewable energy is important becuase non-renewable energies like fossil fuels (coal, oil, and natural gas) and uranium for nuclear energy will eventually run out. (Images referenced on the original page.)
+
+### Wind Energy
+Wind turbines generate energy by harnessing the wind kinetic energy spinning the large blades on the machine which in turn spins the shaft connected to the power generator. Wind turbines are often found in large groups in windy areas or hill tops. (Images referenced on the original page.)
+
+### Solar Panels
+Solar panles are the main source of solar energy. Solar panels convert sunlight into usable energy using a process called photovoltaic effect. Adding solar may be costly but will pay off in the long run especially in places with lots of sunlight. Even without direct sunlight solar panels can still generate energy. (Images referenced on the original page.)
+
+### Geothermal
+Unlike other renewable energy sources, geothermal energy harness the heat of the Earth. Thi s mode of energy can provide almost unlimited energy generation unlike solar and wind energy. (Images referenced on the original page.)
+
+### Biomass
+Biomass is a renewable energy source that is produced from organic matter like plants or Biomass is a renewable energy source derived from organic materials like plants or animals. It is converted into heat, electricity, or fuels such as bioethanol and biodiesel through processes like combustion, gasification, and fermentation. (Images referenced on the original page.)
+
+### Hydro-electric
+Hydroelectric energy is generated from the force of moving water, such as rivers, lakes and the ocean. The grid stability of hydroelectric dams is very consistent, as the push and ebb of water can provide unlimited energy. (Images referenced on the original page.)
+
+### Piezoelectricity
+This form of energy is created when substances are forced under pressure of mechanical stress. This happens because the stress shifts the positive and negative charges in the structure.
+"""
+
+
+ENERGY_CONSERVATION_MD = """
+### Shop Responsibly
+When shopping, look for more energy-efficient models rather than outdated ones. Also, be mindful of online shipping returns as all of thse actions contribute to emiting CO2.
+
+### Turn Off Lighting When Not Needed
+
+### Adjust Thermostats
+"""
+
+
+# =========================================
+# HOMEPAGE
+# =========================================
+def page_home():
+    st.markdown(
+        '<div class="hero"><h1>PowerInfo</h1><p>Small changes, big impact — Learn how to conserve energy and water in your home.</p></div>',
+        unsafe_allow_html=True,
+    )
+    st.caption("Explore a category:")
+
+    st.markdown(
+        """
+        <style>
+        /* ensure no underline for clickable cards */
+        .fan-card {
+          text-decoration: none !important;
+          color: inherit !important;
+        }
+        </style>
+
+        <div class="fan-wrap">
+          <a href="/page_water" target="_self" class="fan-card water">
+            <h3>Water Saving</h3>
+            <p>Toilets, showers, taps, laundry and leak prevention.</p>
+            <div class="illus">Illustration placeholder</div>
+          </a>
+
+          <a href="/page_hvac" target="_self" class="fan-card hvac">
+            <h3>HVAC</h3>
+            <p>Heating, ventilation and air conditioning basics & tips.</p>
+            <div class="illus">Illustration placeholder</div>
+          </a>
+
+          <a href="/page_energy" target="_self" class="fan-card energy">
+            <h3>Energy Saving</h3>
+            <p>Renewables, efficiency and everyday conservation.</p>
+            <div class="illus">Illustration placeholder</div>
+          </a>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+def page_rebate():
+    st.markdown("# Rebates in British Columbia")
+
+    st.markdown("""
+    You may be eligible for rebates that help offset the cost of energy-efficient upgrades to your home.
+    These rebate programs are offered by BC Hydro and related provincial initiatives to encourage
+    clean energy adoption and home efficiency improvements.
+    """)
+
+    # Rebate data
+    data = {
+        "Rebate": [
+            "Attic Insulation",
+            "Battery Storage",
+            "Heat Pump Water Heater",
+            "Level 2 EV Charger",
+            "New Toilets",
+            "Refrigerators",
+            "Solar Panels",
+            "Whole Home Heating"
+        ],
+        "Amount ($)": [
+            900,
+            5000,
+            1000,
+            350,
+            100,
+            150,
+            5000,
+            4000
+        ]
+    }
+
+    df = pd.DataFrame(data).sort_values("Rebate")
+
+    st.markdown("### Available Rebates (BC Hydro)")
+
+    # Determine chart upper limit (add headroom)
+    max_val = df["Amount ($)"].max()
+
+    # Main chart with labels
+    bars = alt.Chart(df).mark_bar().encode(
+        x=alt.X("Rebate:N", sort=None, title="Program"),
+        y=alt.Y(
+            "Amount ($):Q",
+            title="Rebate Amount ($)",
+            scale=alt.Scale(domain=[0, max_val * 1.15])  # breathing space
+        ),
+        tooltip=["Rebate", "Amount ($)"]
+    )
+
+    labels = alt.Chart(df).mark_text(
+        align='center',
+        baseline='bottom',
+        dy=-4,
+        fontSize=12
+    ).encode(
+        x="Rebate:N",
+        y="Amount ($):Q",
+        text=alt.Text("Amount ($):Q", format="$.0f")
+    )
+
+    chart = (bars + labels).properties(height=500)
+
+    st.altair_chart(chart, use_container_width=True)
+
+    # CTA button
+    st.markdown(
+        """
+        <br>
+        <a href="https://www.bchydro.com/powersmart/residential/rebates-programs.html" target="_blank"
+           style="display:inline-block;padding:10px 16px;background-color:#2e7d32;color:white;border-radius:8px;
+                  text-decoration:none;font-weight:500;">
+            Learn More at BC Hydro
+        </a>
+        """,
+        unsafe_allow_html=True
+    )
+
+
+
+
+# =========================================
+# PAGE RENDERERS
+# =========================================
+def page_water():
+    st.markdown("# Water Saving\n"+WATER_SAVING_MD)
+    # ---------- constants ----------
+    MIN_COST_PER_L = 0.0014
+    MAX_COST_PER_L = 0.0021
+
+    def _money_range_from_litres(L: float):
+        low_cost = L * MIN_COST_PER_L
+        high_cost = L * MAX_COST_PER_L
+        return low_cost, high_cost
+
+    # ---------- static content ----------
+
+
+    st.markdown("### 💧 Interactive Bathroom Configurator")
+    st.caption("Pick your setup and see how it compares to an older, less efficient bathroom.")
+
+    # ---------- UI ----------
+    c1, c2, c3 = st.columns(3)
+    people = c1.number_input("Household size", 1, 12, 3)
+    toilet_type = c2.selectbox(
+        "Toilet type",
+        ["Old (≈13 L/flush)", "Modern (≈6 L/flush)", "Dual-flush (≈3 L avg)"]
+    )
+    shower_head = c3.selectbox(
+        "Shower head",
+        ["Standard (≈9.5 L/min)", "Low-flow (≈6.8 L/min)"]
+    )
+
+    c4, c5 = st.columns(2)
+    flushes = c4.slider("Flushes per person / day", 2, 12, 6)
+    minutes = c5.slider("Shower minutes per person", 0, 30, 8)
+
+    # ---------- logic ----------
+    toilet_map = {"Old (≈13 L/flush)": 13.0, "Modern (≈6 L/flush)": 6.0, "Dual-flush (≈3 L avg)": 3.0}
+    shower_map = {"Standard (≈9.5 L/min)": 9.5, "Low-flow (≈6.8 L/min)": 6.8}
+
+    # your setup
+    flush_L = toilet_map[toilet_type]
+    lpm = shower_map[shower_head]
+
+    your_flush_total = people * flushes * flush_L
+    your_shower_total = people * minutes * lpm
+    your_total = your_flush_total + your_shower_total
+
+    # baseline (always "old" gear)
+    baseline_flush_total = people * flushes * 13.0
+    baseline_shower_total = people * minutes * 9.5
+    baseline_total = baseline_flush_total + baseline_shower_total
+
+    savings = baseline_total - your_total
+    low_cost_year, high_cost_year = _money_range_from_litres(savings * 365)
+
+    # ---------- output ----------
+    c6, c7, c8 = st.columns(3)
+    c6.metric("Your usage (L/day)", f"{your_total:,.0f}")
+    c7.metric("Old baseline (L/day)", f"{baseline_total:,.0f}")
+    c8.metric("Daily savings", f"{savings:,.0f} L")
+
+    st.success(
+        f"**Estimated yearly savings:** ${low_cost_year:,.0f} – ${high_cost_year:,.0f} per year "
+        f"just from bathroom upgrades & habits."
+    )
+
+    # optional small breakdown chart
+    st.bar_chart(
+        pd.DataFrame(
+            {
+                "Baseline": [baseline_flush_total, baseline_shower_total],
+                "Your Setup": [your_flush_total, your_shower_total],
+            },
+            index=["Toilet", "Shower"],
+        )
+    )
+def page_toilets():
+    st.markdown("# Toilets")
+    st.subheader("How Can Toilets Help Save Water?")
+
+    st.markdown("""
+    Toilets use around **6 litres of water per flush**, and the average person urinates **6 to 8 times a day**, making them
+    the single largest source of indoor water usage in most households. Small improvements to flushing habits or toilet design
+    can dramatically reduce wasted clean drinking water.
+    """)
+
+    tabs = st.tabs([
+        "Dual-flush toilets",
+        "Flushing less often",
+        "Old vs new",
+        "Sand in bottles"
+    ])
+
+    with tabs[0]:
+        st.markdown("""
+        ### Dual-flush toilets
+        Dual flush toilets let you use less water when you pee and more when you poo. Because urination happens far more often,
+        this can reduce flushing water usage by **up to 67%** compared to older single-flush toilets.
+
+        A full dual-flush toilet typically costs around **$300**, while a button retrofit kit can cost as little as **$10** —
+        if compatible with your model. Over time, this saves money and prevents large volumes of clean water from being wasted.
+        """)
+
+    with tabs[1]:
+        st.markdown("""
+        ### Flushing Less Often
+        A simple (but sometimes controversial) method is to flush only after several urinations — summarized by the saying:
+
+        > "If it's yellow, let it mellow. If it's brown, flush it down."
+
+        For a family of 4, flushing every 4 urinations instead of after each one can save **108 litres of water per day**
+        with a standard toilet, or **54 litres per day** with a dual-flush toilet. Annually, that's roughly **$3.56 saved** on a
+        dual-flush toilet or **$7.12** on a regular toilet — small financially, but meaningful environmentally.
+        """)
+
+    with tabs[2]:
+        st.markdown("""
+        ### Old Toilets vs New
+        Prior to **2005**, many toilets used **13.2 litres or more per flush**. Modern regulations in BC limit new toilets to
+        **6 litres per flush or less**.
+
+        That means upgrading an older toilet can **cut water usage in half**. Even though older models may seem "stronger,"
+        they waste a huge amount of potable (drinking-grade) water with every flush.
+        """)
+
+    with tabs[3]:
+        st.markdown("""
+        ### Sand in Bottles
+        A low-cost trick involves placing sealed bottles of sand or stones in the toilet tank. This displaces water, reducing
+        the volume used per flush.
+
+        While simple, pairing this with a dual-flush system or mindful flushing can reduce toilet-related water usage by more
+        than half in a typical household.
+        """)
+
+def page_shower():
+    st.markdown("# Shower")
+    st.subheader("How can Showers help save water?")
+
+    st.markdown("""
+    Showering is tied for the **second highest** water usage in most homes. People usually take
+    **1–2 showers a day**, and a **5-minute shower uses around 75 litres of water**.
+    Using more efficient shower heads or reducing how long water is running can significantly reduce waste.
+    """)
+
+    st.markdown("## Showering vs Bathing")
+    st.markdown("""
+         Baths use a fixed amount of water each time, while showers use more water the longer they run.
+         Depending on your shower length and shower head type, a shower can use **less** or **more** water
+         than a bath. Use the calculator below to compare and see which is more efficient for your household.
+         """)
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        minutes = st.slider("Average shower length (minutes)", 1, 30, 5)
+        head_type = st.selectbox(
+            "Shower head type",
+            ["Standard (≈9.5 L/min)", "Low-flow (≈6.8 L/min)"]
+        )
+        people = st.number_input("Number of people showering", 1, 10, 1)
+
+    with col2:
+        bath_size = st.selectbox(
+            "Bath size",
+            ["Small (70 L)", "Standard (90 L)", "Large (110 L)"]
+        )
+
+    # mapping to actual numbers
+    head_map = {"Standard (≈9.5 L/min)": 9.5, "Low-flow (≈6.8 L/min)": 6.8}
+    bath_map = {"Small (70 L)": 70, "Standard (90 L)": 90, "Large (110 L)": 110}
+
+    lpm = head_map[head_type]
+    bath_litres = bath_map[bath_size]
+
+    shower_total = minutes * lpm * people
+    difference = bath_litres - shower_total
+
+    st.markdown("### Comparison")
+
+    col3, col4 = st.columns(2)
+    col3.metric("Your shower(s)", f"{shower_total:.1f} L")
+    col4.metric("Bath", f"{bath_litres:.1f} L")
+
+    if shower_total < bath_litres:
+        st.success("✅ Your showers use **less** water than taking a bath.")
+    elif shower_total > bath_litres:
+        st.warning("⚠️ Your showers use **more** water than taking a bath — a bath may be more efficient at this length.")
+    else:
+        st.info("ℹ️ Your shower water usage is **equal** to a bath.")
+
+    st.subheader("Using low-flow shower heads")
+    st.markdown("""Low-flow shower heads are anything under 6.8 lpm,(litres per minute) and have a huge range of numbers that would be considered low-flow. These showerheads could use around 3 litres less water every minute, but could still feel the same and take the same amount of time when showering. The shower heads usually cost around $25, or up so buying it won't help much with saving money unless used over many years, but it can save 10+ litres of water everyday to help save water for future generations.
+""")
+
+    st.subheader("Turning Water Off While Putting Soap On")
+    st.markdown("""Each time you shower, you put on soap (unless it's a quick rinse) and the average time to put it on is 20 seconds. Just 20 seconds could use up more than 3 litres of water in the shower. Do you rinse your body the same time you put on soap? No, all the soap would wash away before anything even happens, so it's a totally free way to save 3 litres of water everyday when you shower. 
+""")
+
+
+
+def page_hvac(): st.markdown("# HVAC\n"+HVAC_MD)
+def page_heating():
+    st.markdown("# Heating")
+    st.subheader("What is home heating?")
+    st.markdown("""
+    Heating is used to warm the home during cold seasons, and it is one of the biggest contributors
+    to household energy consumption. The type of heating system you use and how efficient it is 
+    can have a major impact on cost, comfort, and environmental footprint.
+    """)
+
+    # Tabs for different heating system explanations
+    tabs = st.tabs([
+        "Heat Pumps",
+        "Gas vs Electric Stoves",
+        "Alternative Heating"
+    ])
+
+    with tabs[0]:
+        st.markdown("""
+        ### Heat Pumps
+        Heat pumps are one of the most energy-efficient heating systems available. While the
+        upfront installation cost may be high, a heat pump can save **up to 50%** on heating bills
+        compared to an old furnace.
+
+        Instead of burning fuel to create heat, a heat pump **moves** heat from outdoors to indoors,
+        which is why it can reach efficiencies around **250%**, compared to just **65%** for older
+        electric or oil furnaces.
+        """)
+
+    with tabs[1]:
+        st.markdown("""
+        ### Gas vs Electric Stoves
+        Gas stoves heat up faster and require less energy to operate than electric stoves, which
+        can make them cheaper to run. However, they release **double the greenhouse gas emissions**
+        of electric stoves, making them much worse for the environment.
+
+        Electric stoves are more eco-friendly even though they may cost a bit more to operate,
+        especially in regions powered by clean electricity.
+        """)
+
+    with tabs[2]:
+        st.markdown("""
+        ### Alternative Heating
+        Some homes use **boilers**, which heat water into steam and circulate it through pipes to
+        warm rooms. Another option is **hybrid heating**, which combines a furnace with a heat pump
+        to automatically choose the most efficient heating method depending on outdoor temperature.
+        """)
+
+    # --------------------- Interactive Cost & CO₂ Comparison ---------------------
+
+    st.markdown("## Heat Pump vs Furnace (Interactive Comparison)")
+
+    st.markdown("""
+    Use the calculator below to estimate how much you could save by switching from an old furnace
+    to a modern heat pump. This comparison assumes a **65% efficient furnace vs a 250% efficient
+    heat pump**, which is typical for many older homes.
+    """)
+
+    cost = st.slider("Your current annual heating cost ($)", 500, 5000, 1500, 100)
+
+    FURNACE_EFF = 0.65
+    HEATPUMP_EFF = 2.5  # 250%
+
+    # Estimated heat pump cost based on improved efficiency
+    new_cost = cost * (FURNACE_EFF / HEATPUMP_EFF)
+    savings = cost - new_cost
+    percent_savings = (savings / cost) * 100
+
+    col1, col2 = st.columns(2)
+    col1.metric("Current heating cost", f"${cost:,.0f}/yr")
+    col2.metric("With a heat pump", f"${new_cost:,.0f}/yr")
+
+    st.success(f"✅ Estimated savings: **${savings:,.0f} per year** (~{percent_savings:.0f}% less)")
+
+    # Simple CO₂ reduction estimate (proportional to efficiency gain)
+    co2_reduction = percent_savings  # same %
+    st.info(f"🌱 Estimated CO₂ reduction: **~{co2_reduction:.0f}%** per year")
+def page_vent():
+    st.markdown("# Ventilation")
+    st.subheader("What is ventilation?")
+    st.markdown("""
+    Ventilation is how fresh air enters a home and stale or humid air leaves it. Good ventilation improves
+    air quality, reduces moisture, prevents mold growth, and makes indoor spaces more comfortable and healthy.
+    Some systems rely on natural airflow, while others use fans to push or pull air through the building.
+    """)
+
+    # Tabs for organized information
+    tabs = st.tabs([
+        "Natural Ventilation",
+        "Supply Ventilation",
+        "Exhaust Ventilation",
+        "Air Pressure"
+    ])
+
+    with tabs[0]:
+        st.markdown("""
+        ### Natural Ventilation
+        Natural ventilation relies on wind, open windows, and temperature differences to move air through
+        a building without using electricity. It is the simplest and most energy-efficient type of ventilation.
+        """)
+
+    with tabs[1]:
+        st.markdown("""
+        ### Supply Ventilation
+        Supply systems use fans to **push** fresh outdoor air into a home, creating **positive pressure**.
+        This forces stale indoor air to leave through cracks, vents, or openings.
+        """)
+
+    with tabs[2]:
+        st.markdown("""
+        ### Exhaust Ventilation
+        Exhaust systems **pull** air out of the home, removing stale or humid air and creating
+        **negative pressure**. This is commonly used in bathrooms, kitchens, and HVAC exhaust fans.
+        """)
+
+    with tabs[3]:
+        st.markdown("""
+        ### Air Pressure
+        - **Positive pressure** = more air entering than leaving (supply)
+        - **Negative pressure** = more air leaving than entering (exhaust)
+        A well-designed ventilation system balances pressure for comfort and efficiency.
+        """)
+
+    # --------------------- Mini-Game ---------------------
+    st.markdown("## Mini-Game: Classify the Ventilation Methods")
+    st.markdown("Select which category each ventilation method belongs to:")
+
+    methods = [
+        ("Opening windows", "Natural"),
+        ("Cross-breeze through doors", "Natural"),
+        ("Wind vents / roof vents", "Natural"),
+        ("Fan pushing fresh air inside", "Supply"),
+        ("Positive pressure fans", "Supply"),
+        ("ERV/HRV fresh air exchanger", "Supply"),
+        ("Exhaust fan pulling stale air out", "Exhaust"),
+        ("HVAC exhaust vent / blower", "Exhaust"),
+        ("Bathroom fan", "Exhaust"),
+        ("Kitchen range hood", "Exhaust"),
+    ]
+
+    if "vent_answers" not in st.session_state:
+        st.session_state.vent_answers = {}
+
+    options = ["Natural", "Supply", "Exhaust"]
+
+    for name, correct in methods:
+        st.session_state.vent_answers[name] = st.radio(
+            f"{name}",
+            options,
+            horizontal=True,
+            key=f"radio_{name}"
+        )
+
+    if st.button("Check Answers"):
+        correct_count = 0
+        for name, correct in methods:
+            user_choice = st.session_state.vent_answers.get(name)
+            if user_choice == correct:
+                correct_count += 1
+
+        st.markdown(f"### You got **{correct_count} / {len(methods)}** correct")
+
+        # Show detailed feedback
+        for name, correct in methods:
+            user_choice = st.session_state.vent_answers.get(name)
+            if user_choice == correct:
+                st.success(f"✅ {name} — Correct")
+            else:
+                # Explanation based on category
+                if correct == "Natural":
+                    reason = "Natural ventilation relies on wind or temperature differences and does not use mechanical fans."
+                elif correct == "Supply":
+                    reason = "Supply systems push **fresh air into** the home using fans, creating positive pressure."
+                else:  # Exhaust
+                    reason = "Exhaust systems pull **stale air out** of the home using fans, creating negative pressure."
+
+                st.error(
+                    f"❌ {name} — You chose **{user_choice}**\n\n"
+                    f"**Correct:** {correct}\n\n"
+                    f"**Why:** {reason}"
+                )
+
+
+def page_ac():
+    st.markdown("# Air Conditioning")
+    st.subheader("How does air conditioning impact energy use?")
+
+    st.markdown("""
+    In energy usage, an air conditioner uses **500 to 3500 watts per hour** depending on the size:
+    - A **large central AC unit** uses around **3500 watts per hour**
+    - A **small room AC** uses around **500–1000 watts per hour**
+
+    Older air conditioners are also worse for the environment because they release **hydrofluorocarbons (HFCs)**,
+    which are powerful greenhouse gases.
+
+    A more sustainable option is a **heat pump**, which can both heat *and* cool while using far less energy.
+
+    According to the Residential Energy Consumption Survey (RECS), about **10% of the average household's total
+    electricity consumption** comes from air conditioning. Turning it off when not needed — or using clothing layers
+    instead — can significantly reduce your bill and carbon footprint.
+    """)
+
+    st.markdown("## AC Energy Usage Estimator")
+
+    ac_type = st.selectbox(
+        "Select AC type",
+        ["Small (500 W)", "Medium (1000 W)", "Central (3500 W)"]
+    )
+
+    power_map = {"Small (500 W)": 500, "Medium (1000 W)": 1000, "Central (3500 W)": 3500}
+    power = power_map[ac_type]
+
+    hours = st.slider("Hours of use per day", 1, 24, 6)
+    cost_kwh = st.number_input("Electricity cost ($ per kWh)", 0.05, 0.50, 0.12, step=0.01)
+
+    # convert W → kW
+    kwh_per_day = (power * hours) / 1000
+    daily_cost = kwh_per_day * cost_kwh
+    monthly_cost = daily_cost * 30
+
+    st.markdown("### Estimated Energy Use")
+    col1, col2 = st.columns(2)
+    col1.metric("kWh per day", f"{kwh_per_day:.1f}")
+    col2.metric("Cost per day", f"${daily_cost:.2f}")
+
+    col3, col4 = st.columns(2)
+    col3.metric("Estimated monthly cost", f"${monthly_cost:.2f}")
+    col4.metric("Power rating", f"{power} W")
+
+    # Optional "what if I reduce hours?"
+    reduced_hours = max(hours - 2, 0)
+    reduced_cost = (power * reduced_hours / 1000) * cost_kwh * 30
+    savings = monthly_cost - reduced_cost
+
+    st.info(
+        f"🌿 If you used the AC **2 hours less per day**, you could save about **${savings:.2f} per month**."
+    )
+
+
+
+def page_energy(): st.markdown("# Energy Saving\n"+ENERGY_SAVING_MD)
+
+
+import streamlit as st
+import plotly.graph_objects as go
+
+
+# ----- Helper function to calculate energy savings based on behavior -----
+def calculate_savings(lighting, appliances, electronics, heating, cooling):
+    """
+    lighting, appliances, electronics, heating, cooling: % reduction
+    Returns a dict with adjusted energy consumption for each category
+    """
+    # Base annual energy usage in kWh for each category (example values)
+    base_energy = {
+        "Lighting": 1000,
+        "Appliances": 1500,
+        "Electronics": 1200,
+        "Heating": 2000,
+        "Cooling": 1800
+    }
+
+    saved_energy = {
+        "Lighting": base_energy["Lighting"] * (1 - lighting / 100),
+        "Appliances": base_energy["Appliances"] * (1 - appliances / 100),
+        "Electronics": base_energy["Electronics"] * (1 - electronics / 100),
+        "Heating": base_energy["Heating"] * (1 - heating / 100),
+        "Cooling": base_energy["Cooling"] * (1 - cooling / 100)
+    }
+    return saved_energy, base_energy
+
+
+# ----- Tabs -----
+
+
+# Overview tab
+
+
+def page_renew():
+    st.markdown("# Renewable Energy Sources")
+
+    st.subheader("Why renewables?")
+    st.markdown("""
+    Switching to renewable energy sources could provide cheaper energy bills as well as a constant supply and clean energy.
+    Renewables help combat climate change, improve air quality, and protect water resources. They are also sustainable — unlike
+    fossil fuels such as coal, oil, natural gas, and even uranium (for nuclear power), which will eventually run out.
+    """)
+
+    tabs = st.tabs([
+        "Wind",
+        "Solar",
+        "Geothermal",
+        "Biomass",
+        "Hydro-electric",
+        "Piezoelectricity"
+    ])
+
+    # Small wrapper function for clean centered carousel
+    def show_carousel(img_list):
+        st.markdown("<br>", unsafe_allow_html=True)
+        col1, col2, col3 = st.columns([1, 2, 1])  # Balanced centered layout
+        with col2:
+            st.markdown(
+                "<div style='max-width:600px;margin:0 auto;'>",
+                unsafe_allow_html=True,
+            )
+            imageCarouselComponent(imageUrls=img_list, height=300)  # << updated height here
+            st.markdown("</div>", unsafe_allow_html=True)
+
+    # Shared simulator function (unchanged)
+    def renewable_simulator(source_name, eff, co2_factor):
+        st.markdown("---")
+        st.subheader(f"⚡ Compare: With {source_name} vs Without It")
+
+        st.info(f"""
+        Adjust the sliders below to see how switching to **{source_name} energy** affects your energy costs
+        and carbon emissions. The bar charts show your comparison **before and after adoption**.
+        """)
+
+        col1, col2 = st.columns(2)
+        with col1:
+            adoption = st.slider(f"{source_name} adoption level (%)", 0, 100, 50,
+                                 key=f"{source_name}_adopt")
+            annual_cost = st.number_input("💰 Current annual energy cost ($)", 500, 10000, 2500,
+                                          step=100, key=f"{source_name}_cost")
+
+        with_adoption_savings = annual_cost * (adoption / 100) * eff
+        cost_with = annual_cost - with_adoption_savings
+        cost_without = annual_cost
+        co2_reduction = (adoption / 100) * co2_factor * 100
+        co2_with = 100 - co2_reduction
+
+        df_cost = pd.DataFrame({"Scenario": ["Without Renewable", f"With {source_name}"],
+                                "Annual Cost ($)": [cost_without, cost_with]})
+        df_co2 = pd.DataFrame({"Scenario": ["Without Renewable", f"With {source_name}"],
+                               "CO₂ Emissions (%)": [100, co2_with]})
+
+        cost_chart = alt.Chart(df_cost).mark_bar(cornerRadiusTopLeft=5, cornerRadiusTopRight=5) \
+            .encode(x="Scenario:N", y="Annual Cost ($):Q",
+                    color=alt.Color("Scenario:N",
+                                    scale=alt.Scale(domain=["Without Renewable", f"With {source_name}"],
+                                                    range=["#E74C3C", "#27AE60"]),
+                                    legend=None)) \
+            .properties(title="💸 Annual Energy Cost Comparison", height=300)
+
+        co2_chart = alt.Chart(df_co2).mark_bar(cornerRadiusTopLeft=5, cornerRadiusTopRight=5) \
+            .encode(x="Scenario:N", y="CO₂ Emissions (%):Q",
+                    color=alt.Color("Scenario:N",
+                                    scale=alt.Scale(domain=["Without Renewable", f"With {source_name}"],
+                                                    range=["#E67E22", "#2ECC71"]),
+                                    legend=None)) \
+            .properties(title="🌿 CO₂ Emission Impact", height=300)
+
+        st.markdown("### 📊 Visual Comparison")
+        c1, c2 = st.columns(2)
+        c1.altair_chart(cost_chart, use_container_width=True)
+        c2.altair_chart(co2_chart, use_container_width=True)
+
+        st.markdown("<br>", unsafe_allow_html=True)
+        col1, col2 = st.columns(2)
+        col1.metric("💰 Estimated Annual Savings", f"${with_adoption_savings:,.0f}")
+        col2.metric("🌿 Estimated CO₂ Reduction", f"{co2_reduction:.1f}%")
+
+        st.success(
+            f"By adopting **{adoption}% {source_name} energy**, you could save about **${with_adoption_savings:,.0f} per year** "
+            f"and reduce emissions by **{co2_reduction:.1f}%** compared to fossil fuel energy."
+        )
+
+    # 🌬 WIND TAB
+    with tabs[0]:
+        st.markdown("""
+        ### Wind Energy
+        Wind turbines generate electricity by converting kinetic energy from the wind into mechanical energy using large blades.
+        The spinning shaft powers a generator to produce electricity. Wind farms are typically located in windy open areas or
+        on hilltops where airflow is strong and consistent.
+        """)
+        show_carousel([
+            "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+            "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+            "https://images.unsplash.com/photo-1509395176047-4a66953fd231",
+            "https://images.unsplash.com/photo-1522093007474-d86e9bf7ba6f",
+        ])
+        renewable_simulator("Wind", 0.35, 0.4)
+
+    # ☀️ SOLAR TAB
+    with tabs[1]:
+        st.markdown("""
+        ### Solar Panels
+        Solar panels convert sunlight into electricity using the photovoltaic effect. Although solar systems can be expensive
+        to install, they often pay for themselves over time — especially in regions with high sunlight exposure — and can still
+        generate energy even in cloudy conditions.
+        """)
+        show_carousel([
+            "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d",
+            "https://images.unsplash.com/photo-1584270354949-c26b0d5d72b9",
+            "https://images.unsplash.com/photo-1562207520-19c0ebd8264f",
+            "https://images.unsplash.com/photo-1584270354949-c26b0d5d72b9",
+        ])
+        renewable_simulator("Solar", 0.3, 0.35)
+
+    # 🌋 GEOTHERMAL TAB
+    with tabs[2]:
+        st.markdown("""
+        ### Geothermal
+        Geothermal energy harnesses heat from beneath the Earth's surface. Unlike wind or solar, it is not weather-dependent,
+        making it one of the most stable and reliable renewable energy sources.
+        """)
+        show_carousel([
+            "https://images.unsplash.com/photo-1557264337-e8a93017fe92",
+            "https://images.unsplash.com/photo-1591105941709-6c799c5b88e7",
+            "https://images.unsplash.com/photo-1561414927-6d86591d0c4d",
+            "https://images.unsplash.com/photo-1584270354949-c26b0d5d72b9",
+        ])
+        renewable_simulator("Geothermal", 0.25, 0.3)
+
+    # 🌾 BIOMASS TAB
+    with tabs[3]:
+        st.markdown("""
+        ### Biomass
+        Biomass energy is produced from organic matter such as plants or animal waste. It can be converted into usable energy
+        like heat, electricity, or biofuels through combustion, gasification, or fermentation.
+        """)
+        show_carousel([
+            "https://images.unsplash.com/photo-1505576399279-565b52d4ac71",
+            "https://images.unsplash.com/photo-1520106212299-d99c443e4568",
+            "https://images.unsplash.com/photo-1541343672885-9be56236302a",
+            "https://images.unsplash.com/photo-1518003122452-5c91e8f2f85b",
+        ])
+        renewable_simulator("Biomass", 0.2, 0.2)
+
+    # 💦 HYDRO TAB
+    with tabs[4]:
+        st.markdown("""
+        ### Hydro-electric
+        Hydroelectric power is generated using the movement of water in rivers, lakes, or ocean tides. Because flowing water is
+        highly consistent in many regions, hydroelectric energy is known for being one of the most reliable sources for grid
+        stability.
+        """)
+        show_carousel([
+            "https://images.unsplash.com/photo-1501594907352-04cda38ebc29",
+            "https://images.unsplash.com/photo-1561484930-998b6a0b9c48",
+            "https://images.unsplash.com/photo-1496395031188-36bf46a9a997",
+            "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+        ])
+        renewable_simulator("Hydro-electric", 0.28, 0.25)
+
+    # ⚙️ PIEZOELECTRICITY TAB
+    with tabs[5]:
+        st.markdown("""
+        ### Piezoelectricity
+        Piezoelectricity occurs when certain materials generate an electric charge in response to applied mechanical stress.
+        Vibrations, pressure, or movement can be converted into small amounts of electricity — a concept often used in sensors,
+        lighter igniters, and emerging micro-scale power technologies.
+        """)
+        show_carousel([
+            "https://images.unsplash.com/photo-1624704765325-fd4868c9702e",
+            "https://images.unsplash.com/photo-1571317084911-8899d61cc464",
+            "https://images.unsplash.com/photo-1516550893923-42d28e5677af",
+            "https://images.unsplash.com/photo-1595867818082-083862f3d630",
+        ])
+        renewable_simulator("Piezoelectricity", 0.1, 0.1)
+
+
+
+
+def page_conserve():
+    import streamlit as st
+
+    st.markdown("# Energy Conservation")
+
+    st.markdown("""
+    Energy conservation means using less energy through smarter choices in how we shop, heat our homes,
+    and use electricity. Small daily habits make a difference, but choosing efficient appliances and better
+    home systems can reduce energy waste for years.
+    """)
+
+    tabs = st.tabs([
+        "Tend to Your Furnace",
+        "Test Windows & Doors",
+        "Combat Phantom Power Consumption"
+    ])
+
+    # ========== TAB 1: FURNACE ==========
+    with tabs[0]:
+        st.markdown("""
+        ### Tend To Your Furnace
+        Tending to your furnace is vital, especially if it is an older model. The first step is annual servicing by 
+        a professional, which involves cleaning or replacing old parts and making sure the furnace isn't working 
+        harder than it needs to.
+        """)
+
+        st.markdown("---")
+        st.markdown("### Furnace Quiz")
+
+        q1 = st.radio("1) Why should an older furnace be serviced annually?",
+                      ["For decoration",
+                       "Because it keeps it efficient & prevents wasted energy",
+                       "To make the furnace quieter"],
+                      index=None)
+
+        q2 = st.radio("2) What happens when a furnace filter is clogged?",
+                      ["It releases more heat",
+                       "It has to work harder and uses more energy",
+                       "It turns off permanently"],
+                      index=None)
+
+        q3 = st.radio("3) Why does maintenance matter more for older furnaces?",
+                      ["They are already efficient",
+                       "Replacing worn parts reduces wasted energy",
+                       "They don't use electricity"],
+                      index=None)
+
+        if st.button("Submit Furnace Answers"):
+            answers = [
+                "Because it keeps it efficient & prevents wasted energy",
+                "It has to work harder and uses more energy",
+                "Replacing worn parts reduces wasted energy"
+            ]
+            user = [q1, q2, q3]
+            score = sum([user[i] == answers[i] for i in range(3)])
+            st.success(f"Your score: {score}/3")
+            explanations = [
+                "Servicing prevents the furnace from wasting fuel or power.",
+                "A clogged filter forces the furnace to push harder, raising energy use.",
+                "Older furnaces lose efficiency over time, so maintenance restores performance."
+            ]
+            for i in range(3):
+                if user[i] == answers[i]:
+                    st.write(f"✅ Q{i+1}: {explanations[i]}")
+                else:
+                    st.write(f"❌ Q{i+1}: {explanations[i]}")
+
+
+    # ========== TAB 2: WINDOWS ==========
+    with tabs[1]:
+        st.markdown("""
+        ### Test Windows & Doors
+        If your home isn't airtight, hot or cold air will leak out and waste energy. To check for drafts,
+        hold a candle around window and door frames — if the flame flickers, there is a leak. Caulking the
+        frames helps create an airtight seal and reduces heat loss.
+        """)
+
+        st.markdown("---")
+        st.markdown("### Windows & Doors Quiz")
+
+        w1 = st.radio("1) How do you check for air leaks?",
+                      ["Use a candle to detect flickering", "Turn on a fan", "Tap the window glass"],
+                      index=None)
+
+        w2 = st.radio("2) Why do drafts waste energy?",
+                      ["They let in sunlight",
+                       "Heated/cooled air escapes and HVAC must work harder",
+                       "They increase humidity"],
+                      index=None)
+
+        w3 = st.radio("3) What is the solution if a draft is found?",
+                      ["Install a new furnace",
+                       "Use caulking around the frames",
+                       "Replace light bulbs"],
+                      index=None)
+
+        if st.button("Submit Windows Answers"):
+            answers = [
+                "Use a candle to detect flickering",
+                "Heated/cooled air escapes and HVAC must work harder",
+                "Use caulking around the frames"
+            ]
+            user = [w1, w2, w3]
+            score = sum([user[i] == answers[i] for i in range(3)])
+            st.success(f"Your score: {score}/3")
+            explanations = [
+                "A flickering flame shows moving air — a sign of leakage.",
+                "Air leaks cause constant heating/cooling loss.",
+                "Caulking seals gaps to stop heat from escaping."
+            ]
+            for i in range(3):
+                if user[i] == answers[i]:
+                    st.write(f"✅ Q{i+1}: {explanations[i]}")
+                else:
+                    st.write(f"❌ Q{i+1}: {explanations[i]}")
+
+
+    # ========== TAB 3: PHANTOM POWER ==========
+    with tabs[2]:
+        st.markdown("""
+        ### Combat Phantom Power Consumption
+        Plugged-in devices like televisions, cable boxes, and game consoles consume energy even when not in use. 
+        Chargers that remain plugged in also draw power even when nothing is connected. Unplugging devices or using 
+        smart plugs can help block this wasted energy.
+        """)
+
+        st.markdown("---")
+        st.markdown("### Phantom Power Quiz")
+
+        p1 = st.radio("1) What is phantom power?",
+                      ["Energy used by plugged-in devices even when off",
+                       "Power used by lightbulbs",
+                       "Energy from heating water"],
+                      index=None)
+
+        p2 = st.radio("2) Which of the following still draws power when idle?",
+                      ["A disconnected lamp",
+                       "A phone charger still plugged in",
+                       "A bookcase"],
+                      index=None)
+
+        p3 = st.radio("3) What reduces phantom power best?",
+                      ["Leaving everything plugged in",
+                       "Using smart plugs or unplugging devices",
+                       "Installing a new heater"],
+                      index=None)
+
+        if st.button("Submit Phantom Answers"):
+            answers = [
+                "Energy used by plugged-in devices even when off",
+                "A phone charger still plugged in",
+                "Using smart plugs or unplugging devices"
+            ]
+            user = [p1, p2, p3]
+            score = sum([user[i] == answers[i] for i in range(3)])
+            st.success(f"Your score: {score}/3")
+            explanations = [
+                "Phantom power is wasted electricity from devices in standby.",
+                "Chargers and consoles keep drawing small amounts of power.",
+                "Smart plugs cut standby power automatically."
+            ]
+            for i in range(3):
+                if user[i] == answers[i]:
+                    st.write(f"✅ Q{i+1}: {explanations[i]}")
+                else:
+                    st.write(f"❌ Q{i+1}: {explanations[i]}")
+
+def page_contact():
+    st.markdown("# Contact Us")
+
+    st.markdown("""
+    Have a question or suggestion? Get in touch with our team using the form below.
+    """)
+
+    with st.form("contact_form"):
+        name = st.text_input("Your Name")
+        email = st.text_input("Your Email")
+        message = st.text_area("Message", height=160)
+
+        submitted = st.form_submit_button("Send Message")
+
+        if submitted:
+            if not name or not email or not message:
+                st.error("Please fill in all fields before submitting.")
+            else:
+                # Construct a mailto link
+                recipients = (
+                    "julian.lee31@stgeorges.bc.ca,"
+                    "joshua.tse31@stgeorges.bc.ca,"
+                    "harvey.tjoa31@stgeorges.bc.ca"
+                )
+                subject = f"Contact Form Submission from {name}"
+                body = f"From: {name} ({email})%0D%0A%0D%0A{message}"
+
+                mailto_link = f"mailto:{recipients}?subject={subject}&body={body}"
+
+                st.markdown(
+                    f"""
+                    <a href="{mailto_link}" target="_blank"
+                       style="display:inline-block;margin-top:15px;padding:10px 16px;
+                       background-color:#2e7d32;color:white;border-radius:8px;
+                       text-decoration:none;font-weight:500;">
+                       Click here to send email
+                    </a>
+                    """,
+                    unsafe_allow_html=True
+                )
+
+                st.success("Preview ready — click the button above to send your message.")
+
+
+
+
+# =========================================
+# NAVIGATION (Home is TOP-LEVEL)
+# =========================================
+PAGES = {
+    "": [
+        st.Page(page_home, title="Home")
+    ],
+    "Water Saving": [
+        st.Page(page_water, title="Overview"),
+        st.Page(page_toilets, title="Toilets"),
+        st.Page(page_shower, title="Shower"),
+    ],
+
+    "HVAC": [
+        st.Page(page_hvac, title="Overview"),
+        st.Page(page_heating, title="Heating"),
+        st.Page(page_vent, title="Ventilation"),
+        st.Page(page_ac, title="Air Conditioning"),   # ✅ add this line
+    ],
+
+    "Energy Saving": [
+        st.Page(page_energy, title="Overview"),
+        st.Page(page_renew, title="Renewable Energy Sources"),
+        st.Page(page_conserve, title="Energy Conservation"),
+    ],
+    "Other": [
+        st.Page(page_rebate, title="Rebate"),
+        st.Page(page_contact, title="Contact Us")
+    ]
+
+}
+
+
+pg = st.navigation(PAGES, position="sidebar")
+pg.run()
+
+# =========================================
+# FOOTER
+# =========================================
+st.markdown(
+    '<div class="footer">Credits: Joshua Tse, Harvey Tjoa, and Julian Lee (2025)</div>',
+    unsafe_allow_html=True
+)
