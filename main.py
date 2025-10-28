@@ -1051,7 +1051,7 @@ def page_renew():
         show_carousel([
             "https://blog.piezo.com/hs-fs/hubfs/image.png?width=450&name=image.png",
             "http://pavegen.com/hs-fs/hubfs/Pavegen_April2025/images/Kia%20Hero%20-%20A%206.png?width=513&height=290&name=Kia%20Hero%20-%20A%206.png",
-            "https://images.unsplash.com/photo-1516550893923-42d28e5677af",
+            "",
             "https://images.unsplash.com/photo-1595867818082-083862f3d630",
         ])
         renewable_simulator("Piezoelectricity", 0.1, 0.1)
