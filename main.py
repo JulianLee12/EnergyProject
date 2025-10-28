@@ -969,10 +969,12 @@ def page_renew():
         on hilltops where airflow is strong and consistent.
         """)
         show_carousel([
-            "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-            "https://images.unsplash.com/photo-1509395176047-4a66953fd231",
-            "https://images.unsplash.com/photo-1522093007474-d86e9bf7ba6f",
+            "https://www.energy.gov/sites/default/files/styles/full_article_width/public/Turbine_Comparison.jpg?itok=2tmJtLXQ",
+            "https://caltechsites-prod-assets.s3.amazonaws.com/scienceexchange/images/wind-turbine-future-energy.2e16d0ba.fill-933x525-c100.jpg",
+            "https://files.lexology.com/images/lexology/static/f0abac77-75d7-4e00-85c5-ce78f31e7d01.png",
+            "https://assets.nationbuilder.com/canadaaction/pages/3664/meta_images/original/wind_power_in_canada_facts_statistics.JPG?1717994021",
+            "https://www.repsol.com/content/dam/repsol-corporate/es/energia-e-innovacion/parques%20eolicos%20on%20shore%20y%20near%20shore.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzfpB4vPsHSa6PO7FMVkVF0We5MzbTIaILRA&s",
         ])
         renewable_simulator("Wind", 0.35, 0.4)
 
@@ -985,10 +987,10 @@ def page_renew():
         generate energy even in cloudy conditions.
         """)
         show_carousel([
-            "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d",
-            "https://images.unsplash.com/photo-1584270354949-c26b0d5d72b9",
-            "https://images.unsplash.com/photo-1562207520-19c0ebd8264f",
-            "https://images.unsplash.com/photo-1584270354949-c26b0d5d72b9",
+            "https://www.gridserve.com/wp-content/uploads/2022/08/1.-Listicle-Solar-is-awesome-1024x683.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjJzcS6_xYfMYPOCTz_u3pT-J8whciq6r7pw&s",
+            "hhttps://amplussolar.com/blog/wp-content/uploads/2025/01/Types-of-Solar-Panels.jpg",
+            "https://artisanelectricinc.com/wp-content/uploads/2019/09/Backsheet.jpg",
         ])
         renewable_simulator("Solar", 0.3, 0.35)
 
@@ -1000,10 +1002,10 @@ def page_renew():
         making it one of the most stable and reliable renewable energy sources.
         """)
         show_carousel([
-            "https://images.unsplash.com/photo-1557264337-e8a93017fe92",
-            "https://images.unsplash.com/photo-1591105941709-6c799c5b88e7",
-            "https://images.unsplash.com/photo-1561414927-6d86591d0c4d",
-            "https://images.unsplash.com/photo-1584270354949-c26b0d5d72b9",
+            "https://emission-index.b-cdn.net/wp-content/uploads/2023/11/64d3e36f7274f04d628bdd0a_Geothermal-Energy-1-01.png",
+            "https://dandelionenergy.com/wp-content/uploads/2019/10/IjkKdqvok6ktMM6kQU7fPOzDrfVwZZM4qOH-Y_QdsLi7F3f5DMDSZONn0wowWwFd17Vp8WM3mrp6yueNHt-1wK-0oHCfmy2-nCAPKOihUYUnJZIYSkjp-gadFCzrj7miIU2FgTw8",
+            "https://www.24hplans.com/wp-content/uploads/2018/01/Geothermal-Heating-Digging-the-Ground.jpeg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXoVjxS_EUAdCvwQx6FEkb32wp6wPKDSM_NA&s",
         ])
         renewable_simulator("Geothermal", 0.25, 0.3)
 
@@ -1015,10 +1017,10 @@ def page_renew():
         like heat, electricity, or biofuels through combustion, gasification, or fermentation.
         """)
         show_carousel([
-            "https://images.unsplash.com/photo-1505576399279-565b52d4ac71",
-            "https://images.unsplash.com/photo-1520106212299-d99c443e4568",
-            "https://images.unsplash.com/photo-1541343672885-9be56236302a",
-            "https://images.unsplash.com/photo-1518003122452-5c91e8f2f85b",
+            "https://www.mdpi.com/energies/energies-16-01783/article_deploy/html/images/energies-16-01783-g001.png",
+            "https://powerzone.clarkpublicutilities.com/wp-content/uploads/2022/03/CPUD22_Biomass-Cycle-1-scaled.jpg",
+            "https://images.theecoexperts.co.uk/wp-content/uploads/2022/02/Biomass-power-plant-in-the-UK.jpg",
+            "https://www.eia.gov/energyexplained/biomass/images/wastetoenergy.png",
         ])
         renewable_simulator("Biomass", 0.2, 0.2)
 
@@ -1031,10 +1033,10 @@ def page_renew():
         stability.
         """)
         show_carousel([
-            "https://images.unsplash.com/photo-1501594907352-04cda38ebc29",
-            "https://images.unsplash.com/photo-1561484930-998b6a0b9c48",
-            "https://images.unsplash.com/photo-1496395031188-36bf46a9a997",
-            "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+            "https://letstalkscience.ca/sites/default/files/2019-11/Carillon_Hydroelectric_Power_Station.jpg",
+            "https://www.nbpower.com/media/1664/d-html-en-safety_learning-learning-electricity_generated-hydro-hydro-anim-en.gif",
+            "https://powerzone.clarkpublicutilities.com/wp-content/uploads/2022/03/CPUD22_Hydroelectric-Dam_2000x2000.jpg",
+            "https://cleanpower.org/wp-content/uploads/2022/03/hoover-dam-aerial-photo-2048x1365.jpg",
         ])
         renewable_simulator("Hydro-electric", 0.28, 0.25)
 
@@ -1047,8 +1049,8 @@ def page_renew():
         lighter igniters, and emerging micro-scale power technologies.
         """)
         show_carousel([
-            "https://images.unsplash.com/photo-1624704765325-fd4868c9702e",
-            "https://images.unsplash.com/photo-1571317084911-8899d61cc464",
+            "https://blog.piezo.com/hs-fs/hubfs/image.png?width=450&name=image.png",
+            "http://pavegen.com/hs-fs/hubfs/Pavegen_April2025/images/Kia%20Hero%20-%20A%206.png?width=513&height=290&name=Kia%20Hero%20-%20A%206.png",
             "https://images.unsplash.com/photo-1516550893923-42d28e5677af",
             "https://images.unsplash.com/photo-1595867818082-083862f3d630",
         ])
