@@ -781,7 +781,7 @@ def page_heating():
     """)
 
 
- 
+    st.image("")
     # Tabs for different heating system explanations
     tabs = st.tabs([
         "Heat Pumps",
@@ -804,9 +804,9 @@ def page_heating():
         ### Gas vs Electric Stoves
         - Gas stoves require less energy than electric stoves and heat up faster, so switching from electric to gas can save **10–20% annually**.
         - If you want to do better for the environment, choose an **electric stove**, because although gas stoves are more energy-efficient, they release **double the greenhouse emissions**.
-        
+
         """)
-        st.image("https://lh6.googleusercontent.com/AW_8EiRBJ4hvU64T2_XTdRjtLjb_aLTzk5XJgYWz__yRX6conWdxGiPOaEbBFlLpXXSmw4Q5apjypbGFI9g0kg")
+        st.image("https://lh6.googleusercontent.com/AW_8EiRBJ4hvU64T2_XTdRjtLjb_aLTzk5XJgYWz__yRX6conWdxGiPOaEbBFlLpXXSmw4Q5apjypbGFI9g0kg",)
         st.image("https://static.scientificamerican.com/sciam/cache/file/4FEB5C93-F6DA-475B-9FB7C0A2A73227E9_source.jpg?crop=1%3A1%2Csmart&w=1000")
     # ---------------- TAB 3: Alternative Heating ----------------
     with tabs[2]:
