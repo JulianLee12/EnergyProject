@@ -781,7 +781,7 @@ def page_heating():
     """)
 
 
-
+ 
     # Tabs for different heating system explanations
     tabs = st.tabs([
         "Heat Pumps",
