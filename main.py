@@ -1441,10 +1441,9 @@ def page_conserve():
         st.subheader("Key Factors")
         st.markdown(
             """
-            - Size
-            - Energy Star Models
-            - Age
-            - Functions
+            - Gas vs. electric
+            - Energy Star Rating
+            - Heat Settings
             """
         )
 def page_contact():
