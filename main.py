@@ -778,6 +778,8 @@ def page_heating():
     can have a major impact on cost, comfort, and environmental footprint.
     """)
 
+
+    st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkfKAkGDxtxLUh96G0hJ7tGMIkwPkgSzZ95hv2NXUpp6tr4kzZWBn65PCDEtJsYspvhtSmkLSk8Pa9gEXjmI0lD3gDQ-e2N6pAYVpRE4o91khEF9Oz9rCGuIONnmf0pzhrWUOZb_35K3sivuYRAcz0RjEFP96xaT_hTkNyX4P8Fy5C7Xao0kcsPcicQbaAj6FWT0kosZgL1ftaJZt67r46iKOWp0V2CPimofHaY=w1280")
     # Tabs for different heating system explanations
     tabs = st.tabs([
         "Heat Pumps",
