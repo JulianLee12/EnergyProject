@@ -804,8 +804,7 @@ def page_heating():
         ### Gas vs Electric Stoves
         - Gas stoves require less energy than electric stoves and heat up faster, so switching from electric to gas can save **10–20% annually**.
         - If you want to do better for the environment, choose an **electric stove**, because although gas stoves are more energy-efficient, they release **double the greenhouse emissions**.
-        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkfKdbQfvRPSq0yyOpeIipFk2Nn5KexRbLzXmdQUdzmeK9usW6k5hl-hFAh9SQp-QjD8o-SI6J5-FEEyPC7wv-4oznOPVTXL5Hbt6Ku5LaWBgEj6lj_1zsa5Bya81gmXdvqTCS00wumveyPNl6c26KIWkkRgqPqAr53aITVF4GC4Z79MUgDqvilj=w1280")
-        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkdcI3wbb5ap4qOZyIOHFOXoMN256ZjAzQy23CkGa3f9OYI-l2chunBz5E123CTumaASaQPtmevx5msEjpMoJ-80N-lsegE28XZ229WJ-LW-5Sr1guXC6nvncVm85M8fL2uOsLJv3Sl4MrkTp6qaNps9mhOIEqa3ZuRz96W2oJO2cP2-K8SH2r9IVcFKn-L-RPMfsRa6G0MnoT0AZxEgkfNNSqsn4miPDLzy=w1280")
+        
         """)
         st.image("https://lh6.googleusercontent.com/AW_8EiRBJ4hvU64T2_XTdRjtLjb_aLTzk5XJgYWz__yRX6conWdxGiPOaEbBFlLpXXSmw4Q5apjypbGFI9g0kg")
         st.image("https://static.scientificamerican.com/sciam/cache/file/4FEB5C93-F6DA-475B-9FB7C0A2A73227E9_source.jpg?crop=1%3A1%2Csmart&w=1000")
