@@ -640,35 +640,36 @@ def page_heating():
         to automatically choose the most efficient heating method depending on outdoor temperature.
         """)
 
-    # --------------------- Interactive Cost & CO₂ Comparison ---------------------
+        # --------------------- Interactive Cost & CO₂ Comparison ---------------------
 
-    st.markdown("## Heat Pump vs Furnace (Interactive Comparison)")
+        st.markdown("## Heat Pump vs Furnace (Interactive Comparison)")
 
-    st.markdown("""
-    Use the calculator below to estimate how much you could save by switching from an old furnace
-    to a modern heat pump. This comparison assumes a **65% efficient furnace vs a 250% efficient
-    heat pump**, which is typical for many older homes.
-    """)
+        st.markdown("""
+        Use the calculator below to estimate how much you could save by switching from an old furnace
+        to a modern heat pump. This comparison assumes a **65% efficient furnace vs a 250% efficient
+        heat pump**, which is typical for many older homes.
+        """)
 
-    cost = st.slider("Your current annual heating cost ($)", 500, 5000, 1500, 100)
+        cost = st.slider("Your current annual heating cost ($)", 500, 5000, 1500, 100)
 
-    FURNACE_EFF = 0.65
-    HEATPUMP_EFF = 2.5  # 250%
+        FURNACE_EFF = 0.65
+        HEATPUMP_EFF = 2.5  # 250%
 
-    # Estimated heat pump cost based on improved efficiency
-    new_cost = cost * (FURNACE_EFF / HEATPUMP_EFF)
-    savings = cost - new_cost
-    percent_savings = (savings / cost) * 100
+        # Estimated heat pump cost based on improved efficiency
+        new_cost = cost * (FURNACE_EFF / HEATPUMP_EFF)
+        savings = cost - new_cost
+        percent_savings = (savings / cost) * 100
 
-    col1, col2 = st.columns(2)
-    col1.metric("Current heating cost", f"${cost:,.0f}/yr")
-    col2.metric("With a heat pump", f"${new_cost:,.0f}/yr")
+        col1, col2 = st.columns(2)
+        col1.metric("Current heating cost", f"${cost:,.0f}/yr")
+        col2.metric("With a heat pump", f"${new_cost:,.0f}/yr")
 
-    st.success(f"✅ Estimated savings: **${savings:,.0f} per year** (~{percent_savings:.0f}% less)")
+        st.success(f"✅ Estimated savings: **${savings:,.0f} per year** (~{percent_savings:.0f}% less)")
 
-    # Simple CO₂ reduction estimate (proportional to efficiency gain)
-    co2_reduction = percent_savings  # same %
-    st.info(f"🌱 Estimated CO₂ reduction: **~{co2_reduction:.0f}%** per year")
+        # Simple CO₂ reduction estimate (proportional to efficiency gain)
+        co2_reduction = percent_savings  # same %
+        st.info(f"🌱 Estimated CO₂ reduction: **~{co2_reduction:.0f}%** per year")
+
 def page_vent():
     st.markdown("# Ventilation")
     st.subheader("What is ventilation?")
@@ -682,37 +683,26 @@ def page_vent():
     tabs = st.tabs([
         "Natural Ventilation",
         "Supply Ventilation",
-        "Exhaust Ventilation",
-        "Air Pressure"
+        "Exhaust Ventilation"
+
     ])
 
     with tabs[0]:
         st.markdown("""
         ### Natural Ventilation
-        Natural ventilation relies on wind, open windows, and temperature differences to move air through
-        a building without using electricity. It is the simplest and most energy-efficient type of ventilation.
+        One type of ventilation is called natural ventilation. This relies on natural things such as wind and temperature difference between indoor and outdoor air to create pressure difference.
         """)
 
     with tabs[1]:
         st.markdown("""
         ### Supply Ventilation
-        Supply systems use fans to **push** fresh outdoor air into a home, creating **positive pressure**.
-        This forces stale indoor air to leave through cracks, vents, or openings.
+        This uses a fan in order to push fresh air from outside into the building creating a positive pressure that forces the stale air out through leaks and exhaust fans.
         """)
 
     with tabs[2]:
         st.markdown("""
         ### Exhaust Ventilation
-        Exhaust systems **pull** air out of the home, removing stale or humid air and creating
-        **negative pressure**. This is commonly used in bathrooms, kitchens, and HVAC exhaust fans.
-        """)
-
-    with tabs[3]:
-        st.markdown("""
-        ### Air Pressure
-        - **Positive pressure** = more air entering than leaving (supply)
-        - **Negative pressure** = more air leaving than entering (exhaust)
-        A well-designed ventilation system balances pressure for comfort and efficiency.
+        One form of ventilation is exhaust ventilation. These systems are mainly are inside the bathroom, and things similar to that and they work by depressurizing the inside of the house when the air goes out of the building. These systems use exhaust fans to push the stale air out.
         """)
 
     # --------------------- Mini-Game ---------------------
@@ -721,15 +711,9 @@ def page_vent():
 
     methods = [
         ("Opening windows", "Natural"),
-        ("Cross-breeze through doors", "Natural"),
-        ("Wind vents / roof vents", "Natural"),
         ("Fan pushing fresh air inside", "Supply"),
-        ("Positive pressure fans", "Supply"),
-        ("ERV/HRV fresh air exchanger", "Supply"),
         ("Exhaust fan pulling stale air out", "Exhaust"),
-        ("HVAC exhaust vent / blower", "Exhaust"),
         ("Bathroom fan", "Exhaust"),
-        ("Kitchen range hood", "Exhaust"),
     ]
 
     if "vent_answers" not in st.session_state:
@@ -784,14 +768,13 @@ def page_ac():
     - A **large central AC unit** uses around **3500 watts per hour**
     - A **small room AC** uses around **500–1000 watts per hour**
 
-    Older air conditioners are also worse for the environment because they release **hydrofluorocarbons (HFCs)**,
-    which are powerful greenhouse gases.
+    Older air conditioners are also worse for the environment because they release **hydrofluorocarbons** into the atmosphere.
+    This is a pretty harmful greenhouse gas.
 
-    A more sustainable option is a **heat pump**, which can both heat *and* cool while using far less energy.
+    A more sustainable option is a **heat pump**, which can both heat *and* cool while using far less energy and is environmentally friendly.
 
     According to the Residential Energy Consumption Survey (RECS), about **10% of the average household's total
-    electricity consumption** comes from air conditioning. Turning it off when not needed — or using clothing layers
-    instead — can significantly reduce your bill and carbon footprint.
+    electricity consumption** comes from air conditioning. Therefore by turning off your AC or heater and just wear a warm sweater in the winter or wear shorts in the summer could save you lots of money and energy.
     """)
 
     st.markdown("## AC Energy Usage Estimator")
@@ -829,6 +812,7 @@ def page_ac():
     st.info(
         f"🌿 If you used the AC **2 hours less per day**, you could save about **${savings:.2f} per month**."
     )
+
 
 
 
