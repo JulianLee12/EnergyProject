@@ -796,6 +796,7 @@ def page_heating():
         ### Heat Pumps
         Most of the time if  you have a traditional of an really old electric or oil furnace, that could be really bad for the environment and consume a lot of energy meaning it will be really expensive. Heat pumps on the other hand is still expensive in the initial cost but could save you up to 50%. Not only that, they are generally good for the environment.
         """)
+        st.image("https://lh6.googleusercontent.com/c9gjxk4XoO8IObswmHf-uc4yKd8mxVLPbtyIUuzZ_rhHgepqsOoGNWWSRDoPlq-9mZ14pPsyIb5I3Lv2oy66UJk")
 
     # ---------------- TAB 2: Gas vs Electric Stoves ----------------
     with tabs[1]:
@@ -805,14 +806,16 @@ def page_heating():
         - If you want to do better for the environment, choose an **electric stove**, because although gas stoves are more energy-efficient, they release **double the greenhouse emissions**.
 
         """)
-
+        st.image("https://lh6.googleusercontent.com/AW_8EiRBJ4hvU64T2_XTdRjtLjb_aLTzk5XJgYWz__yRX6conWdxGiPOaEbBFlLpXXSmw4Q5apjypbGFI9g0kg")
+        st.image("https://static.scientificamerican.com/sciam/cache/file/4FEB5C93-F6DA-475B-9FB7C0A2A73227E9_source.jpg?crop=1%3A1%2Csmart&w=1000")
     # ---------------- TAB 3: Alternative Heating ----------------
     with tabs[2]:
         st.markdown("""
         ### Alternative Heating
         Some homes use boilers. This system heats water to create steam. Then they send them to be circulated through pipes all around the house to heat the home. Another option is hybrid heating. This is a combination of two heating systems in order to maximize efficiency.
         """)
-
+        st.image("https://lh5.googleusercontent.com/FpPxqjwYfywjgwP-SKrqBEpjHNWUt9UmK02BAXG6w24qwM7NUD1-ieDKi6_EerhH6BUoRTYgPqTrA-dwUC8LwrY")
+        st.markdown("---")
         st.markdown("## Heat Pump vs Furnace (Interactive Comparison)")
         st.markdown("""
         Use the calculator below to estimate how much you could save by switching from an old furnace
