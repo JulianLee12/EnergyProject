@@ -847,9 +847,7 @@ def page_heating():
     with tabs[3]:
         st.markdown("""
         ### Furnace
-        Tending to your furnace is vital, especially if it is an older model. The first step is annual servicing by 
-        a professional, which involves cleaning or replacing old parts and making sure the furnace isn't working 
-        harder than it needs to.
+        Tending to your furnace is vital, especially if it is an older model. The first step is annual servicing by a professional, which involves cleaning or replacing old parts and making sure the furnace isn't working harder than it needs to. When a furnace is clogged the system will need to work harder to push making the energy consumption higher. Finally, older furnaces loses how energy efficient it is over time so by tending to the worn out parts it will restore its efficiency.
         """)
 
         st.markdown("---")
@@ -1399,9 +1397,10 @@ def page_conserve():
         st.subheader("Key Factors")
         st.markdown(
             """
-            - Item 1
-            - Item 2
-            - Item 3
+            - Size
+            - Energy Star Models
+            - Age
+            - Functions
             """
         )
 
@@ -1411,24 +1410,43 @@ def page_conserve():
         st.subheader("High Energy Consumption Models")
         st.markdown("Smartphones that are high is size, resolution, and ones that use power-draining hardware can lead to high energy consumption.")
         st.subheader("Key Factors")
-        st.markdown("")
-
+        st.markdown(
+            """
+            - Size
+            - Brightness
+            - Resolution
+            - Hardware
+            """
+        )
     with tabss[2]:
         st.subheader("Energy Efficient Models")
         st.markdown("Chest Freezers are the most efficient because their design minimizes cold air loss when it is opened. Another reason is because of its smaller size. ")
         st.subheader("High Energy Consumption Models")
         st.markdown("Upright freezers with an automatic defrost functions, because when it's opened a lot more cold air is released.")
         st.subheader("Key Factors")
-        st.markdown("")
-
+        st.markdown(
+            """
+            - Defrost Functions,
+            - Manual vs. Automatic
+            - Age
+            - Size
+            - Energy Star certified models
+            """
+        )
     with tabss[3]:
         st.subheader("Energy Efficient Models")
         st.markdown("The most energy-efficient dryer is a heat pump dryer. This is because it uses a closed-loop system to recycle the heat. and can use 50% less energy than a standard one can.")
         st.subheader("High Energy Consumption Models")
         st.markdown("Models that are vented and standard tend to use more energy. Vented models vent hot, moist air outside which might clogg the ventilation system which causes extened drying time. ")
         st.subheader("Key Factors")
-        st.markdown("")
-
+        st.markdown(
+            """
+            - Size
+            - Energy Star Models
+            - Age
+            - Functions
+            """
+        )
 def page_contact():
     st.markdown("# Contact Us")
     st.markdown("""
