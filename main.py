@@ -230,6 +230,20 @@ ENERGY_SAVING_MD = """
 Without switching to renewable energy, our world would be polluted with excessive carbon emission and trigger immense climate change as well and affecting our health. Switching to renewable energy is important because we need to protect the environment. By reducing our greenhouse gas emissions and pollution we can lower our costs and reducing utility bills.
 """
 
+def show_carousel(img_list):
+    st.markdown("<br>", unsafe_allow_html=True)
+    col1, col2, col3 = st.columns([1, 2, 1])  # Balanced centered layout
+    with col2:
+        st.markdown(
+            "<div style='max-width:600px;margin:0 auto;'>",
+            unsafe_allow_html=True,
+        )
+        imageCarouselComponent(imageUrls=img_list, height=300)  # << updated height here
+        st.markdown("</div>", unsafe_allow_html=True)
+show_carousel([
+            "https://offgridsolarsystem.ca/images/canada-electricity-rates-july-2025.png",
+            "https://renewablesassociation.ca/wp-content/smush-webp/2025/01/UPDATED-January-30-2025-fewer-decimal-1024x744.png.webp",
+        ])
 
 RENEWABLES_MD = """
 ### Why we should switch to renewable energy sources.
@@ -789,34 +803,23 @@ def page_heating():
     with tabs[0]:
         st.markdown("""
         ### Heat Pumps
-        Heat pumps are one of the most energy-efficient heating systems available. While the
-        upfront installation cost may be high, a heat pump can save **up to 50%** on heating bills
-        compared to an old furnace.
-
-        Instead of burning fuel to create heat, a heat pump **moves** heat from outdoors to indoors,
-        which is why it can reach efficiencies around **250%**, compared to just **65%** for older
-        electric or oil furnaces.
+        Most of the time if  you have a traditional of an really old electric or oil furnace, that could be really bad for the environment and consume a lot of energy meaning it will be really expensive. Heat pumps on the other hand is still expensive in the initial cost but could save you up to 50%. Not only that, they are generally good for the environment.
         """)
 
     # ---------------- TAB 2: Gas vs Electric Stoves ----------------
     with tabs[1]:
         st.markdown("""
         ### Gas vs Electric Stoves
-        Gas stoves heat up faster and require less energy to operate than electric stoves, which
-        can make them cheaper to run. However, they release **double the greenhouse gas emissions**
-        of electric stoves, making them much worse for the environment.
+        - Gas stoves require less energy than electric stoves and heat up faster, so switching from electric to gas can save **10–20% annually**.
+        - If you want to do better for the environment, choose an **electric stove**, because although gas stoves are more energy-efficient, they release **double the greenhouse emissions**.
 
-        Electric stoves are more eco-friendly even though they may cost a bit more to operate,
-        especially in regions powered by clean electricity.
         """)
 
     # ---------------- TAB 3: Alternative Heating ----------------
     with tabs[2]:
         st.markdown("""
         ### Alternative Heating
-        Some homes use **boilers**, which heat water into steam and circulate it through pipes to
-        warm rooms. Another option is **hybrid heating**, which combines a furnace with a heat pump
-        to automatically choose the most efficient heating method depending on outdoor temperature.
+        Some homes use boilers. This system heats water to create steam. Then they send them to be circulated through pipes all around the house to heat the home. Another option is hybrid heating. This is a combination of two heating systems in order to maximize efficiency.
         """)
 
         st.markdown("## Heat Pump vs Furnace (Interactive Comparison)")
@@ -1073,7 +1076,6 @@ def calculate_savings(lighting, appliances, electronics, heating, cooling):
 
 
 # Overview tab
-
 
 def page_renew():
     st.markdown("# Renewable Energy Sources")
