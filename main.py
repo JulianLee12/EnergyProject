@@ -1025,9 +1025,6 @@ def page_ac():
     )
 
 
-
-
-def page_energy(): st.markdown("# Energy Saving\n"+ENERGY_SAVING_MD)
 def show_carousel(img_list):
     st.markdown("<br>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 2, 1])  # Balanced centered layout
@@ -1038,10 +1035,13 @@ def show_carousel(img_list):
         )
         imageCarouselComponent(imageUrls=img_list, height=300)  # << updated height here
         st.markdown("</div>", unsafe_allow_html=True)
-show_carousel([
-            "https://offgridsolarsystem.ca/images/canada-electricity-rates-july-2025.png",
-            "https://renewablesassociation.ca/wp-content/smush-webp/2025/01/UPDATED-January-30-2025-fewer-decimal-1024x744.png.webp",
-        ])
+
+def page_energy():
+    st.markdown("# Energy Saving\n"+ENERGY_SAVING_MD)
+
+    show_carousel([
+                "https://offgridsolarsystem.ca/images/canada-electricity-rates-july-2025.png",
+                "https://renewablesassociation.ca/wp-content/smush-webp/2025/01/UPDATED-January-30-2025-fewer-decimal-1024x744.png.webp"])
 
 
 
