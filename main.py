@@ -1461,14 +1461,16 @@ def page_contact():
     """)
 
     with st.form("contact_form"):
-        name = st.text_input("Your Name")
+        first_name = st.text_input("First Name")
+        last_name = st.text_input("Last Name")
         email = st.text_input("Your Email")
+        phone = st.text_input("Your Phone Number")
         message = st.text_area("Message", height=160)
 
         submitted = st.form_submit_button("Send Message")
 
         if submitted:
-            if not name or not email or not message:
+            if not first_name or not last_name or not email or not phone or not message :
                 st.error("Please fill in all fields before submitting.")
             else:
                 # Construct a mailto link
@@ -1477,8 +1479,8 @@ def page_contact():
                     "joshua.tse31@stgeorges.bc.ca,"
                     "harvey.tjoa31@stgeorges.bc.ca"
                 )
-                subject = f"Contact Form Submission from {name}"
-                body = f"From: {name} ({email})%0D%0A%0D%0A{message}"
+                subject = f"Contact Form Submission from {first_name} {last_name}"
+                body = f"From: {first_name} {last_name} {phone} {email})%0D%0A%0D%0A{message}"
 
                 mailto_link = f"mailto:{recipients}?subject={subject}&body={body}"
 
