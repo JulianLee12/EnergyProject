@@ -467,64 +467,239 @@ def page_water():
             index=["Toilet", "Shower"],
         )
     )
+
+
+    # ---------- Water Usage Pie Chart ----------
+    st.markdown("### Household Water Usage Breakdown")
+
+    import plotly.graph_objects as go
+
+    labels = ["Toilet", "Shower", "Faucet", "Washing Machine", "Leak", "Other"]
+    values = [24, 20, 19, 17, 12, 8]
+
+    fig = go.Figure(
+        data=[go.Pie(
+            labels=labels,
+            values=values,
+            hoverinfo="label+percent",
+            textinfo="label+percent",
+            hole=.35  # donut style (clean + modern)
+        )]
+    )
+
+    fig.update_layout(
+        height=380,
+        showlegend=False,
+        margin=dict(t=10, b=10, l=10, r=10)
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+
+
 def page_toilets():
     st.markdown("# Toilets")
     st.subheader("How Can Toilets Help Save Water?")
 
     st.markdown("""
-    Toilets use around **6 litres of water per flush**, and the average person urinates **6 to 8 times a day**, making them
-    the single largest source of indoor water usage in most households. Small improvements to flushing habits or toilet design
-    can dramatically reduce wasted clean drinking water.
+    Background: Toilets use 6 litres of water every flush, and an average person urinates 6 to 8 times a day. 
+    Toilets are the biggest contributor to the amount of water used in households.
     """)
 
     tabs = st.tabs([
-        "Dual-flush toilets",
-        "Flushing less often",
-        "Old vs new",
-        "Sand in bottles"
+        "Dual-Flush Toilets",
+        "Flushing Once After a Few Urinations",
+        "Old Toilets vs New",
+        "Sand in Bottles in Toilet Tanks"
     ])
 
     with tabs[0]:
         st.markdown("""
-        ### Dual-flush toilets
-        Dual flush toilets let you use less water when you pee and more when you poo. Because urination happens far more often,
-        this can reduce flushing water usage by **up to 67%** compared to older single-flush toilets.
+        ### Dual-Flush Toilets
 
-        A full dual-flush toilet typically costs around **$300**, while a button retrofit kit can cost as little as **$10** —
-        if compatible with your model. Over time, this saves money and prevents large volumes of clean water from being wasted.
+        Dual flush toilets use less water when you pee, and more when you poo. This can reduce your toilet-related water usage
+        by up to **67%** compared to a single-flush toilet, because urination happens much more frequently.
+
+        A full dual-flush toilet typically costs around **300 dollars**, but buying just the **dual-flush button conversion kit**
+        is usually about **10 dollars**, if your toilet is compatible.
+
+        It might be hard to install depending on the toilet model, so be sure to check for compatibility first. Buying a whole
+        dual-flush toilet might not save you enough money to justify the cost right away, but using just the conversion button
+        is a cheap and effective way to save water and help the environment with a much smaller investment.
         """)
 
     with tabs[1]:
         st.markdown("""
-        ### Flushing Less Often
-        A simple (but sometimes controversial) method is to flush only after several urinations — summarized by the saying:
+        ### Flushing Once After a Few Urinations
 
-        > "If it's yellow, let it mellow. If it's brown, flush it down."
+        This tip is sometimes considered controversial, but flushing only **after several urinations** can save a large 
+        amount of water each day. The saying goes:
 
-        For a family of 4, flushing every 4 urinations instead of after each one can save **108 litres of water per day**
-        with a standard toilet, or **54 litres per day** with a dual-flush toilet. Annually, that's roughly **$3.56 saved** on a
-        dual-flush toilet or **$7.12** on a regular toilet — small financially, but meaningful environmentally.
+        > “If it's yellow, let it mellow. If it's brown, flush it down.”
+
+        For a household of 4 people urinating 6 times a day each, flushing every 4 urinations turns **24 flushes into 6** 
+        flushes per day. This saves **108 litres per day** using a standard toilet (6L/flush) and **54 litres per day** 
+        using a dual-flush model (3L/flush).
+
+        With a dual flush toilet, you could be saving almost **8 cents every day**, and a normal toilet would save around 
+        **15 cents per day**. Over a year, this equals **$3.56** for dual flush and **$7.12** for regular toilets. This 
+        might not seem like a lot, but it is a **completely free** way to save water and help the environment.
         """)
 
     with tabs[2]:
         st.markdown("""
         ### Old Toilets vs New
-        Prior to **2005**, many toilets used **13.2 litres or more per flush**. Modern regulations in BC limit new toilets to
-        **6 litres per flush or less**.
 
-        That means upgrading an older toilet can **cut water usage in half**. Even though older models may seem "stronger,"
-        they waste a huge amount of potable (drinking-grade) water with every flush.
+        In BC, a law came into effect on **September 30, 2005**, requiring all new toilets to use **6 litres per flush or 
+        less**, replacing older toilets that used over **13.2 litres** per flush.
+
+        Upgrading from an old toilet cuts water usage **in half** or more, even if the flushing strength feels different. 
+        It’s like comparing **3 x 2-litre Coke bottles** versus **6 x 2-litre Coke bottles** of clean, drinkable water.
+
+        Yes — in Canada, even toilet water is **drinking-grade**. So if your toilet is older, switching to a newer model 
+        is one of the biggest improvements you can make to reduce household water waste and lower your monthly bill.
         """)
 
     with tabs[3]:
         st.markdown("""
-        ### Sand in Bottles
-        A low-cost trick involves placing sealed bottles of sand or stones in the toilet tank. This displaces water, reducing
-        the volume used per flush.
+        ### Sand in Bottles in Toilet Tanks
 
-        While simple, pairing this with a dual-flush system or mindful flushing can reduce toilet-related water usage by more
-        than half in a typical household.
+        Placing sealed bottles filled with sand in your toilet tank **displaces water**, reducing how much is used per flush.
+        A **2-litre bottle displaces 2 litres** of water, so each litre you add displaces one litre per flush.
+
+        However, a few things to avoid:
+
+        - Using a bottle that is **too big** — the toilet may not flush properly.
+        - In **modern toilets**, this can reduce flushing performance and do more harm than good because newer systems are 
+          already designed for low-volume efficiency.
+
+        This method is best for **older toilets**, not newer water-efficient models.
         """)
+
+        # -------- QUIZ SECTION --------
+    st.markdown("---")
+    st.markdown("## Toilets Quiz")
+
+    st.markdown("Test your understanding of how toilets can help save water:")
+
+    q1 = st.radio(
+        "1) What is the main advantage of a dual-flush toilet?",
+        ["It costs less upfront", "It uses less water for urination", "It flushes stronger than old toilets"],
+        index=None
+    )
+
+    q2 = st.radio(
+        "2) Why does flushing less often save so much water?",
+        ["Urination happens more often than bowel movements", "New toilets leak more",
+         "Toilets store extra water when unused"],
+        index=None
+    )
+
+    q3 = st.radio(
+        "3) True or False: A law in BC requires all toilets after 2005 to use 6 litres per flush or less.",
+        ["True", "False"],
+        index=None
+    )
+
+    q4 = st.radio(
+        "4) True or False: Adding bottles of sand to the toilet tank works best in modern toilets.",
+        ["True", "False"],
+        index=None
+    )
+
+    correct_answers = [
+        "It uses less water for urination",
+        "Urination happens more often than bowel movements",
+        "True",
+        "False"
+    ]
+
+    user_answers = [q1, q2, q3, q4]
+
+    if st.button("Submit Quiz"):
+        score = sum([user_answers[i] == correct_answers[i] for i in range(4)])
+        st.success(f"You scored {score} / 4")
+
+        explanations = [
+            "Dual-flush toilets reduce water usage for urination, which happens more frequently.",
+            "Most flushing is from urination, so reducing those flushes saves more water.",
+            "BC introduced a law in 2005 limiting toilets to 6L or less per flush.",
+            "The sand bottle trick is mainly for **older** toilets, not modern efficient ones."
+        ]
+
+        for i in range(4):
+            if user_answers[i] == correct_answers[i]:
+                st.write(f"✅ Q{i + 1}: {explanations[i]}")
+            else:
+                st.write(f"❌ Q{i + 1}: {explanations[i]}")
+
+def page_washing_machine():
+    st.markdown("# Washing Machine")
+    st.subheader("How Can We Save Water with a Laundry Machine?")
+
+    st.markdown("""
+    Background: Washing machines use the third most amount of water in an average household, and 1 person washes their clothes 
+    from 1-3 times a week. A load for a normal washing machine uses around **85 litres** of water.
+    """)
+
+    tabs = st.tabs([
+        "Different Piles & Modes",
+        "Loads"
+    ])
+
+    with tabs[0]:
+        st.markdown("""
+        ### Different Piles & Modes
+
+        Making a separate pile for dirty/sweaty items and casual/not beat up clothes for different washing modes can help save 
+        more water than you think. When you get dirty and musty clothes, you would most likely use a full wash to fully wash 
+        away the bacteria and the smell. Instead of making a load with dirty and not very dirty clothes together, you should 
+        split them apart.
+
+        With not so beat up clothes, you can use different modes such as eco mode or speed wash. While a standard machine uses 
+        around **87.1 litres** of water per load, eco mode can use from only **35 to 50 litres**. You could save more than 
+        **30 litres of water per wash**, which is equivalent to a jerry can full of water or more.
+        """)
+
+    with tabs[1]:
+        st.markdown("""
+        ### Loads
+
+        You should only use full loads when washing clothes because when you put in half a load, you're using the same amount 
+        of water and energy just for half the amount of clothes you could've washed for the same result overall. It is pretty 
+        straightforward — don't use your washing machine until there is a **full load** of clothes to wash and save lots of 
+        water and energy being put into it.
+        """)
+
+    # ---------------- Interactive Calculator ----------------
+    st.markdown("---")
+    st.markdown("## Laundry Water Savings Calculator")
+
+    st.markdown("Adjust the values below to estimate how much water you can save by switching to eco mode.")
+
+    # Inputs
+    loads_per_week = st.slider("Loads per week", 1, 10, 3)
+    eco_litres = st.slider("Eco mode water usage per load (L)", 35, 50, 40)
+
+    # Constants
+    STANDARD_LITRES = 87  # standard washing machine usage
+
+    # Calculations
+    weekly_standard = loads_per_week * STANDARD_LITRES
+    weekly_eco = loads_per_week * eco_litres
+    weekly_savings = weekly_standard - weekly_eco
+    yearly_savings = weekly_savings * 52
+
+    col1, col2, col3 = st.columns(3)
+    col1.metric("Standard use (L/week)", f"{weekly_standard:,.0f}")
+    col2.metric("Eco use (L/week)", f"{weekly_eco:,.0f}")
+    col3.metric("Weekly savings (L)", f"{weekly_savings:,.0f}")
+
+    st.success(
+        f"⭐ By using eco mode, you could save approximately **{yearly_savings:,.0f} litres per year**!"
+    )
+
+
+
 
 def page_shower():
     st.markdown("# Shower")
@@ -1036,7 +1211,6 @@ def page_renew():
             "https://blog.piezo.com/hs-fs/hubfs/image.png?width=450&name=image.png",
             "http://pavegen.com/hs-fs/hubfs/Pavegen_April2025/images/Kia%20Hero%20-%20A%206.png?width=513&height=290&name=Kia%20Hero%20-%20A%206.png",
             "",
-            "https://images.unsplash.com/photo-1595867818082-083862f3d630",
         ])
         renewable_simulator("Piezoelectricity", 0.1, 0.1)
 
@@ -1289,6 +1463,267 @@ def page_contact():
 
                 st.success("Preview ready — click the button above to send your message.")
 
+def page_sink_faucet():
+    st.markdown("# Sink / Faucet")
+    st.subheader("How Can We Save Water with a Sink Tap?")
+
+    st.markdown("""
+    Background: The average amount of water a tap uses is **10–15 litres per minute (lpm)**, 
+    and the average person uses the tap for about **8 minutes every day**.
+    """)
+
+    tabs = st.tabs([
+        "Brushing Your Teeth",
+        "Low-flow Aerators"
+    ])
+
+    with tabs[0]:
+        st.markdown("""
+        ### Brushing Your Teeth
+
+        When you brush your teeth, it is common for people to leave the tap on. A tap on average uses **10–15 litres per minute**, 
+        and a person takes around **2 minutes** to brush their teeth **two times a day**. That means you could use **40 litres or more** 
+        every day for no reason — just flowing straight down the drain.
+
+        All you have to do is **turn the tap off while brushing**, and you can save more than **20 litres of water per day**, which also 
+        saves **6–9 cents every day** just by changing this small habit.
+        """)
+
+    with tabs[1]:
+        st.markdown("""
+        ### Low-flow Aerators
+
+        Low-flow aerators are very effective because they reduce the amount of water used per minute while **keeping or even increasing 
+        water pressure**. Most modern faucets already have them built in, but if yours does not, they are **highly recommended**.
+
+        Low-flow aerators can cut water use by **up to 50%** while making the stream smoother, gentler, and no-splash. They also help 
+        control direction, so water doesn’t spray everywhere or bounce out of the sink.
+        """)
+
+    # ----------- Tap Water Waste Visualizer -----------
+    st.markdown("---")
+    st.markdown("## Tap Water Waste Visualizer")
+    st.markdown("Use the sliders to see how much water is wasted — the drip speeds up as waste increases.")
+
+    # Sliders
+    minutes = st.slider("Minutes per day left running unnecessarily", 0, 15, 2)
+    flow_rate = st.slider("Flow rate (litres per minute)", 10, 15, 12)
+
+    # Calculations
+    wasted_daily = minutes * flow_rate
+    wasted_yearly = wasted_daily * 365
+
+    # Dynamic drip speed mapping
+    duration = 2.0 - (wasted_daily / 150.0) * 1.5
+    duration = max(0.5, min(duration, 2.0))
+
+    # Multi-drip threshold (>40L)
+    multi_drip = wasted_daily > 40
+
+    mcol, acol = st.columns([1, 1], vertical_alignment="top")
+
+    with mcol:
+        st.markdown("### Your Impact")
+        c1, c2 = st.columns(2)
+        c1.metric("Water wasted per day", f"{wasted_daily:,.0f} L")
+        c2.metric("Water wasted per year", f"{wasted_yearly:,.0f} L")
+        st.caption("Turn off the tap while brushing or add a low-flow aerator to reduce this dramatically.")
+
+    with acol:
+        faucet_container = st.empty()
+
+        if minutes > 0:
+            drops_html = (
+                """
+                <div class="drop d1"></div>
+                <div class="drop d2"></div>
+                <div class="drop d3"></div>
+                """ if multi_drip else
+                """<div class="drop d1"></div>"""
+            )
+
+            faucet_container.markdown(
+                f"""
+                <style>
+                .faucet-wrap {{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 180px;
+                }}
+                .faucet-container {{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }}
+                .faucet-head {{
+                    width: 90px;
+                    height: 24px;
+                    background-color: #8a8f96;
+                    border-radius: 12px 12px 0 0;
+                }}
+                .faucet-pipe {{
+                    width: 14px;
+                    height: 50px;
+                    background-color: #8a8f96;
+                    margin-top: -2px;
+                    border-radius: 0 0 10px 10px;
+                }}
+                .drop {{
+                    width: 14px;
+                    height: 14px;
+                    background-color: #3f9ae0;
+                    border-radius: 50%;
+                    position: relative;
+                    animation-name: drip;
+                    animation-duration: {duration:.2f}s;
+                    animation-iteration-count: infinite;
+                    margin-top: 6px;
+                    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+                }}
+                .drop.d1 {{ animation-delay: 0s; }}
+                .drop.d2 {{ animation-delay: {duration/3:.2f}s; }}
+                .drop.d3 {{ animation-delay: {2*duration/3:.2f}s; }}
+
+                @keyframes drip {{
+                    0%   {{ opacity: 0; transform: translateY(0);   }}
+                    20%  {{ opacity: 1; }}
+                    80%  {{ opacity: 1; transform: translateY(56px); }}
+                    100% {{ opacity: 0; transform: translateY(72px); }}
+                }}
+                </style>
+
+                <div class="faucet-wrap">
+                    <div class="faucet-container">
+                        <div class="faucet-head"></div>
+                        <div class="faucet-pipe"></div>
+                        {drops_html}
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+        else:
+            faucet_container.markdown(
+                """
+                <div style="display:flex;justify-content:center;align-items:center;height:180px;">
+                    <div style="display:flex;flex-direction:column;align-items:center;">
+                        <div style="width:90px;height:24px;background-color:#8a8f96;border-radius:12px 12px 0 0;"></div>
+                        <div style="width:14px;height:50px;background-color:#8a8f96;margin-top:-2px;border-radius:0 0 10px 10px;"></div>
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
+    # ✅ success message AFTER animation (prevents </div> glitch)
+    st.success(
+        f"By simply turning off the tap while brushing, you could save roughly **{wasted_yearly:,.0f} litres per year**."
+    )
+
+
+def page_leaks():
+    st.markdown("# Leaks")
+    st.subheader("How Do Leaks Waste Water and How Can We Prevent Them?")
+
+    st.markdown("""
+    Leaks are one of the most overlooked sources of water waste in a household.  
+    Even slow or hidden leaks can waste **dozens of litres per day**, adding up to thousands of litres per month.  
+    Leaks often come from **water pressure issues, frozen pipes, or faulty HVAC condensation systems**.  
+    Understanding what causes them — and how to detect them early — can prevent expensive repairs and major water loss.
+    """)
+
+    tabs = st.tabs([
+        "Water Pressure",
+        "Frozen Pipes",
+        "HVAC Systems",
+        "Detecting High Pressure"
+    ])
+
+    with tabs[0]:
+        st.markdown("""
+        ### Water Pressure
+
+        High water pressure in pipes increases the risk of leaks because it puts stress on joints,
+        fittings, and older plumbing systems. Over time, excess pressure can loosen connections and
+        create small cracks that eventually become leaks. Maintaining a proper pressure range protects
+        both your plumbing and your water usage.
+        """)
+
+    with tabs[1]:
+        st.markdown("""
+        ### Frozen Pipes
+
+        Leaks often happen because of **frozen pipes**, which expand as the trapped water inside freezes.
+        This can cause pipes to burst or crack. Wrapping exposed pipes with foam insulation (even pool noodles)
+        can significantly reduce the chance of bursting. Even a **small drip leak** from thawing water can waste
+        **over 90 litres per day**.
+        """)
+
+    with tabs[2]:
+        st.markdown("""
+        ### HVAC Systems
+
+        Without proper HVAC maintenance, condensation can pool or clog drainage pipes, eventually causing leaks.
+        Faulty HVAC systems can create moisture buildup that damages more than pipes — it can affect walls,
+        ceilings, and floors. If you notice unexpected water in your home, an HVAC technician might be needed
+        to inspect the system for hidden condensation leaks.
+        """)
+
+    with tabs[3]:
+        st.markdown("""
+        ### Detecting High Pressure
+
+        To check if you have high pressure, use a **water pressure gauge** and attach it to an outdoor hose.
+        Make sure no other taps or appliances are running, then turn the hose fully on.  
+        If the gauge reads **above 80 psi**, your water pressure is too high and should be lowered using a
+        pressure regulator (turning it counter-clockwise).
+        """)
+
+    st.markdown("---")
+    st.markdown("## Quick Leak Prevention Quiz")
+
+    q1 = st.radio("1) What happens when water pressure is too high?",
+                  ["It improves water efficiency", "It increases pipe strain and leak risk", "It lowers HVAC usage"], index=None)
+
+    q2 = st.radio("2) Why do frozen pipes often cause leaks?",
+                  ["They shrink and seal tighter", "They expand and burst/crack", "They release cold steam"], index=None)
+
+    q3 = st.radio("3) How can HVAC systems cause leaks?",
+                  ["By cooling the home too quickly", "By building condensation or clogging drains", "By using too much electricity"], index=None)
+
+    q4 = st.radio("4) What reading on a pressure gauge indicates high pressure?",
+                  ["Over 80 psi", "Below 30 psi", "Exactly 60 psi"], index=None)
+
+    if st.button("Submit Answers"):
+        score = 0
+        answers = [
+            "It increases pipe strain and leak risk",
+            "They expand and burst/crack",
+            "By building condensation or clogging drains",
+            "Over 80 psi"
+        ]
+        user = [q1, q2, q3, q4]
+
+        for i in range(4):
+            if user[i] == answers[i]:
+                score += 1
+
+        st.success(f"Your Score: {score}/4")
+
+        explanations = [
+            "High pressure stresses plumbing joints and increases leak risk.",
+            "Frozen pipes expand and crack, which leads to leaking as they thaw.",
+            "HVAC condensation or clogged drain lines can cause hidden leaks.",
+            "Anything over 80 psi is considered too high and should be regulated."
+        ]
+
+        for i in range(4):
+            if user[i] == answers[i]:
+                st.write(f"✅ Q{i+1}: {explanations[i]}")
+            else:
+                st.write(f"❌ Q{i+1}: {explanations[i]}")
+
 
 
 
@@ -1303,6 +1738,10 @@ PAGES = {
         st.Page(page_water, title="Overview"),
         st.Page(page_toilets, title="Toilets"),
         st.Page(page_shower, title="Shower"),
+        st.Page(page_washing_machine, title="Washing Machine"),
+        st.Page(page_sink_faucet, title="Sink / Faucet"),
+        st.Page(page_leaks, title="Leaks")
+
     ],
 
     "HVAC": [
