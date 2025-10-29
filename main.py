@@ -781,7 +781,7 @@ def page_heating():
     """)
 
 
-    st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkfMYGOFjoV-DdB8g51_UEvFQsQDUl45Y7mT5FMCgSH6PKAJBYjpKMgc-JwKdj5aqxopQG3Wu0dlY7-0cMX9lS299HpMlbtLyLe56I0lj4Fh5qSCXke4oJp6QVVErEkdvfbrOFBCOk-YLb_FCcFpi8rjV6tzTCaUnAKpglbpnYqyngC2G_Qppn-fgrfclhAWUA3Vzu0pmfLBDRws7Qr7v8OoqeQbQm_AhXvouwM=w1280",width = 100)
+    st.image("")
     # Tabs for different heating system explanations
     tabs = st.tabs([
         "Heat Pumps",
@@ -807,7 +807,7 @@ def page_heating():
 
         """)
         st.image("https://lh6.googleusercontent.com/AW_8EiRBJ4hvU64T2_XTdRjtLjb_aLTzk5XJgYWz__yRX6conWdxGiPOaEbBFlLpXXSmw4Q5apjypbGFI9g0kg")
-        st.image("https://static.scientificamerican.com/sciam/cache/file/4FEB5C93-F6DA-475B-9FB7C0A2A73227E9_source.jpg?crop=1%3A1%2Csmart&w=1000")
+        st.image("https://static.scientificamerican.com/sciam/cache/file/4FEB5C93-F6DA-475B-9FB7C0A2A73227E9_source.jpg?crop=1%3A1%2Csmart&w=1000",width = 100)
     # ---------------- TAB 3: Alternative Heating ----------------
     with tabs[2]:
         st.markdown("""
