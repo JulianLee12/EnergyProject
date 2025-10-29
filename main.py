@@ -769,6 +769,8 @@ def page_shower():
 
 
 def page_hvac(): st.markdown("# HVAC\n"+HVAC_MD)
+
+    st.image("https://img.freepik.com/premium-vector/hvac-logo-design-template-cooling-heating-logo-illustration_373791-3698.jpg")
 def page_heating():
     st.markdown("# Heating")
     st.subheader("What is home heating?")
