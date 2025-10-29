@@ -779,7 +779,7 @@ def page_heating():
     """)
 
 
-    st.image("https://lh3.googleusercontent.com/b2n6U39y86OgorFKeWAnqUW0-HV3AIlbbuBeDs-JNNkTEmjXS_6Hzn0Ykbt3UGe_Ni30l6K_bMUdaqwh_upsX-I")
+    st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkfMYGOFjoV-DdB8g51_UEvFQsQDUl45Y7mT5FMCgSH6PKAJBYjpKMgc-JwKdj5aqxopQG3Wu0dlY7-0cMX9lS299HpMlbtLyLe56I0lj4Fh5qSCXke4oJp6QVVErEkdvfbrOFBCOk-YLb_FCcFpi8rjV6tzTCaUnAKpglbpnYqyngC2G_Qppn-fgrfclhAWUA3Vzu0pmfLBDRws7Qr7v8OoqeQbQm_AhXvouwM=w1280")
     # Tabs for different heating system explanations
     tabs = st.tabs([
         "Heat Pumps",
