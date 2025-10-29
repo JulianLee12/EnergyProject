@@ -230,20 +230,7 @@ ENERGY_SAVING_MD = """
 Without switching to renewable energy, our world would be polluted with excessive carbon emission and trigger immense climate change as well and affecting our health. Switching to renewable energy is important because we need to protect the environment. By reducing our greenhouse gas emissions and pollution we can lower our costs and reducing utility bills.
 """
 
-def show_carousel(img_list):
-    st.markdown("<br>", unsafe_allow_html=True)
-    col1, col2, col3 = st.columns([1, 2, 1])  # Balanced centered layout
-    with col2:
-        st.markdown(
-            "<div style='max-width:600px;margin:0 auto;'>",
-            unsafe_allow_html=True,
-        )
-        imageCarouselComponent(imageUrls=img_list, height=300)  # << updated height here
-        st.markdown("</div>", unsafe_allow_html=True)
-show_carousel([
-            "https://offgridsolarsystem.ca/images/canada-electricity-rates-july-2025.png",
-            "https://renewablesassociation.ca/wp-content/smush-webp/2025/01/UPDATED-January-30-2025-fewer-decimal-1024x744.png.webp",
-        ])
+
 
 RENEWABLES_MD = """
 ### Why we should switch to renewable energy sources.
@@ -1041,7 +1028,20 @@ def page_ac():
 
 
 def page_energy(): st.markdown("# Energy Saving\n"+ENERGY_SAVING_MD)
-
+def show_carousel(img_list):
+    st.markdown("<br>", unsafe_allow_html=True)
+    col1, col2, col3 = st.columns([1, 2, 1])  # Balanced centered layout
+    with col2:
+        st.markdown(
+            "<div style='max-width:600px;margin:0 auto;'>",
+            unsafe_allow_html=True,
+        )
+        imageCarouselComponent(imageUrls=img_list, height=300)  # << updated height here
+        st.markdown("</div>", unsafe_allow_html=True)
+show_carousel([
+            "https://offgridsolarsystem.ca/images/canada-electricity-rates-july-2025.png",
+            "https://renewablesassociation.ca/wp-content/smush-webp/2025/01/UPDATED-January-30-2025-fewer-decimal-1024x744.png.webp",
+        ])
 
 
 
