@@ -1284,58 +1284,11 @@ def page_conserve():
     ])
 
     # ========== TAB 1: FURNACE ==========
-    with tabs[0]:
-        st.markdown("""
-        ### Tend To Your Furnace
-        Tending to your furnace is vital, especially if it is an older model. The first step is annual servicing by 
-        a professional, which involves cleaning or replacing old parts and making sure the furnace isn't working 
-        harder than it needs to.
-        """)
 
-        st.markdown("---")
-        st.markdown("### Furnace Quiz")
-
-        q1 = st.radio("1) Why should an older furnace be serviced annually?",
-                      ["For decoration",
-                       "Because it keeps it efficient & prevents wasted energy",
-                       "To make the furnace quieter"],
-                      index=None)
-
-        q2 = st.radio("2) What happens when a furnace filter is clogged?",
-                      ["It releases more heat",
-                       "It has to work harder and uses more energy",
-                       "It turns off permanently"],
-                      index=None)
-
-        q3 = st.radio("3) Why does maintenance matter more for older furnaces?",
-                      ["They are already efficient",
-                       "Replacing worn parts reduces wasted energy",
-                       "They don't use electricity"],
-                      index=None)
-
-        if st.button("Submit Furnace Answers"):
-            answers = [
-                "Because it keeps it efficient & prevents wasted energy",
-                "It has to work harder and uses more energy",
-                "Replacing worn parts reduces wasted energy"
-            ]
-            user = [q1, q2, q3]
-            score = sum([user[i] == answers[i] for i in range(3)])
-            st.success(f"Your score: {score}/3")
-            explanations = [
-                "Servicing prevents the furnace from wasting fuel or power.",
-                "A clogged filter forces the furnace to push harder, raising energy use.",
-                "Older furnaces lose efficiency over time, so maintenance restores performance."
-            ]
-            for i in range(3):
-                if user[i] == answers[i]:
-                    st.write(f"✅ Q{i+1}: {explanations[i]}")
-                else:
-                    st.write(f"❌ Q{i+1}: {explanations[i]}")
 
 
     # ========== TAB 2: WINDOWS ==========
-    with tabs[1]:
+    with tabs[0]:
         st.markdown("""
         ### Test Windows & Doors
         If your home isn't airtight, hot or cold air will leak out and waste energy. To check for drafts,
@@ -1384,7 +1337,7 @@ def page_conserve():
 
 
     # ========== TAB 3: PHANTOM POWER ==========
-    with tabs[2]:
+    with tabs[1]:
         st.markdown("""
         ### Combat Phantom Power Consumption
         Plugged-in devices like televisions, cable boxes, and game consoles consume energy even when not in use. 
@@ -1445,7 +1398,13 @@ def page_conserve():
         st.subheader("High Energy Consumption Models")
         st.markdown("Models that are old and have outdated technology often are the least energy efficient. Refrigerators with energy intensive function such as, built in ice makers or water dispensers has a higher energy usage.")
         st.subheader("Key Factors")
-        st.markdown("")
+        st.markdown(
+            """
+            - Item 1
+            - Item 2
+            - Item 3
+            """
+        )
 
     with tabss[1]:
         st.subheader("Energy Efficient Models")
