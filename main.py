@@ -781,9 +781,11 @@ def page_heating():
     tabs = st.tabs([
         "Heat Pumps",
         "Gas vs Electric Stoves",
-        "Alternative Heating"
+        "Alternative Heating",
+        "Furnace"
     ])
 
+    # ---------------- TAB 1: Heat Pumps ----------------
     with tabs[0]:
         st.markdown("""
         ### Heat Pumps
@@ -796,6 +798,7 @@ def page_heating():
         electric or oil furnaces.
         """)
 
+    # ---------------- TAB 2: Gas vs Electric Stoves ----------------
     with tabs[1]:
         st.markdown("""
         ### Gas vs Electric Stoves
@@ -807,6 +810,7 @@ def page_heating():
         especially in regions powered by clean electricity.
         """)
 
+    # ---------------- TAB 3: Alternative Heating ----------------
     with tabs[2]:
         st.markdown("""
         ### Alternative Heating
@@ -815,10 +819,7 @@ def page_heating():
         to automatically choose the most efficient heating method depending on outdoor temperature.
         """)
 
-        # --------------------- Interactive Cost & CO₂ Comparison ---------------------
-
         st.markdown("## Heat Pump vs Furnace (Interactive Comparison)")
-
         st.markdown("""
         Use the calculator below to estimate how much you could save by switching from an old furnace
         to a modern heat pump. This comparison assumes a **65% efficient furnace vs a 250% efficient
@@ -828,9 +829,8 @@ def page_heating():
         cost = st.slider("Your current annual heating cost ($)", 500, 5000, 1500, 100)
 
         FURNACE_EFF = 0.65
-        HEATPUMP_EFF = 2.5  # 250%
+        HEATPUMP_EFF = 2.5
 
-        # Estimated heat pump cost based on improved efficiency
         new_cost = cost * (FURNACE_EFF / HEATPUMP_EFF)
         savings = cost - new_cost
         percent_savings = (savings / cost) * 100
@@ -840,10 +840,59 @@ def page_heating():
         col2.metric("With a heat pump", f"${new_cost:,.0f}/yr")
 
         st.success(f"✅ Estimated savings: **${savings:,.0f} per year** (~{percent_savings:.0f}% less)")
-
-        # Simple CO₂ reduction estimate (proportional to efficiency gain)
-        co2_reduction = percent_savings  # same %
+        co2_reduction = percent_savings
         st.info(f"🌱 Estimated CO₂ reduction: **~{co2_reduction:.0f}%** per year")
+
+    # ---------------- TAB 4: Furnace ----------------
+    with tabs[3]:
+        st.markdown("""
+        ### Furnace
+        Tending to your furnace is vital, especially if it is an older model. The first step is annual servicing by 
+        a professional, which involves cleaning or replacing old parts and making sure the furnace isn't working 
+        harder than it needs to.
+        """)
+
+        st.markdown("---")
+        st.markdown("### Furnace Quiz")
+
+        q1 = st.radio("1) Why should an older furnace be serviced annually?",
+                      ["For decoration",
+                       "Because it keeps it efficient & prevents wasted energy",
+                       "To make the furnace quieter"],
+                      index=None)
+
+        q2 = st.radio("2) What happens when a furnace filter is clogged?",
+                      ["It releases more heat",
+                       "It has to work harder and uses more energy",
+                       "It turns off permanently"],
+                      index=None)
+
+        q3 = st.radio("3) Why does maintenance matter more for older furnaces?",
+                      ["They are already efficient",
+                       "Replacing worn parts reduces wasted energy",
+                       "They don't use electricity"],
+                      index=None)
+
+        if st.button("Submit Furnace Answers"):
+            answers = [
+                "Because it keeps it efficient & prevents wasted energy",
+                "It has to work harder and uses more energy",
+                "Replacing worn parts reduces wasted energy"
+            ]
+            user = [q1, q2, q3]
+            score = sum([user[i] == answers[i] for i in range(3)])
+            st.success(f"Your score: {score}/3")
+            explanations = [
+                "Servicing prevents the furnace from wasting fuel or power.",
+                "A clogged filter forces the furnace to push harder, raising energy use.",
+                "Older furnaces lose efficiency over time, so maintenance restores performance."
+            ]
+            for i in range(3):
+                if user[i] == answers[i]:
+                    st.write(f"✅ Q{i+1}: {explanations[i]}")
+                else:
+                    st.write(f"❌ Q{i+1}: {explanations[i]}")
+
 
 def page_vent():
     st.markdown("# Ventilation")
@@ -1396,6 +1445,7 @@ def page_conserve():
         st.subheader("High Energy Consumption Models")
         st.markdown("Models that are old and have outdated technology often are the least energy efficient. Refrigerators with energy intensive function such as, built in ice makers or water dispensers has a higher energy usage.")
         st.subheader("Key Factors")
+        st.markdown("")
 
     with tabss[1]:
         st.subheader("Energy Efficient Models")
