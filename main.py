@@ -1278,7 +1278,6 @@ def page_conserve():
     """)
 
     tabs = st.tabs([
-        "Tend to Your Furnace",
         "Test Windows & Doors",
         "Combat Phantom Power Consumption"
     ])
