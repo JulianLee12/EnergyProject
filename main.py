@@ -1799,7 +1799,7 @@ PAGES = {
 }
 
 
-pg = st.navigation(PAGES, position="top")
+pg = st.navigation(PAGES, position="sidebar")
 pg.run()
 
 # =========================================
