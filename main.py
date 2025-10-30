@@ -1454,6 +1454,12 @@ def page_conserve():
             - Heat Settings
             """
         )
+def feedback():
+    sentiment_mapping = ["one", "two", "three", "four", "five"]
+    selected = st.feedback("stars")
+    if selected is not None:
+        st.markdown(f"You selected {sentiment_mapping[selected]} star(s).")
+
 def page_contact():
     st.markdown("# Contact Us")
     st.markdown("""
@@ -1466,11 +1472,12 @@ def page_contact():
         email = st.text_input("Your Email")
         phone = st.text_input("Your Phone Number")
         message = st.text_area("Message", height=160)
+        Feedback = feedback()
 
         submitted = st.form_submit_button("Send Message")
 
         if submitted:
-            if not first_name or not last_name or not email or not phone or not message :
+            if not first_name or not last_name or not email or not phone or not message or not Feedback:
                 st.error("Please fill in all fields before submitting.")
             else:
                 # Construct a mailto link
@@ -1480,7 +1487,7 @@ def page_contact():
                     "harvey.tjoa31@stgeorges.bc.ca"
                 )
                 subject = f"Contact Form Submission from {first_name} {last_name}"
-                body = f"From: {first_name} {last_name} {phone} {email})%0D%0A%0D%0A{message}"
+                body = f"From: {first_name} {last_name} {phone} {email})%0D%0A%0D%0A{message} Rating: {Feedback}"
 
                 mailto_link = f"mailto:{recipients}?subject={subject}&body={body}"
 
@@ -1497,11 +1504,7 @@ def page_contact():
                 )
 
                 st.success("Preview ready — click the button above to send your message.")
-def page_feedback():
-    sentiment_mapping = ["one", "two", "three", "four", "five"]
-    selected = st.feedback("stars")
-    if selected is not None:
-        st.markdown(f"You selected {sentiment_mapping[selected]} star(s).")
+
 def page_sink_faucet():
     st.markdown("# Sink / Faucet")
     st.subheader("How Can We Save Water with a Sink Tap?")
@@ -1798,7 +1801,7 @@ PAGES = {
     "Other": [
         st.Page(page_rebate, title="Rebate"),
         st.Page(page_contact, title="Contact Us"),
-        st.Page(page_feedback, title="Feedback"),
+
     ]
 
 }
