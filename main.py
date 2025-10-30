@@ -1461,10 +1461,9 @@ def feedback():
     selected = st.feedback("stars")
     if selected is not None:
         if selected >= 3:
-            st.markdown("Thank You!!!")
+            st.success("Thank You!!!")
         else:
-            st.markdown("Let us know how we can improve.")
-            st.text_area("Comments/Feedback", height=100)
+            st.error("We will try to improve")
 
 def page_contact():
     st.markdown("# Contact Us")
