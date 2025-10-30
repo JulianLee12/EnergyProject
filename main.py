@@ -1799,13 +1799,13 @@ PAGES = {
 }
 
 
-pg = st.navigation(PAGES, position="sidebar")
+pg = st.navigation(PAGES, position="top")
 pg.run()
 
 # =========================================
 # FOOTER
 # =========================================
 st.markdown(
-    '<div class="footer">Credits: Joshua Tse, Harvey Tjoa, and Julian Lee (2025)</div>',
+    '<div class="footer">Credits: Julian Lee, Joshua Tse and Harvey Tjoa (2025)</div>',
     unsafe_allow_html=True
 )
