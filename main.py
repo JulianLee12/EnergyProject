@@ -1460,7 +1460,11 @@ def feedback():
     sentiment_mapping = ["one", "two", "three", "four", "five"]
     selected = st.feedback("stars")
     if selected is not None:
-        st.markdown(f"You selected {sentiment_mapping[selected]} star(s).")
+        if selected >= 3:
+            st.markdown("Thank You!!!")
+        else:
+            st.markdown("Let us know how we can improve.")
+            st.text_area("Comments/Feedback", height=100)
 
 def page_contact():
     st.markdown("# Contact Us")
@@ -1474,7 +1478,7 @@ def page_contact():
         email = st.text_input("Your Email")
         phone = st.text_input("Your Phone Number")
         message = st.text_area("Message", height=160)
-        markdown("Rate us:")
+        st.markdown("Rate us:")
         Feedback = feedback()
 
         submitted = st.form_submit_button("Send Message")
