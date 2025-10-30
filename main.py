@@ -1,5 +1,7 @@
 
 import streamlit.components.v1 as components
+from streamlit import markdown
+
 imageCarouselComponent = components.declare_component("image-carousel-component", path="frontend/public")
 import altair as alt
 
@@ -1472,12 +1474,13 @@ def page_contact():
         email = st.text_input("Your Email")
         phone = st.text_input("Your Phone Number")
         message = st.text_area("Message", height=160)
+        markdown("Rate us:")
         Feedback = feedback()
 
         submitted = st.form_submit_button("Send Message")
 
         if submitted:
-            if not first_name or not last_name or not email or not phone or not message or not Feedback:
+            if not first_name or not last_name or not email or not phone or not message :
                 st.error("Please fill in all fields before submitting.")
             else:
                 # Construct a mailto link
