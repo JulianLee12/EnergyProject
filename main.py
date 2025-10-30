@@ -1,4 +1,4 @@
-import html
+
 import streamlit.components.v1 as components
 imageCarouselComponent = components.declare_component("image-carousel-component", path="frontend/public")
 import altair as alt
@@ -1497,7 +1497,11 @@ def page_contact():
                 )
 
                 st.success("Preview ready — click the button above to send your message.")
-
+def page_feedback():
+    sentiment_mapping = ["one", "two", "three", "four", "five"]
+    selected = st.feedback("stars")
+    if selected is not None:
+        st.markdown(f"You selected {sentiment_mapping[selected]} star(s).")
 def page_sink_faucet():
     st.markdown("# Sink / Faucet")
     st.subheader("How Can We Save Water with a Sink Tap?")
@@ -1793,7 +1797,8 @@ PAGES = {
     ],
     "Other": [
         st.Page(page_rebate, title="Rebate"),
-        st.Page(page_contact, title="Contact Us")
+        st.Page(page_contact, title="Contact Us"),
+        st.Page(page_feedback, title="Feedback"),
     ]
 
 }
@@ -1807,5 +1812,5 @@ pg.run()
 # =========================================
 st.markdown(
     '<div class="footer">Credits: Julian Lee, Joshua Tse and Harvey Tjoa (2025)</div>',
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
