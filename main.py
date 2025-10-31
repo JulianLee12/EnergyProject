@@ -483,7 +483,52 @@ def page_water():
     toilet_type = c2.selectbox(
         "Toilet type",
         ["Old (≈13 L/flush)", "Modern (≈6 L/flush)", "Dual-flush (≈3 L avg)"]
+    )    # ---------- output ----------
+    c6, c7, c8 = st.columns(3)
+    c6.metric("Your usage (L/day)", f"{your_total:,.0f}")
+    c7.metric("Old baseline (L/day)", f"{baseline_total:,.0f}")
+    c8.metric("Daily savings", f"{savings:,.0f} L")
+
+    st.success(
+        f"**Estimated yearly savings:** ${low_cost_year:,.0f} – ${high_cost_year:,.0f} per year "
+        f"just from bathroom upgrades & habits."
     )
+
+    # ---------- comparison chart ----------
+    import plotly.express as px
+    import pandas as pd
+
+    df = pd.DataFrame({
+        "Component": ["Toilet", "Toilet", "Shower", "Shower"],
+        "Setup": ["Baseline (Old 13 L/flush)", "Your Setup", "Baseline (Old 9.5 L/min)", "Your Setup"],
+        "Litres per Day": [
+            baseline_flush_total,
+            your_flush_total,
+            baseline_shower_total,
+            your_shower_total,
+        ]
+    })
+
+    fig = px.bar(
+        df,
+        x="Component",
+        y="Litres per Day",
+        color="Setup",
+        barmode="group",
+        text_auto=".0f",
+        title="Daily Water Usage Comparison"
+    )
+
+    fig.update_layout(
+        xaxis_title="Bathroom Component",
+        yaxis_title="Litres per Day",
+        height=400,
+        template="simple_white",
+        legend_title="Configuration"
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+
     shower_head = c3.selectbox(
         "Shower head",
         ["Standard (≈9.5 L/min)", "Low-flow (≈6.8 L/min)"]
@@ -829,8 +874,7 @@ def page_heating():
     st.markdown("# Heating")
     st.subheader("What is home heating?")
     st.markdown("""
-    Heating is used to warm the home during cold seasons, and it is one of the biggest contributors
-    to household energy consumption. The type of heating system you use and how efficie Heating throughout the house is used to warm the house when it is needed though it can be really comfortable at time you need to think about its carbon footprint and how you can fix it in the tabs there will be differemt heating systems and better heating systems
+    Heating throughout the house is used to warm the house when it is needed though it can be really comfortable at time you need to think about its carbon footprint and how you can fix it in the tabs there will be differemt heating systems and better heating systems
     """)
 
     # Tabs for different heating system explanations
