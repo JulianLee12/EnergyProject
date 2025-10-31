@@ -795,7 +795,7 @@ def page_heating():
         ### Heat Pumps
         Most of the time if  you have a traditional of an really old electric or oil furnace, that could be really bad for the environment and consume a lot of energy meaning it will be really expensive. Heat pumps on the other hand is still expensive in the initial cost but could save you up to 50%. Not only that, they are generally good for the environment.
         """)
-        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkeOpFLN6qlBp7kWZb4i8B-C44zHgN1WJMm5_K-nRO3tcwXZ3gHS3Ufk0wtVSrIPFY3k9HYCXrBx_VBJzFXBgLhva42Ux78NjOKGuBACT9CGhn0FaZcqADlcRPgrKGdAXnC41u36S7YglDUSKbZ0c9ZIm_ZHdHZTFKviIXvo4LMHJfHiY1wuK8nLHZGZa-HlsS6C-uljAl7jVULDudwkJpTEQQVfcAayOBRzGqI=w1280")
+        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkeOpFLN6qlBp7kWZb4i8B-C44zHgN1WJMm5_K-nRO3tcwXZ3gHS3Ufk0wtVSrIPFY3k9HYCXrBx_VBJzFXBgLhva42Ux78NjOKGuBACT9CGhn0FaZcqADlcRPgrKGdAXnC41u36S7YglDUSKbZ0c9ZIm_ZHdHZTFKviIXvo4LMHJfHiY1wuK8nLHZGZa-HlsS6C-uljAl7jVULDudwkJpTEQQVfcAayOBRzGqI=w1280",width=100)
 
     # ---------------- TAB 2: Gas vs Electric Stoves ----------------
     with tabs[1]:
