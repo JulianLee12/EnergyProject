@@ -273,7 +273,7 @@ When shopping, look for more energy-efficient models rather than outdated ones. 
 # =========================================
 def page_home():
     st.markdown(
-        '<div class="hero"><h1>PowerInfo</h1><p>Small changes, big impact — Learn how to conserve energy and water in your home.</p></div>',
+        '<div class="hero"><h1>GreenCurrent</h1><p>Small changes, big impact — Learn how to conserve energy and water in your home.</p></div>',
         unsafe_allow_html=True,
     )
     st.caption("Explore a category:")
