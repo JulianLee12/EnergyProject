@@ -883,7 +883,7 @@ def page_heating():
 
         st.success(f"✅ Estimated savings: **${savings:,.0f} per year** (~{percent_savings:.0f}% less)")
         co2_reduction = percent_savings
-        st.info(f"🌱 Estimated CO₂ reduction: **~{co2_reduction:.0f}%** per year")
+        st.info(f" Estimated CO₂ reduction: **~{co2_reduction:.0f}%** per year")
 
     # ---------------- TAB 4: Furnace ----------------
     with tabs[3]:
@@ -1169,7 +1169,7 @@ def page_renew():
     # Shared simulator function (unchanged)
     def renewable_simulator(source_name, eff, co2_factor):
         st.markdown("---")
-        st.subheader(f"⚡ Compare: With {source_name} vs Without It")
+        st.subheader(f" Compare: With {source_name} vs Without It")
 
         st.info(f"""
         Adjust the sliders below to see how switching to **{source_name} energy** affects your energy costs
@@ -1180,7 +1180,7 @@ def page_renew():
         with col1:
             adoption = st.slider(f"{source_name} adoption level (%)", 0, 100, 50,
                                  key=f"{source_name}_adopt")
-            annual_cost = st.number_input("💰 Current annual energy cost ($)", 500, 10000, 2500,
+            annual_cost = st.number_input("Current annual energy cost ($)", 500, 10000, 2500,
                                           step=50, key=f"{source_name}_cost")
 
         with_adoption_savings = annual_cost * (adoption / 100) * eff
@@ -1845,10 +1845,66 @@ def page_leaks():
             else:
                 st.write(f"❌ Q{i+1}: {explanations[i]}")
 
+def page_efficient():
+    import streamlit as st
+
+    st.markdown("# Energy Efficiency")
+    st.subheader("What Is Energy Efficiency?")
+    st.markdown("""
+    Energy efficiency is the procces of using less energy to perform the same task. This helps reduce CO2 emissions, lower costs and imrove our everyday lives. 
+    """)
+
+    st.subheader("Buy SMART")
+    st.markdown("""
+    Smart products like, smart thermostats, smart lighting and others have features like remote controls and sensors to reduce energy usage.  Many of the devices can be programmed and tailored to your needs to help you save energy. For example, smart thermostats can be programmed to cool down the house when your not home and heat it up just before you get back from work. The sensors installed in each and every product identifies when energy is going to waste and can help prevent it by blocking the power source from entering the device. These products may be expensive up front, but will save you money in the long run. 
+    """)
+
+    st.markdown("---")
+    st.markdown("### Energy Efficiency Quiz")
+
+    q1 = st.radio("1) What does energy efficiency mean?",
+                  ["Using more energy to perform tasks faster",
+                   "Using less energy to perform the same task",
+                   "Turning off all energy devices permanently"],
+                  index=None)
+
+    q2 = st.radio("2) What can smart thermostats do to save energy?",
+                  ["Stay on all day to keep temperature constant",
+                   "Cool or heat the home only when needed",
+                   "Run even when no one is home"],
+                  index=None)
+
+    q3 = st.radio("3) Why are smart devices considered a good investment?",
+                  ["They are cheap to buy",
+                   "They cost more upfront but save money over time",
+                   "They use more power but look modern"],
+                  index=None)
+
+    if st.button("Submit Answers"):
+        answers = [
+            "Using less energy to perform the same task",
+            "Cool or heat the home only when needed",
+            "They cost more upfront but save money over time"
+        ]
+        user = [q1, q2, q3]
+        score = sum([user[i] == answers[i] for i in range(3)])
+        st.success(f"Your score: {score}/3")
+
+        explanations = [
+            "Energy efficiency means getting the same work done with less energy.",
+            "Smart thermostats adjust temperature automatically to reduce waste.",
+            "Although smart devices may be pricey initially, they lower long-term costs."
+        ]
+
+        for i in range(3):
+            if user[i] == answers[i]:
+                st.write(f"✅ Q{i+1}: {explanations[i]}")
+            else:
+                st.write(f"❌ Q{i+1}: {explanations[i]}")
 
 
 def page_bib():
-    st.title("📚 References")
+    st.title("References")
 
     # --- APA-Style References (formatted and linkable)
     references = """
@@ -2040,6 +2096,7 @@ PAGES = {
         st.Page(page_energy, title="Overview"),
         st.Page(page_renew, title="Renewable Energy Sources"),
         st.Page(page_conserve, title="Energy Conservation"),
+        st.Page(page_efficient, title="Energy Efficiency"),
     ],
     "Other": [
         st.Page(page_rebate, title="Rebate"),
