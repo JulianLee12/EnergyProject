@@ -589,11 +589,12 @@ def page_toilets():
     st.subheader("How Can Toilets Help Save Water?")
 
     st.markdown("""
-    Background: Toilets use 6 litres of water every flush, and an average person urinates 6 to 8 times a day. 
-    Toilets are the biggest contributor to the amount of water used in households.
-    """)
+        Background: Toilets use 6 litres of water every flush, and an average person urinates 6 to 8 times a day. 
+        Toilets are the biggest contributor to the amount of water used in households.
+        """)
 
     st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618416564178944/toilet.jpg?ex=690558b1&is=69040731&hm=3137a43fbcd3208ad4ed229986a729958bf2fc8aa4174007fcc544811c57b6b3&=&format=webp")
+
 
     tabs = st.tabs([
         "Dual-Flush Toilets",
@@ -604,103 +605,123 @@ def page_toilets():
 
     with tabs[0]:
         st.markdown("""
-        ### Dual-Flush Toilets
+            ### Dual-Flush Toilets
 
-        Dual flush toilets use less water when you pee, and more when you poo. This can reduce your toilet-related water usage
-        by up to **67%** compared to a single-flush toilet, because urination happens much more frequently.
+            Dual flush toilets for flushing less water when you pee, and using more water to flush when you poo. 
+            This cuts your water usage by up to **67%** of water use from originally with a single-flush toilet, 
+            because you pee more than you poo everyday (unless you are in some condition) so halving the water flushed 
+            when you urinate will more than likely help save you lots of water used and save lots of money in your 
+            utility bill depending on how long you have it for. 
 
-        A full dual-flush toilet typically costs around **300 dollars**, but buying just the **dual-flush button conversion kit**
-        is usually about **10 dollars**, if your toilet is compatible.
+            These dual flush toilets cost around **300 dollars** for an average dual flush toilet, though buying just 
+            the buttons only cost on average around **$10** for the button, but be sure to check the product for special 
+            conversion kits for standard toilets, because some of them don't have it and it could be hard to install. 
 
-        It might be hard to install depending on the toilet model, so be sure to check for compatibility first. Buying a whole
-        dual-flush toilet might not save you enough money to justify the cost right away, but using just the conversion button
-        is a cheap and effective way to save water and help the environment with a much smaller investment.
-        """)
+            Overall, buying a whole toilet would probably not be able to save money, but with a button, it would be sure 
+            to save money and do a small job for the environment without spending that much money.
+            """)
 
     with tabs[1]:
         st.markdown("""
-        ### Flushing Once After a Few Urinations
+            ### Flushing Once After a Few Urinations
 
-        This tip is sometimes considered controversial, but flushing only **after several urinations** can save a large 
-        amount of water each day. The saying goes:
+            This tip is controversial, but only flushing the toilet once after a few people urinate could save many 
+            litres of water, so you don't have to flush all the time.
 
-        > “If it's yellow, let it mellow. If it's brown, flush it down.”
+            > “If it's yellow, let it mellow. If it's brown, flush it down.”
 
-        For a household of 4 people urinating 6 times a day each, flushing every 4 urinations turns **24 flushes into 6** 
-        flushes per day. This saves **108 litres per day** using a standard toilet (6L/flush) and **54 litres per day** 
-        using a dual-flush model (3L/flush).
+            If you think this is gross, think that pee doesn't really have an odor to it and that it saves, for example, 
+            a household with a family of 4, who all pee 6 times a day, you could flush every 4 times someone pees in a 
+            washroom which turns 4 people peeing into 1 person. This would save **108 litres of water a day** with a normal 
+            toilet (6 litres per flush) and **54 litres with a dual-flush toilet** (3 litres per flush).
 
-        With a dual flush toilet, you could be saving almost **8 cents every day**, and a normal toilet would save around 
-        **15 cents per day**. Over a year, this equals 3.56 dollars for dual flush and 7.12 for regular toilets. This 
-        might not seem like a lot, but it is a **completely free** way to save water and help the environment.
-        """)
+            With a dual-flush toilet, you could be saving almost **8 cents every day**, and a normal toilet would save 
+            around **15 cents every day**. For a year, that's 3.56 dollars for a dual flush, or 7.12 dollars for a regular toilet. 
+            This might not seem like a lot, but it is doing a lot for the environment and saving lots of water. 
+            It's a completely free way of saving a few quick bucks.
+            """)
 
     with tabs[2]:
         st.markdown("""
-        ### Old Toilets vs New
+            ### Old Toilets vs New
 
-        In BC, a law came into effect on **September 30, 2005**, requiring all new toilets to use **6 litres per flush or 
-        less**, replacing older toilets that used over **13.2 litres** per flush.
+            In BC, a law came into effect in **September 30, 2005** to change the capacity of water allowed to flush in 
+            one use from being required to use over **13.2 litres** of water to **6 litres per flush or lower**. 
 
-        Upgrading from an old toilet cuts water usage **in half** or more, even if the flushing strength feels different. 
-        It’s like comparing **3 x 2-litre Coke bottles** versus **6 x 2-litre Coke bottles** of clean, drinkable water.
+            That means if you have an old toilet before laws were enacted, getting a new toilet may be easier to get clogged 
+            while pooping, but you will at least cut the amount of water used by toilets in half. It's like comparing 
+            **3 2-litre Coke bottles to 6 2-litre Coke bottles**. 
 
-        Yes — in Canada, even toilet water is **drinking-grade**. So if your toilet is older, switching to a newer model 
-        is one of the biggest improvements you can make to reduce household water waste and lower your monthly bill.
-        """)
+            In Canada, even toilet water is **drinking grade**, so would you want to waste 6.2 more litres of bottled 
+            drinking-quality water? If you still have an old toilet, switching is the reason why your bills on water are 
+            higher than others and why your toilet might be a lot louder than other people's toilets.
+            """)
 
     with tabs[3]:
         st.markdown("""
-        ### Sand in Bottles in Toilet Tanks
+            ### Sand in Bottles in Toilet Tanks
 
-        Placing sealed bottles filled with sand in your toilet tank **displaces water**, reducing how much is used per flush.
-        A **2-litre bottle displaces 2 litres** of water, so each litre you add displaces one litre per flush.
+            When you put sand in bottles of any size in your toilet tank, it can displace the amount of water the size of 
+            the bottle is when you flush your toilet. A **2 litre bottle displaces 2 litres** of water per flush, so each 
+            litre displaces 1 litre of water. 
 
-        However, a few things to avoid:
+            A few things to avoid while doing this are:
 
-        - Using a bottle that is **too big** — the toilet may not flush properly.
-        - In **modern toilets**, this can reduce flushing performance and do more harm than good because newer systems are 
-          already designed for low-volume efficiency.
+            - Using too big of a bottle, it may lead to an insufficient amount of water to flush.
+            - In a modern toilet, it could affect its overall performance and cause more harm than good because their 
+              flushing power is not as strong.
+            """)
 
-        This method is best for **older toilets**, not newer water-efficient models.
-        """)
-
-        # -------- QUIZ SECTION --------
+    # -------- QUIZ SECTION --------
     st.markdown("---")
     st.markdown("## Toilets Quiz")
-
     st.markdown("Test your understanding of how toilets can help save water:")
 
     q1 = st.radio(
-        "1) What is the main advantage of a dual-flush toilet?",
-        ["It costs less upfront", "It uses less water for urination", "It flushes stronger than old toilets"],
+        "1) What is the main benefit of using a dual-flush toilet?",
+        [
+            "It saves up to 67% of water by using less water for urination.",
+            "It flushes stronger than older models.",
+            "It costs less than a standard toilet."
+        ],
         index=None
     )
 
     q2 = st.radio(
-        "2) Why does flushing less often save so much water?",
-        ["Urination happens more often than bowel movements", "New toilets leak more",
-         "Toilets store extra water when unused"],
+        "2) What does the phrase 'If it's yellow, let it mellow' suggest?",
+        [
+            "Only flush after a few urinations to save water.",
+            "Flush every time for hygiene.",
+            "Use less toilet paper to avoid clogs."
+        ],
         index=None
     )
 
     q3 = st.radio(
-        "3) True or False: A law in BC requires all toilets after 2005 to use 6 litres per flush or less.",
-        ["True", "False"],
+        "3) When did BC make it a law for toilets to use 6 litres or less per flush?",
+        [
+            "September 30, 2005",
+            "January 1, 2010",
+            "March 15, 1999"
+        ],
         index=None
     )
 
     q4 = st.radio(
-        "4) True or False: Adding bottles of sand to the toilet tank works best in modern toilets.",
-        ["True", "False"],
+        "4) Why should you avoid putting large bottles of sand in modern toilets?",
+        [
+            "It can harm the toilet’s performance since modern systems are already efficient.",
+            "It helps them flush better but increases water waste.",
+            "Because it discolors the water."
+        ],
         index=None
     )
 
     correct_answers = [
-        "It uses less water for urination",
-        "Urination happens more often than bowel movements",
-        "True",
-        "False"
+        "It saves up to 67% of water by using less water for urination.",
+        "Only flush after a few urinations to save water.",
+        "September 30, 2005",
+        "It can harm the toilet’s performance since modern systems are already efficient."
     ]
 
     user_answers = [q1, q2, q3, q4]
@@ -710,10 +731,10 @@ def page_toilets():
         st.success(f"You scored {score} / 4")
 
         explanations = [
-            "Dual-flush toilets reduce water usage for urination, which happens more frequently.",
-            "Most flushing is from urination, so reducing those flushes saves more water.",
-            "BC introduced a law in 2005 limiting toilets to 6L or less per flush.",
-            "The sand bottle trick is mainly for **older** toilets, not modern efficient ones."
+            "Dual-flush toilets cut water use by up to 67% since most flushing comes from urination.",
+            "Flushing less often saves water because most flushes are for urination, not bowel movements.",
+            "The BC law took effect on September 30, 2005, reducing flush volumes to 6 litres or less.",
+            "Modern toilets are designed for efficiency, and adding bottles can disrupt their balance."
         ]
 
         for i in range(4):
@@ -791,78 +812,10 @@ def page_washing_machine():
     )
 
 
-
-
-def page_shower():
-    st.markdown("# Shower")
-    st.subheader("How can Showers help save water?")
-
-    st.markdown("""
-    Showering is tied for the **second highest** water usage in most homes. People usually take
-    **1–2 showers a day**, and a **5-minute shower uses around 75 litres of water**.
-    Using more efficient shower heads or reducing how long water is running can significantly reduce waste.
-    """)
-
-    st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618416262053978/shower.jpg?ex=690558b1&is=69040731&hm=f230bfaec26feda18c6c41653de6d31b3b6364333a631382fd5513bf4c503eac&=&format=webp")
-
-    st.markdown("## Showering vs Bathing")
-    st.markdown("""
-         Baths use a fixed amount of water each time, while showers use more water the longer they run.
-         Depending on your shower length and shower head type, a shower can use **less** or **more** water
-         than a bath. Use the calculator below to compare and see which is more efficient for your household.
-         """)
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        minutes = st.slider("Average shower length (minutes)", 1, 30, 5)
-        head_type = st.selectbox(
-            "Shower head type",
-            ["Standard (≈9.5 L/min)", "Low-flow (≈6.8 L/min)"]
-        )
-        people = st.number_input("Number of people showering", 1, 10, 1)
-
-    with col2:
-        bath_size = st.selectbox(
-            "Bath size",
-            ["Small (70 L)", "Standard (90 L)", "Large (110 L)"]
-        )
-
-    # mapping to actual numbers
-    head_map = {"Standard (≈9.5 L/min)": 9.5, "Low-flow (≈6.8 L/min)": 6.8}
-    bath_map = {"Small (70 L)": 70, "Standard (90 L)": 90, "Large (110 L)": 110}
-
-    lpm = head_map[head_type]
-    bath_litres = bath_map[bath_size]
-
-    shower_total = minutes * lpm * people
-    difference = bath_litres - shower_total
-
-    st.markdown("### Comparison")
-
-    col3, col4 = st.columns(2)
-    col3.metric("Your shower(s)", f"{shower_total:.1f} L")
-    col4.metric("Bath", f"{bath_litres:.1f} L")
-
-    if shower_total < bath_litres:
-        st.success("✅ Your showers use **less** water than taking a bath.")
-    elif shower_total > bath_litres:
-        st.warning("⚠️ Your showers use **more** water than taking a bath — a bath may be more efficient at this length.")
-    else:
-        st.info("ℹ️ Your shower water usage is **equal** to a bath.")
-
-    st.subheader("Using low-flow shower heads")
-    st.markdown("""Low-flow shower heads are anything under 6.8 lpm,(litres per minute) and have a huge range of numbers that would be considered low-flow. These showerheads could use around 3 litres less water every minute, but could still feel the same and take the same amount of time when showering. The shower heads usually cost around $25, or up so buying it won't help much with saving money unless used over many years, but it can save 10+ litres of water everyday to help save water for future generations.
-""")
-
-    st.subheader("Turning Water Off While Putting Soap On")
-    st.markdown("""Each time you shower, you put on soap (unless it's a quick rinse) and the average time to put it on is 20 seconds. Just 20 seconds could use up more than 3 litres of water in the shower. Do you rinse your body the same time you put on soap? No, all the soap would wash away before anything even happens, so it's a totally free way to save 3 litres of water everyday when you shower. 
-""")
-
-
 def page_hvac():
     st.markdown("# HVAC\n"+HVAC_MD)
     st.image("https://img.freepik.com/premium-vector/hvac-logo-design-template-cooling-heating-logo-illustration_373791-3698.jpg")
+
 def page_heating():
     st.markdown("# Heating")
     st.subheader("What is home heating?")
@@ -1620,11 +1573,11 @@ def page_contact():
 
 def page_sink_faucet():
     st.markdown("# Sink / Faucet")
-    st.subheader("How Can We Save Water with a Sink Tap?")
+    st.subheader("How Can we Save Water with a Sink Tap?")
 
     st.markdown("""
     Background: The average amount of water a tap uses is **10–15 litres per minute (lpm)**, 
-    and the average person uses the tap for about **8 minutes every day**.
+    and an average human uses around **8 minutes** with the tap every day.
     """)
 
     tabs = st.tabs([
@@ -1636,23 +1589,29 @@ def page_sink_faucet():
         st.markdown("""
         ### Brushing Your Teeth
 
-        When you brush your teeth, it is common for people to leave the tap on. A tap on average uses **10–15 litres per minute**, 
-        and a person takes around **2 minutes** to brush their teeth **two times a day**. That means you could use **40 litres or more** 
-        every day for no reason — just flowing straight down the drain.
+        When you brush your teeth, it is common for people to leave the tap on. 
+        A tap on average uses around **10–15 litres in a minute**, and a person takes around 
+        **2 minutes** to brush their teeth **2 times a day**. That means you would use 
+        **40 or more litres of water every day** just going down the drain for no reason. 
 
-        All you have to do is **turn the tap off while brushing**, and you can save more than **20 litres of water per day**, which also 
-        saves **6–9 cents every day** just by changing this small habit.
+        All to do is **turn one knob and leave it off for 2 minutes** more than you usually do 
+        to save **more than 20 (or more) litres of water** in your daily habit than before, 
+        and also saving **6–9 cents every day**.
         """)
 
     with tabs[1]:
         st.markdown("""
         ### Low-flow Aerators
 
-        Low-flow aerators are very effective because they reduce the amount of water used per minute while **keeping or even increasing 
-        water pressure**. Most modern faucets already have them built in, but if yours does not, they are **highly recommended**.
+        Low-flow aerators are very interesting because they reduce the amount of water used 
+        per minute while **simultaneously raising the water pressure sometimes while being used**. 
+        Most modern faucets have them, but if you don't, installing low-flow aerators is 
+        **highly recommended**. 
 
-        Low-flow aerators can cut water use by **up to 50%** while making the stream smoother, gentler, and no-splash. They also help 
-        control direction, so water doesn’t spray everywhere or bounce out of the sink.
+        They can reduce the amount of water by **up to half** depending on how much lpm it saves, 
+        and it fuses air with the water to make it feel the same. Low-flow aerators can also shape 
+        the flow into a **smooth flowing, no-splash stream**. It can turn a wild faucet into a faucet 
+        that never moves around or splashes anywhere.
         """)
 
     # ----------- Tap Water Waste Visualizer -----------
@@ -1776,89 +1735,115 @@ def page_sink_faucet():
         f"By simply turning off the tap while brushing, you could save roughly **{wasted_yearly:,.0f} litres per year**."
     )
 
-
 def page_leaks():
     st.markdown("# Leaks")
     st.subheader("How Do Leaks Waste Water and How Can We Prevent Them?")
 
     st.markdown("""
-    Leaks are one of the most overlooked sources of water waste in a household.  
-    Even slow or hidden leaks can waste **dozens of litres per day**, adding up to thousands of litres per month.  
-    Leaks often come from **water pressure issues, frozen pipes, or faulty HVAC condensation systems**.  
-    Understanding what causes them — and how to detect them early — can prevent expensive repairs and major water loss.
+    Check your water pressure because if the pressure is high, it could cause a greater risk 
+    of leakages in your home.
     """)
 
     st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618415465140276/leak.jpg?ex=690558b1&is=69040731&hm=83d33e75d74f0c0d7ec79d134cfab8f6210b1e151ea7bb339157b629c7050c6f&=&format=webp&width=1128&height=753")
 
+
     tabs = st.tabs([
-        "Water Pressure",
         "Frozen Pipes",
         "HVAC Systems",
-        "Detecting High Pressure"
+        "Water Pressure"
     ])
 
     with tabs[0]:
         st.markdown("""
-        ### Water Pressure
+        ### Frozen Pipes
 
-        High water pressure in pipes increases the risk of leaks because it puts stress on joints,
-        fittings, and older plumbing systems. Over time, excess pressure can loosen connections and
-        create small cracks that eventually become leaks. Maintaining a proper pressure range protects
-        both your plumbing and your water usage.
+        Leaks often happen because of **frozen pipes** that freeze and expand the water inside, 
+        often causing pipes to burst. Just using some cheap foam insulation like **pool noodles** 
+        can significantly lower the chances of leaks. Even minor leaks that just drip slowly 
+        can waste **more than 90 litres of water daily**.
         """)
 
     with tabs[1]:
         st.markdown("""
-        ### Frozen Pipes
+        ### HVAC Systems
 
-        Leaks often happen because of **frozen pipes**, which expand as the trapped water inside freezes.
-        This can cause pipes to burst or crack. Wrapping exposed pipes with foam insulation (even pool noodles)
-        can significantly reduce the chance of bursting. Even a **small drip leak** from thawing water can waste
-        **over 90 litres per day**.
+        Without proper HVAC systems, condensation can **clog pipes** or cause **major leakages**. 
+        What you can do is get your HVAC systems **inspected** for any technicalities that could 
+        cause damage to your house in the future. 
+
+        Faulty HVAC systems can damage more than just your pipes, so if you notice a lot of 
+        leakages in your home, you should get your HVAC system checked — it might be the reason 
+        your pipes are dripping.
         """)
 
     with tabs[2]:
         st.markdown("""
-        ### HVAC Systems
+        ### Water Pressure
 
-        Without proper HVAC maintenance, condensation can pool or clog drainage pipes, eventually causing leaks.
-        Faulty HVAC systems can create moisture buildup that damages more than pipes — it can affect walls,
-        ceilings, and floors. If you notice unexpected water in your home, an HVAC technician might be needed
-        to inspect the system for hidden condensation leaks.
+        High water pressure in pipes imposes a **greater risk of leakages** in your home. 
+        It strains the house’s pipes and plumbing systems, which can loosen joints and, over time, 
+        cause **mold to build up**, expanding beyond just water being lost. 
+
+        To measure your water pressure, you need a **water pressure gauge** — attach it to an 
+        outdoor hose. Make sure no other water fixtures are on in or outside your house, then 
+        turn the hose on fully and read the gauge. 
+
+        If it measures **above 80 psi**, it is considered **high pressure** and should be lowered 
+        by screwing your **regulator counter-clockwise**.
         """)
 
-    with tabs[3]:
-        st.markdown("""
-        ### Detecting High Pressure
-
-        To check if you have high pressure, use a **water pressure gauge** and attach it to an outdoor hose.
-        Make sure no other taps or appliances are running, then turn the hose fully on.  
-        If the gauge reads **above 80 psi**, your water pressure is too high and should be lowered using a
-        pressure regulator (turning it counter-clockwise).
-        """)
-
+    # ---------- Quiz ----------
     st.markdown("---")
-    st.markdown("## Quick Leak Prevention Quiz")
+    st.markdown("## Leak Prevention Quiz")
+    st.markdown("Test what you’ve learned about preventing leaks in your home:")
 
-    q1 = st.radio("1) What happens when water pressure is too high?",
-                  ["It improves water efficiency", "It increases pipe strain and leak risk", "It lowers HVAC usage"], index=None)
+    q1 = st.radio(
+        "1) Why is it important to check your water pressure?",
+        [
+            "High pressure increases the risk of leaks and damages plumbing.",
+            "Low pressure makes taps slower.",
+            "It helps water heat up faster."
+        ],
+        index=None
+    )
 
-    q2 = st.radio("2) Why do frozen pipes often cause leaks?",
-                  ["They shrink and seal tighter", "They expand and burst/crack", "They release cold steam"], index=None)
+    q2 = st.radio(
+        "2) What’s a simple, inexpensive way to prevent frozen pipe leaks?",
+        [
+            "Wrap exposed pipes with foam insulation or pool noodles.",
+            "Leave windows open in winter.",
+            "Increase water pressure to keep water moving."
+        ],
+        index=None
+    )
 
-    q3 = st.radio("3) How can HVAC systems cause leaks?",
-                  ["By cooling the home too quickly", "By building condensation or clogging drains", "By using too much electricity"], index=None)
+    q3 = st.radio(
+        "3) How can HVAC systems cause leaks?",
+        [
+            "By clogging or creating condensation in pipes.",
+            "By cooling the home too quickly.",
+            "By reducing air humidity too much."
+        ],
+        index=None
+    )
 
-    q4 = st.radio("4) What reading on a pressure gauge indicates high pressure?",
-                  ["Over 80 psi", "Below 30 psi", "Exactly 60 psi"], index=None)
+    q4 = st.radio(
+        "4) What water pressure reading means you need to adjust your regulator?",
+        [
+            "Above 80 psi",
+            "Between 30 and 50 psi",
+            "Exactly 60 psi"
+        ],
+        index=None
+    )
 
     if st.button("Submit Answers"):
         score = 0
         answers = [
-            "It increases pipe strain and leak risk",
-            "They expand and burst/crack",
-            "By building condensation or clogging drains",
-            "Over 80 psi"
+            "High pressure increases the risk of leaks and damages plumbing.",
+            "Wrap exposed pipes with foam insulation or pool noodles.",
+            "By clogging or creating condensation in pipes.",
+            "Above 80 psi"
         ]
         user = [q1, q2, q3, q4]
 
@@ -1869,10 +1854,10 @@ def page_leaks():
         st.success(f"Your Score: {score}/4")
 
         explanations = [
-            "High pressure stresses plumbing joints and increases leak risk.",
-            "Frozen pipes expand and crack, which leads to leaking as they thaw.",
-            "HVAC condensation or clogged drain lines can cause hidden leaks.",
-            "Anything over 80 psi is considered too high and should be regulated."
+            "High water pressure strains plumbing systems and can cause leaks or mold.",
+            "Foam insulation helps prevent freezing and bursting pipes during cold weather.",
+            "Condensation buildup or clogged HVAC drains can lead to leaks and water damage.",
+            "A reading above 80 psi is considered too high and should be lowered."
         ]
 
         for i in range(4):
@@ -1880,6 +1865,7 @@ def page_leaks():
                 st.write(f"✅ Q{i+1}: {explanations[i]}")
             else:
                 st.write(f"❌ Q{i+1}: {explanations[i]}")
+
 
 
 def page_bib():
@@ -1962,6 +1948,84 @@ def page_bib():
     with st.expander("View Full Reference List (APA Style)"):
         st.markdown(references, unsafe_allow_html=True)
 
+
+def page_shower():
+    st.markdown("# Shower")
+    st.subheader("How Can we Save Water With Showers?")
+
+    st.markdown("""
+    Background: Showering is tied for 2nd most water used in , people usually take 1-2 showers a day, 
+    and a 5 minute shower uses up around 47 litres of water. An average shower head uses about 
+    9.5 litres per minute (lpm)
+    """)
+
+    st.markdown("## Showering vs Bathing")
+    st.markdown("""
+    A 10 minute shower uses up around 95 litres of water, while bathing uses around 75 litres of water 
+    for a full bath. Therefore, if you take showers longer than 10 minutes on average, bathing could 
+    save a bit of water each time you do it — gradually building up while also not feeling claustrophobic 
+    in the shower stall. For example, taking a 15 minute shower uses around 140 litres. By taking a bath 
+    instead of showering, you can save more than 45 litres of water. An average adult human drinks 
+    3.2 litres a day. Every time you take a long bath instead of a long shower, you can save over 
+    15 days of drinking water. If you take showers shorter than 7 minutes though, you should stick to 
+    showering because it is more likely that you would use more water bathing than taking a short shower.
+    """)
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        minutes = st.slider("Average shower length (minutes)", 1, 30, 5)
+        head_type = st.selectbox(
+            "Shower head type",
+            ["Standard (≈9.5 L/min)", "Low-flow (≈6.8 L/min)"]
+        )
+        people = st.number_input("Number of people showering", 1, 10, 1)
+
+    with col2:
+        bath_size = st.selectbox(
+            "Bath size",
+            ["Small (70 L)", "Standard (90 L)", "Large (110 L)"]
+        )
+
+    # mapping to actual numbers
+    head_map = {"Standard (≈9.5 L/min)": 9.5, "Low-flow (≈6.8 L/min)": 6.8}
+    bath_map = {"Small (70 L)": 70, "Standard (90 L)": 90, "Large (110 L)": 110}
+
+    lpm = head_map[head_type]
+    bath_litres = bath_map[bath_size]
+
+    shower_total = minutes * lpm * people
+    difference = bath_litres - shower_total
+
+    st.markdown("### Comparison")
+
+    col3, col4 = st.columns(2)
+    col3.metric("Your shower(s)", f"{shower_total:.1f} L")
+    col4.metric("Bath", f"{bath_litres:.1f} L")
+
+    if shower_total < bath_litres:
+        st.success("✅ Your showers use **less** water than taking a bath.")
+    elif shower_total > bath_litres:
+        st.warning("⚠️ Your showers use **more** water than taking a bath — a bath may be more efficient at this length.")
+    else:
+        st.info("ℹ️ Your shower water usage is **equal** to a bath.")
+
+    st.subheader("Using Low-flow Shower Heads")
+    st.markdown("""
+    Low-flow shower heads are anything under 6.8 lpm,(litres per minute) and have a huge range of numbers 
+    that would be considered low-flow. These showerheads could use around 3 litres less water every minute, 
+    but could still feel the same and take the same amount of time when showering. The shower heads usually 
+    cost around $25, or up so buying it won't help much with saving money unless used over many years, 
+    but it can save 10+ litres of water everyday to help save water for future generations.
+    """)
+
+    st.subheader("Turning Water Off While Putting Soap On")
+    st.markdown("""
+    Each time you shower, you put on soap (unless it's a quick rinse) and the average time to put it on 
+    is 20 seconds. Just 20 seconds could use up more than 3 litres of water in the shower. Do you rinse your 
+    body the same time you put on soap? No, all the soap would wash away before anything even happens, 
+    so it's a totally free way to save 3 litres of water everyday when you shower.
+    """)
 
 # =========================================
 # NAVIGATION (Home is TOP-LEVEL)
