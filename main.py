@@ -474,7 +474,7 @@ def page_water():
     # ---------- static content ----------
 
 
-    st.markdown("### 💧 Simplified Bathroom Water Comparison")
+    st.markdown("### 💧Bathroom Water Comparison")
     st.caption("Pick your setup and instantly see how much water you could save each day.")
 
     # ---------- Inputs ----------
@@ -500,12 +500,12 @@ def page_water():
 
     # ---------- Output ----------
     st.metric("💧 Your Daily Usage", f"{your_total:,.0f} L")
-    st.metric("🏚️ Old Bathroom Usage", f"{baseline_total:,.0f} L")
+    st.metric("🏚️ Average Bathroom Usage", f"{baseline_total:,.0f} L")
     st.metric("🌱 Daily Savings", f"{savings:,.0f} L")
 
     # ---------- Simple Visualization ----------
     df = pd.DataFrame({
-        "Setup": ["Old Bathroom", "Your Setup"],
+        "Setup": ["Average Bathroom", "Your Setup"],
         "Litres per Day": [baseline_total, your_total]
     })
 
@@ -932,7 +932,7 @@ def page_vent():
     st.markdown("# Ventilation")
     st.subheader("What is ventilation?")
     st.markdown("""    
-    Ventilation systems are how a particular system ranging from natural to exhaust circulates fresh air through the house while the stale or humid air leaves the house 
+    Ventilation systems are how a particular system ranging from natural to exhaust systems circulates fresh air through the house while the stale or humid air leaves the house. A good ventilation system 
     """)
     col1, col2 = st.columns(2)
     with col1:
