@@ -1505,6 +1505,9 @@ def page_conserve():
             - Heat Settings
             """
         )
+
+    st.link_button("Appliance Cost Calculator","https://www.bchydro.com/powersmart/residential/tools-and-calculators/cost-calculator.html")
+
 def feedback():
     sentiment_mapping = ["one", "two", "three", "four", "five"]
     selected = st.feedback("stars")
