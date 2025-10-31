@@ -928,8 +928,8 @@ def page_vent():
     Some systems rely on natural airflow, while others use fans to push or pull air through the building.
     """)
 
-    st.image("https://i.ibb.co/N64ny5V0/fans.jpg")
-    st.image("https://i.ibb.co/tT1RDgS7/pipes.jpg")
+    st.image("https://i.ibb.co/N64ny5V0/fans.jpg",width=300)
+    st.image("https://i.ibb.co/tT1RDgS7/pipes.jpg",width=300)
     # Tabs for organized information
     tabs = st.tabs([
         "Natural Ventilation",
