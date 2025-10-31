@@ -821,7 +821,7 @@ def page_heating():
         ### Heat Pumps
         Most of the time if  you have a traditional of an really old electric or oil furnace, that could be really bad for the environment and consume a lot of energy meaning it will be really expensive. Heat pumps on the other hand is still expensive in the initial cost but could save you up to 50%. Not only that, they are generally good for the environment.
         """)
-        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkeOpFLN6qlBp7kWZb4i8B-C44zHgN1WJMm5_K-nRO3tcwXZ3gHS3Ufk0wtVSrIPFY3k9HYCXrBx_VBJzFXBgLhva42Ux78NjOKGuBACT9CGhn0FaZcqADlcRPgrKGdAXnC41u36S7YglDUSKbZ0c9ZIm_ZHdHZTFKviIXvo4LMHJfHiY1wuK8nLHZGZa-HlsS6C-uljAl7jVULDudwkJpTEQQVfcAayOBRzGqI=w1280")
+        st.image("https://i.ibb.co/nq8Qr5wt/heatpumps.png")
 
     # ---------------- TAB 2: Gas vs Electric Stoves ----------------
     with tabs[1]:
@@ -831,16 +831,16 @@ def page_heating():
         - If you want to do better for the environment, choose an **electric stove**, because although gas stoves are more energy-efficient, they release **double the greenhouse emissions**.
 
         """)
-        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkduOBko-R12wbX13DZ40AK8YjSwahsMT64v_hLI2m-DYa0WJoCQ179AnXsklHkP-uaEsreKVeNW7dyKwjYXPRibt1y-EHGbaWt2KMHPKUtaAdo9A3YK-EwfYv_2PnrXEbjEmMchl-U8XWveDyK0Eevsve3GMoMj0DibJMs6vZENivnfH4Pt9cx4=w1280",width=300)
-        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkeVgQSRC2rzo4BBdK-Q8BPrUppcYPcJzAl5fAKXwGcQNaSscHo0havYu4afle8AmFHSbnJVYVeVWEXkPSO5FYw-067KXrfidfMwYS44WkwKd-i3oE7nHhdOQTImi2xXEEuoFNPS1A-8kYyE8MiJVvVelJbbicyXJaUGRUj-1TTWArt4Op9DiBJDSi64QHTZJIa9Rk6-LL0sPlu4q59XpqzpUN4tgoc9Cn11=w1280",width=300)
+        st.image("https://i.ibb.co/rKKNwzVs/stove.png",width=300)
+        st.image("https://i.ibb.co/rGznvnmg/stove2.jpg",width=300)
     # ---------------- TAB 3: Alternative Heating ----------------
     with tabs[2]:
         st.markdown("""
         ### Alternative Heating
         Some homes use boilers. This system heats water to create steam. Then they send them to be circulated through pipes all around the house to heat the home. Another option is hybrid heating. This is a combination of two heating systems in order to maximize efficiency.
         """)
-        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkc64ZDciLGrtV-z3xSUcGkAcbsiRT9q5E7MHqZtCls0sn2ix9trV-REWlZoXAKomls8ANpFXxpe-fwLzDxvYBF-eLWwi2r5KmyMCfGCBfOZboc91_BHht9GL-LzZhg-6eWMh4zFaDJjraF5dgqnApgGiCJlggTIuZnTjKAWn8oYP1DTFnw8HMOTbI4DbSJSHOnD4Ddo4rdZd1o2wHCAnukI5sF8jHUwUSQeRbc=w1280",width=100)
-        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCke6Op6P0GNNU3cxGmELF18moM8doMvqTETRHeZJF7y2MFZpqL-yrGJogje3rvh0Wa0G4vDT845nJApW0PW11FXjtki0a4t29xVkumqrO74SL8SMJSc1WGbujQ2T6rr3Fae1Rs5P4sfALVUwFRA1u89E9iDw8TADyK-ghDWKzoFRanex2ObdtThZeKs=w1280")
+        st.image("https://i.ibb.co/k6K2XJhY/heatstuff2.jpg",width=100)
+        st.image("https://i.ibb.co/hFFNhp7M/heatstuff.jpg")
         st.markdown("---")
         st.markdown("## Heat Pump vs Furnace (Interactive Comparison)")
         st.markdown("""
@@ -871,7 +871,7 @@ def page_heating():
         st.markdown("""
         ### Furnace
         Tending to your furnace is vital, especially if it is an older model. The first step is annual servicing by a professional, which involves cleaning or replacing old parts and making sure the furnace isn't working harder than it needs to. When a furnace is clogged the system will need to work harder to push making the energy consumption higher. Finally, older furnaces loses its energy efficient over time so by tending to the worn out parts it will restore its efficiency.        """)
-        st
+        st.image("https://thorntonheating.com/wp-content/uploads/2016/04/History-of-the-Furnace.png")
         st.markdown("---")
         st.markdown("### Furnace Quiz")
 
@@ -930,6 +930,9 @@ def page_vent():
         "Exhaust Ventilation"
 
     ])
+
+    st.image("https://i.ibb.co/N64ny5V0/fans.jpg")
+    st.image("https://i.ibb.co/tT1RDgS7/pipes.jpg")
 
     with tabs[0]:
         st.markdown("""
