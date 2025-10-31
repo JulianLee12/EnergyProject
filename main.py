@@ -281,91 +281,80 @@ def page_home():
     st.markdown(
         """
         <style>
-        /* remove underline and maintain color */
-        .fan-card {
-          text-decoration: none !important;
-          color: inherit !important;
-        }
-    
-        /* make cards taller and balanced */
-        .fan-card {
-          width: 340px;
-          height: 320px;  /* increased for full image visibility */
-          background: var(--card, #ffffff);
-          border-radius: 18px;
-          box-shadow: 0 8px 24px rgba(0,0,0,.08);
-          border: 1px solid rgba(46,125,50,.12);
-          padding: 20px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
-        }
-    
-        .fan-card:hover {
-          transform: translateY(-6px) scale(1.02);
-          box-shadow: 0 16px 40px rgba(0,0,0,.14);
-          filter: saturate(1.05);
-        }
-    
-        .fan-card h3 { margin: 0; font-size: 22px; color: #1f2937; }
-        .fan-card p  { margin: 6px 0 0 0; font-size: 14px; color: #6b7280; }
-    
-        /* image style */
-        .illus img {
-          width: 100%;
-          height: 150px;  /* taller image area */
-          object-fit: cover;
-          border-radius: 12px;
-          border: 1px dashed #cde9d4;
-          margin-top: 12px;
-        }
-    
         .fan-wrap {
           display: flex;
           justify-content: center;
-          gap: 28px;
-          padding: 10px 0 4px 0;
-          margin: 8px auto 0 auto;
-          max-width: 1100px;
           flex-wrap: wrap;
+          gap: 32px;
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 20px 0;
+        }
+    
+        .fan-card {
+          width: 320px;
+          background: #ffffff;
+          border-radius: 16px;
+          box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+          overflow: hidden;
+          text-align: center;
+          transition: transform .25s ease, box-shadow .25s ease;
+          text-decoration: none !important;
+          color: #1f2937 !important;     /* ✅ ensures visible text */
+          position: relative;
+          z-index: 1;
+        }
+    
+        .fan-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+        }
+    
+        .fan-card img {
+          width: 100%;
+          height: 180px;
+          object-fit: cover;
+          display: block;
+        }
+    
+        .fan-card h3 {
+          font-size: 22px;
+          margin: 16px 0 6px 0;
+          color: #111827 !important;    /* ✅ enforce visible title color */
+          font-weight: 700;
+        }
+    
+        .fan-card p {
+          font-size: 14px;
+          color: #4b5563 !important;    /* ✅ enforce visible paragraph color */
+          margin: 0 16px 20px;
+          line-height: 1.5;
         }
         </style>
     
         <div class="fan-wrap">
-          <a href="/page_water" target="_self" class="fan-card water">
-            <div>
-              <h3>Water Saving</h3>
-              <p>Toilets, showers, taps, laundry and leak prevention.</p>
-            </div>
-            <div class="illus">
-              <img src="https://media.discordapp.net/attachments/1034040253129957476/1433618413640487164/6417083.png?ex=690558b1&is=69040731&hm=2704a1012638a4254ac2712dc9baf9a975b1aeac813ea991ba6cafa57cf937cf&=&format=webp&quality=lossless" alt="Water Saving">
-            </div>
+          <a href="/page_water" target="_self" class="fan-card">
+            <img src="https://media.discordapp.net/attachments/1034040253129957476/1433618413640487164/6417083.png?ex=690558b1&is=69040731&hm=2704a1012638a4254ac2712dc9baf9a975b1aeac813ea991ba6cafa57cf937cf&=&format=webp&quality=lossless" alt="Water Saving">
+            <h3>Water Saving</h3>
+            <p>Toilets, showers, taps, laundry and leak prevention.</p>
           </a>
     
-          <a href="/page_hvac" target="_self" class="fan-card hvac">
-            <div>
-              <h3>HVAC</h3>
-              <p>Heating, ventilation and air conditioning basics & tips.</p>
-            </div>
-            <div class="illus">
-              <img src="https://media.discordapp.net/attachments/1034040253129957476/1433618415096172554/hvac.png?ex=690558b1&is=69040731&hm=f641ac463872329d92e474768f61d6423764d46f5de87fd160c4c9f3949d069d&=&format=webp&quality=lossless" alt="HVAC">
-            </div>
+          <a href="/page_hvac" target="_self" class="fan-card">
+            <img src="https://media.discordapp.net/attachments/1034040253129957476/1433618415096172554/hvac.png?ex=690558b1&is=69040731&hm=f641ac463872329d92e474768f61d6423764d46f5de87fd160c4c9f3949d069d&=&format=webp&quality=lossless" alt="HVAC">
+            <h3>HVAC</h3>
+            <p>Heating, ventilation and air conditioning basics & tips.</p>
           </a>
     
-          <a href="/page_energy" target="_self" class="fan-card energy">
-            <div>
-              <h3>Energy Saving</h3>
-              <p>Renewables, efficiency and everyday conservation.</p>
-            </div>
-            <div class="illus">
-              <img src="https://media.discordapp.net/attachments/1034040253129957476/1433618414198456471/conserveenergy.jpg?ex=690558b1&is=69040731&hm=fa39653a94c8cc25fddf50fb515d2b5f796ea2876a453cc9a78de028251fbc29&=&format=webp" alt="Energy Saving">
-            </div>
+          <a href="/page_energy" target="_self" class="fan-card">
+            <img src="https://media.discordapp.net/attachments/1034040253129957476/1433618414198456471/conserveenergy.jpg?ex=690558b1&is=69040731&hm=fa39653a94c8cc25fddf50fb515d2b5f796ea2876a453cc9a78de028251fbc29&=&format=webp" alt="Energy Saving">
+            <h3>Energy Saving</h3>
+            <p>Renewables, efficiency and everyday conservation.</p>
           </a>
         </div>
         """,
         unsafe_allow_html=True,
     )
+
 
 
 
