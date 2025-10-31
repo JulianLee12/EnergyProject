@@ -822,7 +822,7 @@ def page_heating():
     st.markdown("""
     Heating is used to warm the home during cold seasons, and it is one of the biggest contributors
     to household energy consumption. The type of heating system you use and how efficient it is 
-    can have a major impact on cost, comfort, and environmental footprint.
+    can have a major impact on cost, comfort, and environmental footprint. Heating throughout the house is used to warm 
     """)
 
     # Tabs for different heating system explanations
