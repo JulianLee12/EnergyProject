@@ -769,7 +769,6 @@ def page_shower():
 """)
 
 
-
 def page_hvac():
     st.markdown("# HVAC\n"+HVAC_MD)
     st.image("https://img.freepik.com/premium-vector/hvac-logo-design-template-cooling-heating-logo-illustration_373791-3698.jpg")
@@ -798,7 +797,7 @@ def page_heating():
         ### Heat Pumps
         Most of the time if  you have a traditional of an really old electric or oil furnace, that could be really bad for the environment and consume a lot of energy meaning it will be really expensive. Heat pumps on the other hand is still expensive in the initial cost but could save you up to 50%. Not only that, they are generally good for the environment.
         """)
-        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkcgwYWP_ifj7dW5xDF8X1M_s_9ZZx-ucfwRXY3WOiM9J7v8fScR2rIDJSGTHwl1XHjYDNyAzAeK6cPrevf5uq3RCFDpRsE_UelGHCbU7KDp-g2cHnJ3dRFXjLtPT2DavD1UiX8-26pxoa3ziUvDnj4FhoAhEl6BJAiGhZmiSSai2vqs27zKzh10nXMJy2890oDxmW5QI7pSoh6nPtMZdr6C-MFHbYxUC6xPfSA=w1280")
+        #st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkcgwYWP_ifj7dW5xDF8X1M_s_9ZZx-ucfwRXY3WOiM9J7v8fScR2rIDJSGTHwl1XHjYDNyAzAeK6cPrevf5uq3RCFDpRsE_UelGHCbU7KDp-g2cHnJ3dRFXjLtPT2DavD1UiX8-26pxoa3ziUvDnj4FhoAhEl6BJAiGhZmiSSai2vqs27zKzh10nXMJy2890oDxmW5QI7pSoh6nPtMZdr6C-MFHbYxUC6xPfSA=w1280")
 
     # ---------------- TAB 2: Gas vs Electric Stoves ----------------
     with tabs[1]:
@@ -808,7 +807,7 @@ def page_heating():
         - If you want to do better for the environment, choose an **electric stove**, because although gas stoves are more energy-efficient, they release **double the greenhouse emissions**.
 
         """)
-        st.image("https://lh6.googleusercontent.com/AW_8EiRBJ4hvU64T2_XTdRjtLjb_aLTzk5XJgYWz__yRX6conWdxGiPOaEbBFlLpXXSmw4Q5apjypbGFI9g0kg",)
+        #st.image("https://lh6.googleusercontent.com/AW_8EiRBJ4hvU64T2_XTdRjtLjb_aLTzk5XJgYWz__yRX6conWdxGiPOaEbBFlLpXXSmw4Q5apjypbGFI9g0kg",)
 
     # ---------------- TAB 3: Alternative Heating ----------------
     with tabs[2]:
@@ -816,7 +815,7 @@ def page_heating():
         ### Alternative Heating
         Some homes use boilers. This system heats water to create steam. Then they send them to be circulated through pipes all around the house to heat the home. Another option is hybrid heating. This is a combination of two heating systems in order to maximize efficiency.
         """)
-        st.image("https://lh5.googleusercontent.com/FpPxqjwYfywjgwP-SKrqBEpjHNWUt9UmK02BAXG6w24qwM7NUD1-ieDKi6_EerhH6BUoRTYgPqTrA-dwUC8LwrY")
+        #st.image("https://lh5.googleusercontent.com/FpPxqjwYfywjgwP-SKrqBEpjHNWUt9UmK02BAXG6w24qwM7NUD1-ieDKi6_EerhH6BUoRTYgPqTrA-dwUC8LwrY")
         st.markdown("---")
         st.markdown("## Heat Pump vs Furnace (Interactive Comparison)")
         st.markdown("""
@@ -1771,6 +1770,7 @@ def page_leaks():
                 st.write(f"✅ Q{i+1}: {explanations[i]}")
             else:
                 st.write(f"❌ Q{i+1}: {explanations[i]}")
+
 
 
 
