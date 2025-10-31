@@ -5,7 +5,7 @@ from streamlit import markdown, columns
 imageCarouselComponent = components.declare_component("image-carousel-component", path="frontend/public")
 import altair as alt
 
-
+import plotly.express as px
 import streamlit as st
 import pandas as pd
 
@@ -931,10 +931,8 @@ def page_heating():
 def page_vent():
     st.markdown("# Ventilation")
     st.subheader("What is ventilation?")
-    st.markdown("""
-
-    
-    Ventilation is how a system circulates fresh air through the house while the stale or humid air leaves the house 
+    st.markdown("""    
+    Ventilation systems are how a particular system ranging from natural to exhaust circulates fresh air through the house while the stale or humid air leaves the house 
     """)
     col1, col2 = st.columns(2)
     with col1:
