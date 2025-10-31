@@ -286,30 +286,45 @@ def page_home():
           text-decoration: none !important;
           color: inherit !important;
         }
+    
+        .illus img {
+          width: 100%;
+          height: 60px;
+          object-fit: cover;
+          border-radius: 12px;
+          border: 1px dashed #cde9d4;
+        }
         </style>
-
+    
         <div class="fan-wrap">
           <a href="/page_water" target="_self" class="fan-card water">
             <h3>Water Saving</h3>
             <p>Toilets, showers, taps, laundry and leak prevention.</p>
-            <div class="illus">Illustration placeholder</div>
+            <div class="illus">
+              <img src="https://media.discordapp.net/attachments/1034040253129957476/1433618413640487164/6417083.png?ex=690558b1&is=69040731&hm=2704a1012638a4254ac2712dc9baf9a975b1aeac813ea991ba6cafa57cf937cf&=&format=webp&quality=lossless" alt="Water Saving">
+            </div>
           </a>
-
+    
           <a href="/page_hvac" target="_self" class="fan-card hvac">
             <h3>HVAC</h3>
             <p>Heating, ventilation and air conditioning basics & tips.</p>
-            <div class="illus">Illustration placeholder</div>
+            <div class="illus">
+              <img src="https://media.discordapp.net/attachments/1034040253129957476/1433618415096172554/hvac.png?ex=690558b1&is=69040731&hm=f641ac463872329d92e474768f61d6423764d46f5de87fd160c4c9f3949d069d&=&format=webp&quality=lossless" alt="HVAC">
+            </div>
           </a>
-
+    
           <a href="/page_energy" target="_self" class="fan-card energy">
             <h3>Energy Saving</h3>
             <p>Renewables, efficiency and everyday conservation.</p>
-            <div class="illus">Illustration placeholder</div>
+            <div class="illus">
+              <img src="https://media.discordapp.net/attachments/1034040253129957476/1433618414198456471/conserveenergy.jpg?ex=690558b1&is=69040731&hm=fa39653a94c8cc25fddf50fb515d2b5f796ea2876a453cc9a78de028251fbc29&=&format=webp" alt="Energy Saving">
+            </div>
           </a>
         </div>
         """,
         unsafe_allow_html=True,
     )
+
 
 def page_rebate():
     st.markdown("# Rebates in British Columbia")
@@ -529,7 +544,7 @@ def page_toilets():
     Toilets are the biggest contributor to the amount of water used in households.
     """)
 
-    st.image("https://i.ibb.co/nM54HWnv/toilet.jpg")
+    st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618416564178944/toilet.jpg?ex=690558b1&is=69040731&hm=3137a43fbcd3208ad4ed229986a729958bf2fc8aa4174007fcc544811c57b6b3&=&format=webp")
 
     tabs = st.tabs([
         "Dual-Flush Toilets",
@@ -667,7 +682,7 @@ def page_washing_machine():
     from 1-3 times a week. A load for a normal washing machine uses around **85 litres** of water.
     """)
 
-    st.image("https://i.ibb.co/8LspCqf6/washingmachine.jpg")
+    st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618415804747827/washingmachine.jpg?ex=690558b1&is=69040731&hm=fd81a80493164b7b00a8ff904166f2acc3a1b4cc0e51f555cb6cc4404ac9e37c&=&format=webp")
 
     tabs = st.tabs([
         "Different Piles & Modes",
@@ -739,7 +754,7 @@ def page_shower():
     Using more efficient shower heads or reducing how long water is running can significantly reduce waste.
     """)
 
-    st.image("https://i.ibb.co/JWq2kv01/shower.jpg")
+    st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618416262053978/shower.jpg?ex=690558b1&is=69040731&hm=f230bfaec26feda18c6c41653de6d31b3b6364333a631382fd5513bf4c503eac&=&format=webp")
 
     st.markdown("## Showering vs Bathing")
     st.markdown("""
@@ -832,8 +847,14 @@ def page_heating():
         - If you want to do better for the environment, choose an **electric stove**, because although gas stoves are more energy-efficient, they release **double the greenhouse emissions**.
 
         """)
-        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618375849939075/stove.png?ex=690558a8&is=69040728&hm=aea8207671a045d8cf0445b6d05ac96d77137e072bf17d7a01d49aca6a8d6bf1&=&format=webp&quality=lossless",width=300)
-        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618375434571887/stove2.jpg?ex=690558a8&is=69040728&hm=2ed10c0ad6915ccd56fa15707bd0a5ee2796cfb99f4867e65c301dae49828338&=&format=webp",width=300)
+        col1, col2 = st.columns(2)
+        with col1:
+            st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618375849939075/stove.png?ex=690558a8&is=69040728&hm=aea8207671a045d8cf0445b6d05ac96d77137e072bf17d7a01d49aca6a8d6bf1&=&format=webp&quality=lossless",width=300)
+
+
+        with col2:
+            st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618375434571887/stove2.jpg?ex=690558a8&is=69040728&hm=2ed10c0ad6915ccd56fa15707bd0a5ee2796cfb99f4867e65c301dae49828338&=&format=webp",width=300)
+
     # ---------------- TAB 3: Alternative Heating ----------------
     with tabs[2]:
         st.markdown("""
@@ -1033,7 +1054,7 @@ def page_ac():
     electricity consumption** comes from air conditioning. Therefore by turning off your AC or heater and just wear a warm sweater in the winter or wear shorts in the summer could save you lots of money and energy.
     """)
 
-    st.image("https://i.ibb.co/fYTp5Jf0/fans2.jpg")
+    st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618373815701546/fans2.jpg?ex=690558a7&is=69040727&hm=a8080060f608178c73a914ef9f5d3f44fcce834417b9901aeed8a09755cbd074&=&format=webp")
     st.markdown("## AC Energy Usage Estimator")
 
     ac_type = st.selectbox(
@@ -1711,13 +1732,14 @@ def page_leaks():
     st.markdown("# Leaks")
     st.subheader("How Do Leaks Waste Water and How Can We Prevent Them?")
 
-    st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkdMIGLkFXvhj7HLs6ZG3i-ZziXi6yM5VTRZI6rT7_9PpxL0d7jcG2hXo-x7dmXk3msKUrpPHe8NvHomGRQULQDNGJ4PVwR22krWDo4OhIdC2gklEPXmkwIumwkUY4GFMOApHAC_f9_v0xOgig0avQQ3GtROj3kuuQEZXJgwM_ktjn0KJsRBKpfKeTF7R8fqDuH3H2Lsz5uqs9N2H5wvtU1KfLaLOvhg4plfjEA=w1280")
     st.markdown("""
     Leaks are one of the most overlooked sources of water waste in a household.  
     Even slow or hidden leaks can waste **dozens of litres per day**, adding up to thousands of litres per month.  
     Leaks often come from **water pressure issues, frozen pipes, or faulty HVAC condensation systems**.  
     Understanding what causes them — and how to detect them early — can prevent expensive repairs and major water loss.
     """)
+
+    st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618415465140276/leak.jpg?ex=690558b1&is=69040731&hm=83d33e75d74f0c0d7ec79d134cfab8f6210b1e151ea7bb339157b629c7050c6f&=&format=webp&width=1128&height=753")
 
     tabs = st.tabs([
         "Water Pressure",
