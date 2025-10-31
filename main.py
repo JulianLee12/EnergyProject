@@ -827,7 +827,7 @@ def page_heating():
 
         """)
         st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkduOBko-R12wbX13DZ40AK8YjSwahsMT64v_hLI2m-DYa0WJoCQ179AnXsklHkP-uaEsreKVeNW7dyKwjYXPRibt1y-EHGbaWt2KMHPKUtaAdo9A3YK-EwfYv_2PnrXEbjEmMchl-U8XWveDyK0Eevsve3GMoMj0DibJMs6vZENivnfH4Pt9cx4=w1280")
-        st.image("")
+        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkeVgQSRC2rzo4BBdK-Q8BPrUppcYPcJzAl5fAKXwGcQNaSscHo0havYu4afle8AmFHSbnJVYVeVWEXkPSO5FYw-067KXrfidfMwYS44WkwKd-i3oE7nHhdOQTImi2xXEEuoFNPS1A-8kYyE8MiJVvVelJbbicyXJaUGRUj-1TTWArt4Op9DiBJDSi64QHTZJIa9Rk6-LL0sPlu4q59XpqzpUN4tgoc9Cn11=w1280")
     # ---------------- TAB 3: Alternative Heating ----------------
     with tabs[2]:
         st.markdown("""
