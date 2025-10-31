@@ -474,91 +474,65 @@ def page_water():
     # ---------- static content ----------
 
 
-    st.markdown("### 💧 Interactive Bathroom Configurator")
-    st.caption("Pick your setup and see how it compares to an older, less efficient bathroom.")
+    st.markdown("### 💧 Simplified Bathroom Water Comparison")
+    st.caption("Pick your setup and instantly see how much water you could save each day.")
 
-    # ---------- UI ----------
+    # ---------- Inputs ----------
     c1, c2, c3 = st.columns(3)
-    people = c1.number_input("Household size", 1, 12, 3)
-    toilet_type = c2.selectbox(
-        "Toilet type",
-        ["Old (≈13 L/flush)", "Modern (≈6 L/flush)", "Dual-flush (≈3 L avg)"]
-    )
-    shower_head = c3.selectbox(
-        "Shower head",
-        ["Standard (≈9.5 L/min)", "Low-flow (≈6.8 L/min)"]
-    )
+    people = c1.number_input("Household size", 1, 10, 3)
+    toilet_type = c2.selectbox("Toilet type", ["Old (≈13 L/flush)", "Modern (≈6 L/flush)", "Dual-flush (≈3 L avg)"])
+    shower_type = c3.selectbox("Shower head", ["Standard (≈9.5 L/min)", "Low-flow (≈6.8 L/min)"])
 
     c4, c5 = st.columns(2)
     flushes = c4.slider("Flushes per person / day", 2, 12, 6)
     minutes = c5.slider("Shower minutes per person", 0, 30, 8)
 
-    # ---------- logic ----------
-    toilet_map = {"Old (≈13 L/flush)": 13.0, "Modern (≈6 L/flush)": 6.0, "Dual-flush (≈3 L avg)": 3.0}
+    # ---------- Logic ----------
+    toilet_map = {"Old (≈13 L/flush)": 13, "Modern (≈6 L/flush)": 6, "Dual-flush (≈3 L avg)": 3}
     shower_map = {"Standard (≈9.5 L/min)": 9.5, "Low-flow (≈6.8 L/min)": 6.8}
 
-    # your setup
-    flush_L = toilet_map[toilet_type]
-    lpm = shower_map[shower_head]
-
-    your_flush_total = people * flushes * flush_L
-    your_shower_total = people * minutes * lpm
+    your_flush_total = people * flushes * toilet_map[toilet_type]
+    your_shower_total = people * minutes * shower_map[shower_type]
     your_total = your_flush_total + your_shower_total
 
-    # baseline (always "old" gear)
-    baseline_flush_total = people * flushes * 13.0
-    baseline_shower_total = people * minutes * 9.5
-    baseline_total = baseline_flush_total + baseline_shower_total
-
+    baseline_total = (people * flushes * 13) + (people * minutes * 9.5)
     savings = baseline_total - your_total
-    low_cost_year, high_cost_year = _money_range_from_litres(savings * 365)
 
-    # ---------- output ----------
-    c6, c7, c8 = st.columns(3)
-    c6.metric("Your usage (L/day)", f"{your_total:,.0f}")
-    c7.metric("Old baseline (L/day)", f"{baseline_total:,.0f}")
-    c8.metric("Daily savings", f"{savings:,.0f} L")
+    # ---------- Output ----------
+    st.metric("💧 Your Daily Usage", f"{your_total:,.0f} L")
+    st.metric("🏚️ Old Bathroom Usage", f"{baseline_total:,.0f} L")
+    st.metric("🌱 Daily Savings", f"{savings:,.0f} L")
 
-    st.success(
-        f"**Estimated yearly savings:** ${low_cost_year:,.0f} – ${high_cost_year:,.0f} per year "
-        f"just from bathroom upgrades & habits."
-    )
-
-    # ---------- comparison chart ----------
-    import plotly.express as px
-    import pandas as pd
-
+    # ---------- Simple Visualization ----------
     df = pd.DataFrame({
-        "Component": ["Toilet", "Toilet", "Shower", "Shower"],
-        "Setup": ["Baseline (Old 13 L/flush)", "Your Setup", "Baseline (Old 9.5 L/min)", "Your Setup"],
-        "Litres per Day": [
-            baseline_flush_total,
-            your_flush_total,
-            baseline_shower_total,
-            your_shower_total,
-        ]
+        "Setup": ["Old Bathroom", "Your Setup"],
+        "Litres per Day": [baseline_total, your_total]
     })
 
     fig = px.bar(
         df,
-        x="Component",
+        x="Setup",
         y="Litres per Day",
-        color="Setup",
-        barmode="group",
         text_auto=".0f",
-        title="Daily Water Usage Comparison"
+        color="Setup",
+        color_discrete_sequence=["#e07a5f", "#3d8b74"]
     )
 
     fig.update_layout(
-        xaxis_title="Bathroom Component",
+        title="Daily Water Use Comparison",
+        xaxis_title="Setup Type",
         yaxis_title="Litres per Day",
-        height=400,
-        template="simple_white",
-        legend_title="Configuration"
+        showlegend=False,
+        height=350
     )
 
     st.plotly_chart(fig, use_container_width=True)
 
+    # ---------- Summary ----------
+    percent = (savings / baseline_total * 100) if baseline_total > 0 else 0
+    st.success(
+        f"You're saving roughly **{percent:.0f}%** of water compared to an old, inefficient bathroom! 💧"
+    )
 
 
 
@@ -834,7 +808,7 @@ def page_heating():
     st.markdown("# Heating")
     st.subheader("What is home heating?")
     st.markdown("""
-    Heating is used to warm places throughout the house but although it can be really comfortable at times it is one 
+    Heating is used to warm places throughout the house but although it can be really comfortable at times it is one of the biggest energy consumers. 
     """)
 
     # Tabs for different heating system explanations
@@ -958,9 +932,9 @@ def page_vent():
     st.markdown("# Ventilation")
     st.subheader("What is ventilation?")
     st.markdown("""
-    Ventilation is how fresh air enters a home and stale or humid air leaves it. Good ventilation improves
-    air quality, reduces moisture, prevents mold growth, and makes indoor spaces more comfortable and healthy.
-    Some systems rely on natural airflow, while others use fans to push or pull air through the building.
+
+    
+    Ventilation is how a system circulates fresh air through the house while the stale or humid air leaves the house 
     """)
     col1, col2 = st.columns(2)
     with col1:
