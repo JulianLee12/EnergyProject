@@ -667,7 +667,7 @@ def page_washing_machine():
     from 1-3 times a week. A load for a normal washing machine uses around **85 litres** of water.
     """)
 
-    st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkeWK-tU4xqLkK8TEY7SYxF_G5zvY09wAIzeRo_5wVQwaviRd3bdPOAbiJoDIgwzvRngprmhdipXSNqOvvqiaqESFxNOQR5ebu3t_Xe-N9lVCM_MNgZ5kZ89NRG-jJay4okeR36-AQl27acK9dJSJxY1sLJuxgvMBfx8wX9BAnE2GVbUxfC-ITLV41L6otFnVYjtzd9O7Iu81mRzzrS7rBFTYXpPXszyGysu4xk=w1280")
+    st.image("https://i.ibb.co/8LspCqf6/washingmachine.jpg")
 
     tabs = st.tabs([
         "Different Piles & Modes",
