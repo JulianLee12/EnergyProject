@@ -483,7 +483,37 @@ def page_water():
     toilet_type = c2.selectbox(
         "Toilet type",
         ["Old (≈13 L/flush)", "Modern (≈6 L/flush)", "Dual-flush (≈3 L avg)"]
-    )    # ---------- output ----------
+    )
+    shower_head = c3.selectbox(
+        "Shower head",
+        ["Standard (≈9.5 L/min)", "Low-flow (≈6.8 L/min)"]
+    )
+
+    c4, c5 = st.columns(2)
+    flushes = c4.slider("Flushes per person / day", 2, 12, 6)
+    minutes = c5.slider("Shower minutes per person", 0, 30, 8)
+
+    # ---------- logic ----------
+    toilet_map = {"Old (≈13 L/flush)": 13.0, "Modern (≈6 L/flush)": 6.0, "Dual-flush (≈3 L avg)": 3.0}
+    shower_map = {"Standard (≈9.5 L/min)": 9.5, "Low-flow (≈6.8 L/min)": 6.8}
+
+    # your setup
+    flush_L = toilet_map[toilet_type]
+    lpm = shower_map[shower_head]
+
+    your_flush_total = people * flushes * flush_L
+    your_shower_total = people * minutes * lpm
+    your_total = your_flush_total + your_shower_total
+
+    # baseline (always "old" gear)
+    baseline_flush_total = people * flushes * 13.0
+    baseline_shower_total = people * minutes * 9.5
+    baseline_total = baseline_flush_total + baseline_shower_total
+
+    savings = baseline_total - your_total
+    low_cost_year, high_cost_year = _money_range_from_litres(savings * 365)
+
+    # ---------- output ----------
     c6, c7, c8 = st.columns(3)
     c6.metric("Your usage (L/day)", f"{your_total:,.0f}")
     c7.metric("Old baseline (L/day)", f"{baseline_total:,.0f}")
@@ -529,80 +559,10 @@ def page_water():
 
     st.plotly_chart(fig, use_container_width=True)
 
-    shower_head = c3.selectbox(
-        "Shower head",
-        ["Standard (≈9.5 L/min)", "Low-flow (≈6.8 L/min)"]
-    )
-
-    c4, c5 = st.columns(2)
-    flushes = c4.slider("Flushes per person / day", 2, 12, 6)
-    minutes = c5.slider("Shower minutes per person", 0, 30, 8)
-
-    # ---------- logic ----------
-    toilet_map = {"Old (≈13 L/flush)": 13.0, "Modern (≈6 L/flush)": 6.0, "Dual-flush (≈3 L avg)": 3.0}
-    shower_map = {"Standard (≈9.5 L/min)": 9.5, "Low-flow (≈6.8 L/min)": 6.8}
-
-    # your setup
-    flush_L = toilet_map[toilet_type]
-    lpm = shower_map[shower_head]
-
-    your_flush_total = people * flushes * flush_L
-    your_shower_total = people * minutes * lpm
-    your_total = your_flush_total + your_shower_total
-
-    # baseline (always "old" gear)
-    baseline_flush_total = people * flushes * 13.0
-    baseline_shower_total = people * minutes * 9.5
-    baseline_total = baseline_flush_total + baseline_shower_total
-
-    savings = baseline_total - your_total
-    low_cost_year, high_cost_year = _money_range_from_litres(savings * 365)
-
-    # ---------- output ----------
-    c6, c7, c8 = st.columns(3)
-    c6.metric("Your usage (L/day)", f"{your_total:,.0f}")
-    c7.metric("Old baseline (L/day)", f"{baseline_total:,.0f}")
-    c8.metric("Daily savings", f"{savings:,.0f} L")
-
-    st.success(
-        f"**Estimated yearly savings:** ${low_cost_year:,.0f} – ${high_cost_year:,.0f} per year "
-        f"just from bathroom upgrades & habits."
-    )
-
-    # optional small breakdown chart
-    import plotly.express as px
-
-    df = pd.DataFrame({
-        "Category": ["Toilet", "Shower"],
-        "Baseline (L/day)": [baseline_flush_total, baseline_shower_total],
-        "Your Setup (L/day)": [your_flush_total, your_shower_total],
-    })
-
-    # Melt to long format for grouped bars
-    df_melted = df.melt(id_vars="Category", var_name="Type", value_name="Litres")
-
-    fig = px.bar(
-        df_melted,
-        x="Category",
-        y="Litres",
-        color="Type",
-        barmode="group",
-        text_auto=".0f",
-        title="Daily Water Usage Comparison"
-    )
-
-    fig.update_layout(
-        xaxis_title="Bathroom Component",
-        yaxis_title="Litres per Day",
-        height=400,
-        template="simple_white"
-    )
-
-    st.plotly_chart(fig, use_container_width=True)
 
 
 
-# ---------- Water Usage Pie Chart ----------
+    # ---------- Water Usage Pie Chart ----------
     st.markdown("### Household Water Usage Breakdown")
 
     import plotly.graph_objects as go
@@ -874,7 +834,7 @@ def page_heating():
     st.markdown("# Heating")
     st.subheader("What is home heating?")
     st.markdown("""
-    Heating is used to warm places throughout the house is used to warm the house when it is needed though it can be really comfortable at time you need to think about its carbon footprint and how you can fix it in the tabs there will be differemt heating systems and better heating systems
+    Heating is used to warm places throughout the house but although it can be really comfortable at times it is one 
     """)
 
     # Tabs for different heating system explanations
