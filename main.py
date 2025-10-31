@@ -1648,16 +1648,11 @@ def page_sink_faucet():
             faucet_container.markdown(
                 f"""
                 <style>
-                .faucet-wrap {{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 180px;
-                }}
                 .faucet-container {{
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+                    height: 180px;
                 }}
                 .faucet-head {{
                     width: 90px;
@@ -1677,31 +1672,24 @@ def page_sink_faucet():
                     height: 14px;
                     background-color: #3f9ae0;
                     border-radius: 50%;
-                    position: relative;
-                    animation-name: drip;
-                    animation-duration: {duration:.2f}s;
-                    animation-iteration-count: infinite;
+                    animation: drip {duration:.2f}s infinite;
                     margin-top: 6px;
                     filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
                 }}
                 .drop.d1 {{ animation-delay: 0s; }}
                 .drop.d2 {{ animation-delay: {duration/3:.2f}s; }}
                 .drop.d3 {{ animation-delay: {2*duration/3:.2f}s; }}
-
                 @keyframes drip {{
-                    0%   {{ opacity: 0; transform: translateY(0);   }}
-                    20%  {{ opacity: 1; }}
-                    80%  {{ opacity: 1; transform: translateY(56px); }}
+                    0% {{ opacity: 0; transform: translateY(0); }}
+                    20% {{ opacity: 1; }}
+                    80% {{ opacity: 1; transform: translateY(56px); }}
                     100% {{ opacity: 0; transform: translateY(72px); }}
                 }}
                 </style>
-
-                <div class="faucet-wrap">
-                    <div class="faucet-container">
-                        <div class="faucet-head"></div>
-                        <div class="faucet-pipe"></div>
-                        {drops_html}
-                    </div>
+                <div class="faucet-container">
+                    <div class="faucet-head"></div>
+                    <div class="faucet-pipe"></div>
+                    {drops_html}
                 </div>
                 """,
                 unsafe_allow_html=True
@@ -1709,17 +1697,14 @@ def page_sink_faucet():
         else:
             faucet_container.markdown(
                 """
-                <div style="display:flex;justify-content:center;align-items:center;height:180px;">
-                    <div style="display:flex;flex-direction:column;align-items:center;">
-                        <div style="width:90px;height:24px;background-color:#8a8f96;border-radius:12px 12px 0 0;"></div>
-                        <div style="width:14px;height:50px;background-color:#8a8f96;margin-top:-2px;border-radius:0 0 10px 10px;"></div>
-                    </div>
+                <div style="display:flex;flex-direction:column;align-items:center;height:180px;">
+                    <div style="width:90px;height:24px;background-color:#8a8f96;border-radius:12px 12px 0 0;"></div>
+                    <div style="width:14px;height:50px;background-color:#8a8f96;margin-top:-2px;border-radius:0 0 10px 10px;"></div>
                 </div>
                 """,
                 unsafe_allow_html=True
             )
 
-    # ✅ success message AFTER animation (prevents </div> glitch)
     st.success(
         f"By simply turning off the tap while brushing, you could save roughly **{wasted_yearly:,.0f} litres per year**."
     )
