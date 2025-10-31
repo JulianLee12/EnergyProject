@@ -937,11 +937,7 @@ def page_vent():
     st.markdown("# Ventilation")
     st.subheader("What is ventilation?")
     st.markdown("""
-    Ventilation is how fresh air enters a home and stale or humid air leaves it. Good ventilation improves
-    air quality, reduces moisture, prevents mold growth, and makes indoor spaces more comfortable and healthy.
-    Some systems rely on natural airflow, while others use fans to push or pull air through the building.
-    
-    Ventilation systems is how a system circulates fresh air through the house while the stale or humid air leaves the house. A good ventilation system 
+    Ventilation is how a type of system circulates fresh air through the house while the stale or humid air leaves the house. A good ventilation system will improve the air quality while making the space more comfortable and healthy at the same time
     """)
     col1, col2 = st.columns(2)
     with col1:
