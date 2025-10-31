@@ -822,7 +822,7 @@ def page_heating():
     st.markdown("""
     Heating is used to warm the home during cold seasons, and it is one of the biggest contributors
     to household energy consumption. The type of heating system you use and how efficient it is 
-    can have a major impact on cost, comfort, and environmental footprint. Heating throughout the house is used to warm the house when it is needed 
+    can have a major impact on cost, comfort, and environmental footprint. Heating throughout the house is used to warm the house when it is needed though it can be really comfortable at time you need to think about its carbon footprint and how you can fix it 
     """)
 
     # Tabs for different heating system explanations
@@ -1739,12 +1739,14 @@ def page_leaks():
     st.markdown("# Leaks")
     st.subheader("How Do Leaks Waste Water and How Can We Prevent Them?")
 
-    st.markdown("""
-    Check your water pressure because if the pressure is high, it could cause a greater risk 
-    of leakages in your home.
-    """)
-
-    st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618415465140276/leak.jpg?ex=690558b1&is=69040731&hm=83d33e75d74f0c0d7ec79d134cfab8f6210b1e151ea7bb339157b629c7050c6f&=&format=webp&width=1128&height=753",width=300)
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("""
+        Check your water pressure because if the pressure is high, it could cause a greater risk 
+        of leakages in your home.
+        """)
+    with col2:
+        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618415465140276/leak.jpg?ex=690558b1&is=69040731&hm=83d33e75d74f0c0d7ec79d134cfab8f6210b1e151ea7bb339157b629c7050c6f&=&format=webp&width=1128&height=753",width=300)
 
 
     tabs = st.tabs([
