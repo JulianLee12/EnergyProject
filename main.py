@@ -154,7 +154,7 @@ st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
 
 WATER_SAVING_MD = """
 ### What is the main use of water in households?
-Toilets, Showering, tap water, laundry machines and leaks seem to be the main cause of water usage in households with bathtubs and dishwashers also playing a role. Each litre of water costs around 0.0014 to 0.0021 dollars depending on the season.
+Toilets, showering, tap water, laundry machines and leaks seem to be the main cause of water usage in households with bathtubs and dishwashers also playing a role. Each litre of water costs around 0.0014 to 0.0021 dollars depending on the season.
 
 ### Why is water important?
 Water is a key resource in everyone's lives, as they need it to drink, wash, and much more. Water is one of the most important thing in people's households, but there is limited amount of it. In Vancouver, water is super pure and drinkable, so we must not take it for granted and make sure to conserve as much water as we can, or else we might not have enough to sustain future generations.
@@ -801,8 +801,13 @@ def page_washing_machine():
 
 
 def page_hvac():
-    st.markdown("# HVAC\n"+HVAC_MD)
-    st.image("https://img.freepik.com/premium-vector/hvac-logo-design-template-cooling-heating-logo-illustration_373791-3698.jpg")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown("# HVAC\n"+HVAC_MD)
+    with col2:
+        st.image("https://img.freepik.com/premium-vector/hvac-logo-design-template-cooling-heating-logo-illustration_373791-3698.jpg")
 
 def page_heating():
     st.markdown("# Heating")
@@ -931,8 +936,12 @@ def page_heating():
 def page_vent():
     st.markdown("# Ventilation")
     st.subheader("What is ventilation?")
-    st.markdown("""    
-    Ventilation systems are how a particular system ranging from natural to exhaust systems circulates fresh air through the house while the stale or humid air leaves the house. A good ventilation system 
+    st.markdown("""
+    Ventilation is how fresh air enters a home and stale or humid air leaves it. Good ventilation improves
+    air quality, reduces moisture, prevents mold growth, and makes indoor spaces more comfortable and healthy.
+    Some systems rely on natural airflow, while others use fans to push or pull air through the building.
+    
+    Ventilation systems is how a system circulates fresh air through the house different systems range from natural ventilation to exwhile the stale or humid air leaves the house 
     """)
     col1, col2 = st.columns(2)
     with col1:
@@ -1945,7 +1954,7 @@ def page_shower():
         st.markdown("""
     Showering is tied for 2nd most water used in , people usually take 1-2 showers a day, 
     and a 5 minute shower uses up around 47 litres of water. An average shower head uses about 
-    9.5 litres per minute (lpm)
+    9.5 litres per minute (lpm).
     """)
     with col2:
         st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618416262053978/shower.jpg?ex=690558b1&is=69040731&hm=f230bfaec26feda18c6c41653de6d31b3b6364333a631382fd5513bf4c503eac&=&format=webp")
