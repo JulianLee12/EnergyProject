@@ -1744,7 +1744,7 @@ def page_leaks():
     of leakages in your home.
     """)
 
-    st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618415465140276/leak.jpg?ex=690558b1&is=69040731&hm=83d33e75d74f0c0d7ec79d134cfab8f6210b1e151ea7bb339157b629c7050c6f&=&format=webp&width=1128&height=753")
+    st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618415465140276/leak.jpg?ex=690558b1&is=69040731&hm=83d33e75d74f0c0d7ec79d134cfab8f6210b1e151ea7bb339157b629c7050c6f&=&format=webp&width=1128&height=753",width=300)
 
 
     tabs = st.tabs([
@@ -1954,7 +1954,7 @@ def page_shower():
     st.subheader("How Can we Save Water With Showers?")
 
     st.markdown("""
-    Background: Showering is tied for 2nd most water used in , people usually take 1-2 showers a day, 
+    Showering is tied for 2nd most water used in , people usually take 1-2 showers a day, 
     and a 5 minute shower uses up around 47 litres of water. An average shower head uses about 
     9.5 litres per minute (lpm)
     """)
