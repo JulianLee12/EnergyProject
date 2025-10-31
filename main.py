@@ -1,6 +1,6 @@
 
 import streamlit.components.v1 as components
-from streamlit import markdown
+from streamlit import markdown, columns
 
 imageCarouselComponent = components.declare_component("image-carousel-component", path="frontend/public")
 import altair as alt
@@ -588,17 +588,17 @@ def page_toilets():
     st.markdown("# Toilets")
     st.subheader("How Can Toilets Help Save Water?")
 
-    st.markdown("""
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown("""
         Background: Toilets use 6 litres of water every flush, and an average person urinates 6 to 8 times a day. 
         Toilets are the biggest contributor to the amount of water used in households.
         """)
-
-    col1, col2 = columns(2)
-
-    with col1:
-        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618416564178944/toilet.jpg?ex=690558b1&is=69040731&hm=3137a43fbcd3208ad4ed229986a729958bf2fc8aa4174007fcc544811c57b6b3&=&format=webp")
     with col2:
-        s
+        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618416564178944/toilet.jpg?ex=690558b1&is=69040731&hm=3137a43fbcd3208ad4ed229986a729958bf2fc8aa4174007fcc544811c57b6b3&=&format=webp")
+
 
     tabs = st.tabs([
         "Dual-Flush Toilets",
@@ -751,12 +751,17 @@ def page_washing_machine():
     st.markdown("# Washing Machine")
     st.subheader("How Can We Save Water with a Laundry Machine?")
 
-    st.markdown("""
-    Background: Washing machines use the third most amount of water in an average household, and 1 person washes their clothes 
-    from 1-3 times a week. A load for a normal washing machine uses around **85 litres** of water.
-    """)
 
-    st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618415804747827/washingmachine.jpg?ex=690558b1&is=69040731&hm=fd81a80493164b7b00a8ff904166f2acc3a1b4cc0e51f555cb6cc4404ac9e37c&=&format=webp")
+
+    col1, col2 = columns(2)
+
+    with col1:
+        st.markdown("""
+            Background: Washing machines use the third most amount of water in an average household, and 1 person washes their clothes 
+            from 1-3 times a week. A load for a normal washing machine uses around **85 litres** of water.
+            """)
+    with col2:
+        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618415804747827/washingmachine.jpg?ex=690558b1&is=69040731&hm=fd81a80493164b7b00a8ff904166f2acc3a1b4cc0e51f555cb6cc4404ac9e37c&=&format=webp")
 
     tabs = st.tabs([
         "Different Piles & Modes",
@@ -825,8 +830,7 @@ def page_heating():
     st.subheader("What is home heating?")
     st.markdown("""
     Heating is used to warm the home during cold seasons, and it is one of the biggest contributors
-    to household energy consumption. The type of heating system you use and how efficient it is 
-    can have a major impact on cost, comfort, and environmental Heating throughout the house is used to warm the house when it is needed though it can be really comfortable at time you need to think about its carbon footprint and how you can fix it in the tabs there will be differemt heating systems and better heating systems
+    to household energy consumption. The type of heating system you use and how efficie Heating throughout the house is used to warm the house when it is needed though it can be really comfortable at time you need to think about its carbon footprint and how you can fix it in the tabs there will be differemt heating systems and better heating systems
     """)
 
     # Tabs for different heating system explanations
@@ -1959,11 +1963,17 @@ def page_shower():
     st.markdown("# Shower")
     st.subheader("How Can we Save Water With Showers?")
 
-    st.markdown("""
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown("""
     Showering is tied for 2nd most water used in , people usually take 1-2 showers a day, 
     and a 5 minute shower uses up around 47 litres of water. An average shower head uses about 
     9.5 litres per minute (lpm)
     """)
+    with col2:
+        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618416262053978/shower.jpg?ex=690558b1&is=69040731&hm=f230bfaec26feda18c6c41653de6d31b3b6364333a631382fd5513bf4c503eac&=&format=webp")
+
 
     st.markdown("## Showering vs Bathing")
     st.markdown("""
