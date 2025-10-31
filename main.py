@@ -831,16 +831,16 @@ def page_heating():
         - If you want to do better for the environment, choose an **electric stove**, because although gas stoves are more energy-efficient, they release **double the greenhouse emissions**.
 
         """)
-        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkduOBko-R12wbX13DZ40AK8YjSwahsMT64v_hLI2m-DYa0WJoCQ179AnXsklHkP-uaEsreKVeNW7dyKwjYXPRibt1y-EHGbaWt2KMHPKUtaAdo9A3YK-EwfYv_2PnrXEbjEmMchl-U8XWveDyK0Eevsve3GMoMj0DibJMs6vZENivnfH4Pt9cx4=w1280", width = 300)
-        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkeVgQSRC2rzo4BBdK-Q8BPrUppcYPcJzAl5fAKXwGcQNaSscHo0havYu4afle8AmFHSbnJVYVeVWEXkPSO5FYw-067KXrfidfMwYS44WkwKd-i3oE7nHhdOQTImi2xXEEuoFNPS1A-8kYyE8MiJVvVelJbbicyXJaUGRUj-1TTWArt4Op9DiBJDSi64QHTZJIa9Rk6-LL0sPlu4q59XpqzpUN4tgoc9Cn11=w1280",width = 300)
+        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkduOBko-R12wbX13DZ40AK8YjSwahsMT64v_hLI2m-DYa0WJoCQ179AnXsklHkP-uaEsreKVeNW7dyKwjYXPRibt1y-EHGbaWt2KMHPKUtaAdo9A3YK-EwfYv_2PnrXEbjEmMchl-U8XWveDyK0Eevsve3GMoMj0DibJMs6vZENivnfH4Pt9cx4=w1280",width=300)
+        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkeVgQSRC2rzo4BBdK-Q8BPrUppcYPcJzAl5fAKXwGcQNaSscHo0havYu4afle8AmFHSbnJVYVeVWEXkPSO5FYw-067KXrfidfMwYS44WkwKd-i3oE7nHhdOQTImi2xXEEuoFNPS1A-8kYyE8MiJVvVelJbbicyXJaUGRUj-1TTWArt4Op9DiBJDSi64QHTZJIa9Rk6-LL0sPlu4q59XpqzpUN4tgoc9Cn11=w1280",width=300)
     # ---------------- TAB 3: Alternative Heating ----------------
     with tabs[2]:
         st.markdown("""
         ### Alternative Heating
         Some homes use boilers. This system heats water to create steam. Then they send them to be circulated through pipes all around the house to heat the home. Another option is hybrid heating. This is a combination of two heating systems in order to maximize efficiency.
         """)
-        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkc64ZDciLGrtV-z3xSUcGkAcbsiRT9q5E7MHqZtCls0sn2ix9trV-REWlZoXAKomls8ANpFXxpe-fwLzDxvYBF-eLWwi2r5KmyMCfGCBfOZboc91_BHht9GL-LzZhg-6eWMh4zFaDJjraF5dgqnApgGiCJlggTIuZnTjKAWn8oYP1DTFnw8HMOTbI4DbSJSHOnD4Ddo4rdZd1o2wHCAnukI5sF8jHUwUSQeRbc=w1280")
-        st.image("")
+        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkc64ZDciLGrtV-z3xSUcGkAcbsiRT9q5E7MHqZtCls0sn2ix9trV-REWlZoXAKomls8ANpFXxpe-fwLzDxvYBF-eLWwi2r5KmyMCfGCBfOZboc91_BHht9GL-LzZhg-6eWMh4zFaDJjraF5dgqnApgGiCJlggTIuZnTjKAWn8oYP1DTFnw8HMOTbI4DbSJSHOnD4Ddo4rdZd1o2wHCAnukI5sF8jHUwUSQeRbc=w1280",width=100)
+        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCke6Op6P0GNNU3cxGmELF18moM8doMvqTETRHeZJF7y2MFZpqL-yrGJogje3rvh0Wa0G4vDT845nJApW0PW11FXjtki0a4t29xVkumqrO74SL8SMJSc1WGbujQ2T6rr3Fae1Rs5P4sfALVUwFRA1u89E9iDw8TADyK-ghDWKzoFRanex2ObdtThZeKs=w1280")
         st.markdown("---")
         st.markdown("## Heat Pump vs Furnace (Interactive Comparison)")
         st.markdown("""
