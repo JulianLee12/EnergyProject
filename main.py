@@ -9,7 +9,7 @@ import altair as alt
 import streamlit as st
 import pandas as pd
 
-st.set_page_config(page_title="PowerInfo", layout="wide")
+st.set_page_config(page_title="GreenCurrent", layout="wide")
 
 # =========================================
 # Global CSS (eco + modern; animation + remove all top whitespace)
@@ -809,7 +809,7 @@ def page_heating():
 
         """)
         st.image("https://lh6.googleusercontent.com/AW_8EiRBJ4hvU64T2_XTdRjtLjb_aLTzk5XJgYWz__yRX6conWdxGiPOaEbBFlLpXXSmw4Q5apjypbGFI9g0kg",)
-        st.image("https://static.scientificamerican.com/sciam/cache/file/4FEB5C93-F6DA-475B-9FB7C0A2A73227E9_source.jpg?crop=1%3A1%2Csmart&w=1000")
+
     # ---------------- TAB 3: Alternative Heating ----------------
     with tabs[2]:
         st.markdown("""
