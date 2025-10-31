@@ -733,12 +733,13 @@ def page_shower():
     st.markdown("# Shower")
     st.subheader("How can Showers help save water?")
 
-    st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkeM3Nqm5fDEgoNlDdaVGMZDt9t4Ix27X-SYeF8RWAYoucizgZPHDr61XXvFqcxRT6oiNhrB-VzjH2xkmXtLe6Q42Vc3YJlFb93k82xnNfzGbovqB2xOcP9pX93GaNKYy8T2S2wIk39rs-I5BzW_wRFdM0d-1MByIsLbNRG1v9XQjjvSfovBzVBQfYnk0FgndIZFAofdJZJE2_3hIINYdGMG-oK2FcFpIFfS_Uw=w1280")
     st.markdown("""
     Showering is tied for the **second highest** water usage in most homes. People usually take
     **1–2 showers a day**, and a **5-minute shower uses around 75 litres of water**.
     Using more efficient shower heads or reducing how long water is running can significantly reduce waste.
     """)
+
+    st.image("https://i.ibb.co/JWq2kv01/shower.jpg")
 
     st.markdown("## Showering vs Bathing")
     st.markdown("""
