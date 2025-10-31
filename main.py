@@ -593,6 +593,7 @@ def page_toilets():
         Toilets are the biggest contributor to the amount of water used in households.
         """)
 
+    col1, col2 = columns(2)
     st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618416564178944/toilet.jpg?ex=690558b1&is=69040731&hm=3137a43fbcd3208ad4ed229986a729958bf2fc8aa4174007fcc544811c57b6b3&=&format=webp")
 
 
@@ -822,7 +823,7 @@ def page_heating():
     st.markdown("""
     Heating is used to warm the home during cold seasons, and it is one of the biggest contributors
     to household energy consumption. The type of heating system you use and how efficient it is 
-    can have a major impact on cost, comfort, and environmental footprint. Heating throughout the house is used to warm the house when it is needed though it can be really comfortable at time you need to think about its carbon footprint and how you can fix it 
+    can have a major impact on cost, comfort, and environmental footprint. Heating throughout the house is used to warm the house when it is needed though it can be really comfortable at time you need to think about its carbon footprint and how you can fix it in the tabs there will be differemt heating systems and better heating systems
     """)
 
     # Tabs for different heating system explanations
