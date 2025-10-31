@@ -529,6 +529,8 @@ def page_toilets():
     Toilets are the biggest contributor to the amount of water used in households.
     """)
 
+    st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkfuPVfXiu9zHaq9VNYxGHg7hWpnVLs2TcMo05NUW5hKo5b4XQ5HnDqQnDiqUofpdstuvWlYTJSNIhxXYwpPZmg5g4J1zuuWkE1L0Gfk6OHWL4Bfr0PcR8JcGWTtjmxthHi4gHIVBjte2EnKoufXKiUtMh3fI4dNl-lB16GP2g7sVcVDhapk37iqQue-vb-W_2mEYXn6VGImaxEn50bWBnDjmP3pSYn0jj7Pv1Y=w1280")
+
     tabs = st.tabs([
         "Dual-Flush Toilets",
         "Flushing Once After a Few Urinations",
@@ -665,6 +667,8 @@ def page_washing_machine():
     from 1-3 times a week. A load for a normal washing machine uses around **85 litres** of water.
     """)
 
+    st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkeWK-tU4xqLkK8TEY7SYxF_G5zvY09wAIzeRo_5wVQwaviRd3bdPOAbiJoDIgwzvRngprmhdipXSNqOvvqiaqESFxNOQR5ebu3t_Xe-N9lVCM_MNgZ5kZ89NRG-jJay4okeR36-AQl27acK9dJSJxY1sLJuxgvMBfx8wX9BAnE2GVbUxfC-ITLV41L6otFnVYjtzd9O7Iu81mRzzrS7rBFTYXpPXszyGysu4xk=w1280")
+
     tabs = st.tabs([
         "Different Piles & Modes",
         "Loads"
@@ -729,6 +733,7 @@ def page_shower():
     st.markdown("# Shower")
     st.subheader("How can Showers help save water?")
 
+    st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkeM3Nqm5fDEgoNlDdaVGMZDt9t4Ix27X-SYeF8RWAYoucizgZPHDr61XXvFqcxRT6oiNhrB-VzjH2xkmXtLe6Q42Vc3YJlFb93k82xnNfzGbovqB2xOcP9pX93GaNKYy8T2S2wIk39rs-I5BzW_wRFdM0d-1MByIsLbNRG1v9XQjjvSfovBzVBQfYnk0FgndIZFAofdJZJE2_3hIINYdGMG-oK2FcFpIFfS_Uw=w1280")
     st.markdown("""
     Showering is tied for the **second highest** water usage in most homes. People usually take
     **1–2 showers a day**, and a **5-minute shower uses around 75 litres of water**.
@@ -826,15 +831,16 @@ def page_heating():
         - If you want to do better for the environment, choose an **electric stove**, because although gas stoves are more energy-efficient, they release **double the greenhouse emissions**.
 
         """)
-        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkduOBko-R12wbX13DZ40AK8YjSwahsMT64v_hLI2m-DYa0WJoCQ179AnXsklHkP-uaEsreKVeNW7dyKwjYXPRibt1y-EHGbaWt2KMHPKUtaAdo9A3YK-EwfYv_2PnrXEbjEmMchl-U8XWveDyK0Eevsve3GMoMj0DibJMs6vZENivnfH4Pt9cx4=w1280")
-        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkeVgQSRC2rzo4BBdK-Q8BPrUppcYPcJzAl5fAKXwGcQNaSscHo0havYu4afle8AmFHSbnJVYVeVWEXkPSO5FYw-067KXrfidfMwYS44WkwKd-i3oE7nHhdOQTImi2xXEEuoFNPS1A-8kYyE8MiJVvVelJbbicyXJaUGRUj-1TTWArt4Op9DiBJDSi64QHTZJIa9Rk6-LL0sPlu4q59XpqzpUN4tgoc9Cn11=w1280")
+        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkduOBko-R12wbX13DZ40AK8YjSwahsMT64v_hLI2m-DYa0WJoCQ179AnXsklHkP-uaEsreKVeNW7dyKwjYXPRibt1y-EHGbaWt2KMHPKUtaAdo9A3YK-EwfYv_2PnrXEbjEmMchl-U8XWveDyK0Eevsve3GMoMj0DibJMs6vZENivnfH4Pt9cx4=w1280", width = 300)
+        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkeVgQSRC2rzo4BBdK-Q8BPrUppcYPcJzAl5fAKXwGcQNaSscHo0havYu4afle8AmFHSbnJVYVeVWEXkPSO5FYw-067KXrfidfMwYS44WkwKd-i3oE7nHhdOQTImi2xXEEuoFNPS1A-8kYyE8MiJVvVelJbbicyXJaUGRUj-1TTWArt4Op9DiBJDSi64QHTZJIa9Rk6-LL0sPlu4q59XpqzpUN4tgoc9Cn11=w1280",width = 300)
     # ---------------- TAB 3: Alternative Heating ----------------
     with tabs[2]:
         st.markdown("""
         ### Alternative Heating
         Some homes use boilers. This system heats water to create steam. Then they send them to be circulated through pipes all around the house to heat the home. Another option is hybrid heating. This is a combination of two heating systems in order to maximize efficiency.
         """)
-        st.image("https://lh5.googleusercontent.com/FpPxqjwYfywjgwP-SKrqBEpjHNWUt9UmK02BAXG6w24qwM7NUD1-ieDKi6_EerhH6BUoRTYgPqTrA-dwUC8LwrY")
+        st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkc64ZDciLGrtV-z3xSUcGkAcbsiRT9q5E7MHqZtCls0sn2ix9trV-REWlZoXAKomls8ANpFXxpe-fwLzDxvYBF-eLWwi2r5KmyMCfGCBfOZboc91_BHht9GL-LzZhg-6eWMh4zFaDJjraF5dgqnApgGiCJlggTIuZnTjKAWn8oYP1DTFnw8HMOTbI4DbSJSHOnD4Ddo4rdZd1o2wHCAnukI5sF8jHUwUSQeRbc=w1280")
+        st.image("")
         st.markdown("---")
         st.markdown("## Heat Pump vs Furnace (Interactive Comparison)")
         st.markdown("""
@@ -1692,6 +1698,7 @@ def page_leaks():
     st.markdown("# Leaks")
     st.subheader("How Do Leaks Waste Water and How Can We Prevent Them?")
 
+    st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkdMIGLkFXvhj7HLs6ZG3i-ZziXi6yM5VTRZI6rT7_9PpxL0d7jcG2hXo-x7dmXk3msKUrpPHe8NvHomGRQULQDNGJ4PVwR22krWDo4OhIdC2gklEPXmkwIumwkUY4GFMOApHAC_f9_v0xOgig0avQQ3GtROj3kuuQEZXJgwM_ktjn0KJsRBKpfKeTF7R8fqDuH3H2Lsz5uqs9N2H5wvtU1KfLaLOvhg4plfjEA=w1280")
     st.markdown("""
     Leaks are one of the most overlooked sources of water waste in a household.  
     Even slow or hidden leaks can waste **dozens of litres per day**, adding up to thousands of litres per month.  
@@ -1794,103 +1801,78 @@ def page_leaks():
 def page_bib():
     st.title("📚 References")
 
-    # ---- Custom styled HTML bibliography ----
-    references_html = """
+    # --- APA-Style References (formatted and linkable)
+    references = """
     <style>
-    .ref-container {
-        background-color: #ffffff;
-        border: 1px solid #e6e6e6;
-        border-radius: 10px;
-        padding: 25px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        max-height: 450px;
+    .bib-box {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        max-height: 400px;
         overflow-y: auto;
-        font-family: 'Georgia', serif;
         font-size: 16px;
         line-height: 1.6;
-        color: #222;
     }
-    .ref-container::-webkit-scrollbar {
-        width: 8px;
-    }
-    .ref-container::-webkit-scrollbar-thumb {
-        background-color: #bbb;
-        border-radius: 4px;
-    }
-    .ref-entry {
+    .bib-entry {
         text-indent: -1.5em;
         margin-left: 1.5em;
         margin-bottom: 1em;
     }
-    .ref-entry i {
-        color: #333;
-    }
     a {
-        color: #1f77b4;
+        color: #0066cc;
         text-decoration: none;
     }
     a:hover {
         text-decoration: underline;
-        color: #0056b3;
-    }
-    h3 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 15px;
     }
     </style>
 
-    <div class="ref-container">
-    <h3>APA Style Reference List</h3>
+    <div class="bib-box">
 
-    <div class="ref-entry">admin. (2021, October 21). <i>5 most common insulation materials.</i> Thermaxx Jackets. <a href="https://www.thermaxxjackets.com/news/5-most-common-thermal-insulation-materials/">https://www.thermaxxjackets.com/news/5-most-common-thermal-insulation-materials/</a></div>
+    <div class="bib-entry">admin. (2021, October 21). <i>5 most common insulation materials.</i> Thermaxx Jackets. <a href="https://www.thermaxxjackets.com/news/5-most-common-thermal-insulation-materials/">https://www.thermaxxjackets.com/news/5-most-common-thermal-insulation-materials/</a></div>
 
-    <div class="ref-entry">Canada, H. (2018). <i>Ventilation and the indoor environment - Canada.ca.</i> <a href="https://www.canada.ca/en/health-canada/services/publications/healthy-living/ventilation-indoor-environment.html#a5">https://www.canada.ca/en/health-canada/services/publications/healthy-living/ventilation-indoor-environment.html#a5</a></div>
+    <div class="bib-entry">Canada, H. (2018). <i>Ventilation and the indoor environment - Canada.ca.</i> <a href="https://www.canada.ca/en/health-canada/services/publications/healthy-living/ventilation-indoor-environment.html#a5">https://www.canada.ca/en/health-canada/services/publications/healthy-living/ventilation-indoor-environment.html#a5</a></div>
 
-    <div class="ref-entry">Canada, N. R. (2022). <i>Showerheads - Natural Resources Canada.</i> <a href="https://natural-resources.canada.ca/energy-efficiency/energy-efficiency-regulations/showerheads">https://natural-resources.canada.ca/energy-efficiency/energy-efficiency-regulations/showerheads</a></div>
+    <div class="bib-entry">Canada, N. R. (2022). <i>Showerheads - Natural Resources Canada.</i> <a href="https://natural-resources.canada.ca/energy-efficiency/energy-efficiency-regulations/showerheads">https://natural-resources.canada.ca/energy-efficiency/energy-efficiency-regulations/showerheads</a></div>
 
-    <div class="ref-entry">envision. (2016, December 15). <i>Husky Heating and Air Conditioning.</i> <a href="https://www.huskyair.com/blog/electrical-gas-conversion-how-much-money-save/">https://www.huskyair.com/blog/electrical-gas-conversion-how-much-money-save/</a></div>
+    <div class="bib-entry">envision. (2016, December 15). <i>Husky Heating and Air Conditioning.</i> <a href="https://www.huskyair.com/blog/electrical-gas-conversion-how-much-money-save/">https://www.huskyair.com/blog/electrical-gas-conversion-how-much-money-save/</a></div>
 
-    <div class="ref-entry">Halverson, B. (2025, June 12). <i>Low-flow shower head vs regular.</i> High Sierra Showerheads. <a href="https://www.highsierrashowerheads.com/blog/low-flow-shower-head-vs-regular/">https://www.highsierrashowerheads.com/blog/low-flow-shower-head-vs-regular/</a></div>
+    <div class="bib-entry">Halverson, B. (2025, June 12). <i>Low-flow shower head vs regular.</i> High Sierra Showerheads. <a href="https://www.highsierrashowerheads.com/blog/low-flow-shower-head-vs-regular/">https://www.highsierrashowerheads.com/blog/low-flow-shower-head-vs-regular/</a></div>
 
-    <div class="ref-entry">Alberta Mountain Air. (2023, August 30). <i>How many watts does an air conditioner use?</i> <a href="https://albertamountainair.com/how-many-watts-does-an-air-conditioner-use/">https://albertamountainair.com/how-many-watts-does-an-air-conditioner-use/</a></div>
+    <div class="bib-entry">Alberta Mountain Air. (2023, August 30). <i>How many watts does an air conditioner use?</i> <a href="https://albertamountainair.com/how-many-watts-does-an-air-conditioner-use/">https://albertamountainair.com/how-many-watts-does-an-air-conditioner-use/</a></div>
 
-    <div class="ref-entry">Whirlpool. (2025). <i>How much water does a washing machine use.</i> Whirlpool.ca. <a href="http://www.whirlpool.ca/en_ca/blog/washers-and-dryers/he-washing-machine-water-usage.html">http://www.whirlpool.ca/en_ca/blog/washers-and-dryers/he-washing-machine-water-usage.html</a></div>
+    <div class="bib-entry">Whirlpool. (2025). <i>How much water does a washing machine use.</i> Whirlpool.ca. <a href="http://www.whirlpool.ca/en_ca/blog/washers-and-dryers/he-washing-machine-water-usage.html">http://www.whirlpool.ca/en_ca/blog/washers-and-dryers/he-washing-machine-water-usage.html</a></div>
 
-    <div class="ref-entry">Capital Regional District. (2025). <i>Indoor water use.</i> <a href="https://www.crd.ca/environment/water-conservation/conserving-water-home/indoor-water-use">https://www.crd.ca/environment/water-conservation/conserving-water-home/indoor-water-use</a></div>
+    <div class="bib-entry">Capital Regional District. (2025). <i>Indoor water use.</i> <a href="https://www.crd.ca/environment/water-conservation/conserving-water-home/indoor-water-use">https://www.crd.ca/environment/water-conservation/conserving-water-home/indoor-water-use</a></div>
 
-    <div class="ref-entry">JWF. (2024, October 19). <i>How to test your shower’s water pressure: A step-by-step guide.</i> J.W. Freeman Plumbing. <a href="https://jwfreemanplumbing.com/how-to-test-your-showers-water-pressure-a-step-by-step-guide/">https://jwfreemanplumbing.com/how-to-test-your-showers-water-pressure-a-step-by-step-guide/</a></div>
+    <div class="bib-entry">JWF. (2024, October 19). <i>How to test your shower’s water pressure: A step-by-step guide.</i> J.W. Freeman Plumbing. <a href="https://jwfreemanplumbing.com/how-to-test-your-showers-water-pressure-a-step-by-step-guide/">https://jwfreemanplumbing.com/how-to-test-your-showers-water-pressure-a-step-by-step-guide/</a></div>
 
-    <div class="ref-entry">Mayo Clinic Health System. (n.d.). <i>Listen to your bladder: 10 symptoms.</i> <a href="https://www.mayoclinichealthsystem.org/hometown-health/speaking-of-health/listen-to-your-bladder">https://www.mayoclinichealthsystem.org/hometown-health/speaking-of-health/listen-to-your-bladder</a></div>
+    <div class="bib-entry">Mayo Clinic Health System. (n.d.). <i>Listen to your bladder: 10 symptoms.</i> <a href="https://www.mayoclinichealthsystem.org/hometown-health/speaking-of-health/listen-to-your-bladder">https://www.mayoclinichealthsystem.org/hometown-health/speaking-of-health/listen-to-your-bladder</a></div>
 
-    <div class="ref-entry">Minasian-Koncewicz, S. (2024, June 12). <i>Water damage statistics.</i> This Old House. <a href="https://www.thisoldhouse.com/foundations/water-damage-statistics">https://www.thisoldhouse.com/foundations/water-damage-statistics</a></div>
+    <div class="bib-entry">Minasian-Koncewicz, S. (2024, June 12). <i>Water damage statistics.</i> This Old House. <a href="https://www.thisoldhouse.com/foundations/water-damage-statistics">https://www.thisoldhouse.com/foundations/water-damage-statistics</a></div>
 
-    <div class="ref-entry">Penn State Extension. (2016, May 19). <i>Water conservation: How much water and money can you save?</i> <a href="https://extension.psu.edu/water-conservation-how-much-water-and-money-can-you-save">https://extension.psu.edu/water-conservation-how-much-water-and-money-can-you-save</a></div>
+    <div class="bib-entry">Penn State Extension. (2016, May 19). <i>Water conservation: How much water and money can you save?</i> <a href="https://extension.psu.edu/water-conservation-how-much-water-and-money-can-you-save">https://extension.psu.edu/water-conservation-how-much-water-and-money-can-you-save</a></div>
 
-    <div class="ref-entry">RufusRyker. (2006, February 18). <i>Buy toilet from Canada?</i> DoItYourself.com Forums. <a href="https://www.doityourself.com/forum/toilets-sinks-showers-dishwashers-tubs-garbage-disposals/254009-buy-toilet-canada.html">https://www.doityourself.com/forum/toilets-sinks-showers-dishwashers-tubs-garbage-disposals/254009-buy-toilet-canada.html</a></div>
+    <div class="bib-entry">RufusRyker. (2006, February 18). <i>Buy toilet from Canada?</i> DoItYourself.com Forums. <a href="https://www.doityourself.com/forum/toilets-sinks-showers-dishwashers-tubs-garbage-disposals/254009-buy-toilet-canada.html">https://www.doityourself.com/forum/toilets-sinks-showers-dishwashers-tubs-garbage-disposals/254009-buy-toilet-canada.html</a></div>
 
-    <div class="ref-entry">Whirlpool. (2025). <i>Shop kitchen appliances: Washing machines, dryers & more.</i> Whirlpool.ca. <a href="http://www.whirlpool.ca">http://www.whirlpool.ca</a></div>
+    <div class="bib-entry">Whirlpool. (2025). <i>Shop kitchen appliances: Washing machines, dryers & more.</i> Whirlpool.ca. <a href="http://www.whirlpool.ca">http://www.whirlpool.ca</a></div>
 
-    <div class="ref-entry">Silicon Valley Power. (2023, August 28). <i>Appliance energy use chart.</i> <a href="https://www.siliconvalleypower.com/residents/save-energy/appliance-energy-use-chart">https://www.siliconvalleypower.com/residents/save-energy/appliance-energy-use-chart</a></div>
+    <div class="bib-entry">Silicon Valley Power. (2023, August 28). <i>Appliance energy use chart.</i> <a href="https://www.siliconvalleypower.com/residents/save-energy/appliance-energy-use-chart">https://www.siliconvalleypower.com/residents/save-energy/appliance-energy-use-chart</a></div>
 
-    <div class="ref-entry">City of Richmond. (2025). <i>Toilet rebate program.</i> Richmond.ca. <a href="https://www.richmond.ca/services/water-sewer-flood/water-services/savewater/toiletrebate.htm">https://www.richmond.ca/services/water-sewer-flood/water-services/savewater/toiletrebate.htm</a></div>
+    <div class="bib-entry">City of Richmond. (2025). <i>Toilet rebate program.</i> Richmond.ca. <a href="https://www.richmond.ca/services/water-sewer-flood/water-services/savewater/toiletrebate.htm">https://www.richmond.ca/services/water-sewer-flood/water-services/savewater/toiletrebate.htm</a></div>
 
-    <div class="ref-entry">Son-Rise Plumbing & Gasfitting Ltd. (2025, January 8). <i>Upgrading to a gas stove from an electric stove in Calgary, Alberta.</i> <a href="https://son-riseplumbing.ca/blog/upgrading-to-a-gas-stove/">https://son-riseplumbing.ca/blog/upgrading-to-a-gas-stove/</a></div>
+    <div class="bib-entry">Son-Rise Plumbing & Gasfitting Ltd. (2025, January 8). <i>Upgrading to a gas stove from an electric stove in Calgary, Alberta.</i> <a href="https://son-riseplumbing.ca/blog/upgrading-to-a-gas-stove/">https://son-riseplumbing.ca/blog/upgrading-to-a-gas-stove/</a></div>
 
-    <div class="ref-entry">Government of British Columbia. (2025). <i>Water conservation plumbing regulation.</i> <a href="https://www.bclaws.gov.bc.ca/civix/document/id/loo71/loo71/91_198_2005">https://www.bclaws.gov.bc.ca/civix/document/id/loo71/loo71/91_198_2005</a></div>
+    <div class="bib-entry">Government of British Columbia. (2025). <i>Water conservation plumbing regulation.</i> <a href="https://www.bclaws.gov.bc.ca/civix/document/id/loo71/loo71/91_198_2005">https://www.bclaws.gov.bc.ca/civix/document/id/loo71/loo71/91_198_2005</a></div>
 
-    <div class="ref-entry">South Staffs Water. (n.d.). <i>Water use in your home: Tips to help save water.</i> <a href="https://www.south-staffs-water.co.uk/media/1539/waterusehome.pdf">https://www.south-staffs-water.co.uk/media/1539/waterusehome.pdf</a></div>
+    <div class="bib-entry">South Staffs Water. (n.d.). <i>Water use in your home: Tips to help save water.</i> <a href="https://www.south-staffs-water.co.uk/media/1539/waterusehome.pdf">https://www.south-staffs-water.co.uk/media/1539/waterusehome.pdf</a></div>
 
-    <div class="ref-entry">SaveMoneyCutCarbon. (2020, October 30). <i>What is the best flow rate for a kitchen or bathroom?</i> <a href="http://www.savemoneycutcarbon.com/learn-save/what-is-the-best-flow-rate-for-a-kitchen-or-bathroom/">http://www.savemoneycutcarbon.com/learn-save/what-is-the-best-flow-rate-for-a-kitchen-or-bathroom/</a></div>
+    <div class="bib-entry">SaveMoneyCutCarbon. (2020, October 30). <i>What is the best flow rate for a kitchen or bathroom?</i> <a href="http://www.savemoneycutcarbon.com/learn-save/what-is-the-best-flow-rate-for-a-kitchen-or-bathroom/">http://www.savemoneycutcarbon.com/learn-save/what-is-the-best-flow-rate-for-a-kitchen-or-bathroom/</a></div>
 
-    <div class="ref-entry">HowStuffWorks. (2012, July 16). <i>What’s the deal with low-flow and dual-flush toilets?</i> <a href="https://home.howstuffworks.com/home-improvement/household-hints-tips/cleaning-organizing/low-flow-and-dual-flush-toilets.htm">https://home.howstuffworks.com/home-improvement/household-hints-tips/cleaning-organizing/low-flow-and-dual-flush-toilets.htm</a></div>
+    <div class="bib-entry">HowStuffWorks. (2012, July 16). <i>What’s the deal with low-flow and dual-flush toilets?</i> <a href="https://home.howstuffworks.com/home-improvement/household-hints-tips/cleaning-organizing/low-flow-and-dual-flush-toilets.htm">https://home.howstuffworks.com/home-improvement/household-hints-tips/cleaning-organizing/low-flow-and-dual-flush-toilets.htm</a></div>
 
     </div>
     """
-
-    # ---- Display it with nice expander ----
-    with st.expander("View Full Bibliography (Click to Expand)"):
-        st.markdown(references_html, unsafe_allow_html=True)
 
     # --- Display with expander
     with st.expander("View Full Reference List (APA Style)"):
