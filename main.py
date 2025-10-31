@@ -529,7 +529,7 @@ def page_toilets():
     Toilets are the biggest contributor to the amount of water used in households.
     """)
 
-    st.image("https://lh3.googleusercontent.com/sitesv/AAzXCkfuPVfXiu9zHaq9VNYxGHg7hWpnVLs2TcMo05NUW5hKo5b4XQ5HnDqQnDiqUofpdstuvWlYTJSNIhxXYwpPZmg5g4J1zuuWkE1L0Gfk6OHWL4Bfr0PcR8JcGWTtjmxthHi4gHIVBjte2EnKoufXKiUtMh3fI4dNl-lB16GP2g7sVcVDhapk37iqQue-vb-W_2mEYXn6VGImaxEn50bWBnDjmP3pSYn0jj7Pv1Y=w1280")
+    st.image("https://i.ibb.co/nM54HWnv/toilet.jpg")
 
     tabs = st.tabs([
         "Dual-Flush Toilets",
@@ -923,6 +923,8 @@ def page_vent():
     Some systems rely on natural airflow, while others use fans to push or pull air through the building.
     """)
 
+    st.image("https://i.ibb.co/N64ny5V0/fans.jpg")
+    st.image("https://i.ibb.co/tT1RDgS7/pipes.jpg")
     # Tabs for organized information
     tabs = st.tabs([
         "Natural Ventilation",
@@ -931,8 +933,7 @@ def page_vent():
 
     ])
 
-    st.image("https://i.ibb.co/N64ny5V0/fans.jpg")
-    st.image("https://i.ibb.co/tT1RDgS7/pipes.jpg")
+
 
     with tabs[0]:
         st.markdown("""
@@ -1024,6 +1025,7 @@ def page_ac():
     electricity consumption** comes from air conditioning. Therefore by turning off your AC or heater and just wear a warm sweater in the winter or wear shorts in the summer could save you lots of money and energy.
     """)
 
+    st.image("https://i.ibb.co/fYTp5Jf0/fans2.jpg")
     st.markdown("## AC Energy Usage Estimator")
 
     ac_type = st.selectbox(
