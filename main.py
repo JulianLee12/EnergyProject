@@ -474,7 +474,7 @@ def page_water():
     # ---------- static content ----------
 
 
-    st.markdown("### 💧Bathroom Water Comparison")
+    st.markdown("###Bathroom Water Comparison")
     st.caption("Pick your setup and instantly see how much water you could save each day.")
 
     # ---------- Inputs ----------
@@ -499,9 +499,9 @@ def page_water():
     savings = baseline_total - your_total
 
     # ---------- Output ----------
-    st.metric("💧 Your Daily Usage", f"{your_total:,.0f} L")
-    st.metric("🏚️ Average Bathroom Usage", f"{baseline_total:,.0f} L")
-    st.metric("🌱 Daily Savings", f"{savings:,.0f} L")
+    st.metric(" Your Daily Usage", f"{your_total:,.0f} L")
+    st.metric(" Average Bathroom Usage", f"{baseline_total:,.0f} L")
+    st.metric(" Daily Savings", f"{savings:,.0f} L")
 
     # ---------- Simple Visualization ----------
     df = pd.DataFrame({
@@ -531,7 +531,7 @@ def page_water():
     # ---------- Summary ----------
     percent = (savings / baseline_total * 100) if baseline_total > 0 else 0
     st.success(
-        f"You're saving roughly **{percent:.0f}%** of water compared to an old, inefficient bathroom! 💧"
+        f"You're saving roughly **{percent:.0f}%** of water compared to an old, inefficient bathroom! "
     )
 
 
@@ -796,7 +796,7 @@ def page_washing_machine():
     col3.metric("Weekly savings (L)", f"{weekly_savings:,.0f}")
 
     st.success(
-        f"⭐ By using eco mode, you could save approximately **{yearly_savings:,.0f} litres per year**!"
+        f" By using eco mode, you could save approximately **{yearly_savings:,.0f} litres per year**!"
     )
 
 
@@ -1079,7 +1079,7 @@ def page_ac():
     savings = monthly_cost - reduced_cost
 
     st.info(
-        f"🌿 If you used the AC **2 hours less per day**, you could save about **${savings:.2f} per month**."
+        f" If you used the AC **2 hours less per day**, you could save about **${savings:.2f} per month**."
     )
 
 
