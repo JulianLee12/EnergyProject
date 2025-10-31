@@ -840,7 +840,7 @@ def page_heating():
         Some homes use boilers. This system heats water to create steam. Then they send them to be circulated through pipes all around the house to heat the home. Another option is hybrid heating. This is a combination of two heating systems in order to maximize efficiency.
         """)
         st.image("https://i.ibb.co/k6K2XJhY/heatstuff2.jpg",width=300)
-        st.image("https://i.ibb.co/hFFNhp7M/heatstuff.jpg",)
+        st.image("https://i.ibb.co/hFFNhp7M/heatstuff.jpg",width=300)
         st.markdown("---")
         st.markdown("## Heat Pump vs Furnace (Interactive Comparison)")
         st.markdown("""
