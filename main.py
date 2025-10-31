@@ -871,7 +871,7 @@ def page_heating():
         st.markdown("""
         ### Furnace
         Tending to your furnace is vital, especially if it is an older model. The first step is annual servicing by a professional, which involves cleaning or replacing old parts and making sure the furnace isn't working harder than it needs to. When a furnace is clogged the system will need to work harder to push making the energy consumption higher. Finally, older furnaces loses its energy efficient over time so by tending to the worn out parts it will restore its efficiency.        """)
-
+        st
         st.markdown("---")
         st.markdown("### Furnace Quiz")
 
