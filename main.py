@@ -1200,7 +1200,7 @@ def page_renew():
                                     scale=alt.Scale(domain=["Without Renewable", f"With {source_name}"],
                                                     range=["#E74C3C", "#27AE60"]),
                                     legend=None)) \
-            .properties(title="💸 Annual Energy Cost Comparison", height=300)
+            .properties(title=" Annual Energy Cost Comparison", height=300)
 
         co2_chart = alt.Chart(df_co2).mark_bar(cornerRadiusTopLeft=5, cornerRadiusTopRight=5) \
             .encode(x="Scenario:N", y="CO₂ Emissions (%):Q",
@@ -1208,17 +1208,17 @@ def page_renew():
                                     scale=alt.Scale(domain=["Without Renewable", f"With {source_name}"],
                                                     range=["#E67E22", "#2ECC71"]),
                                     legend=None)) \
-            .properties(title="🌿 CO₂ Emission Impact", height=300)
+            .properties(title=" CO₂ Emission Impact", height=300)
 
-        st.markdown("### 📊 Visual Comparison")
+        st.markdown("###  Visual Comparison")
         c1, c2 = st.columns(2)
         c1.altair_chart(cost_chart, use_container_width=True)
         c2.altair_chart(co2_chart, use_container_width=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
         col1, col2 = st.columns(2)
-        col1.metric("💰 Estimated Annual Savings", f"${with_adoption_savings:,.0f}")
-        col2.metric("🌿 Estimated CO₂ Reduction", f"{co2_reduction:.1f}%")
+        col1.metric(" Estimated Annual Savings", f"${with_adoption_savings:,.0f}")
+        col2.metric(" Estimated CO₂ Reduction", f"{co2_reduction:.1f}%")
 
         st.success(
             f"By adopting **{adoption}% {source_name} energy**, you could save about **${with_adoption_savings:,.0f} per year** "
@@ -1846,8 +1846,6 @@ def page_leaks():
                 st.write(f"❌ Q{i+1}: {explanations[i]}")
 
 def page_efficient():
-    import streamlit as st
-
     st.markdown("# Energy Efficiency")
     st.subheader("What Is Energy Efficiency?")
     st.markdown("""
