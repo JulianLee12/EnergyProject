@@ -822,7 +822,7 @@ def page_heating():
         ### Heat Pumps
         Most of the time if  you have a traditional of an really old electric or oil furnace, that could be really bad for the environment and consume a lot of energy meaning it will be really expensive. Heat pumps on the other hand is still expensive in the initial cost but could save you up to 50%. Not only that, they are generally good for the environment.
         """)
-        st.image("https://i.ibb.co/nq8Qr5wt/heatpumps.png")
+        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618376256913561/heatpumps.png?ex=690558a8&is=69040728&hm=ccbca9dba8eec55251050fdbf1ebbba2cc368923a80ee0c7cd3bd8cf7b95c3c3&=&format=webp&quality=lossless")
 
     # ---------------- TAB 2: Gas vs Electric Stoves ----------------
     with tabs[1]:
@@ -832,8 +832,8 @@ def page_heating():
         - If you want to do better for the environment, choose an **electric stove**, because although gas stoves are more energy-efficient, they release **double the greenhouse emissions**.
 
         """)
-        st.image("https://i.ibb.co/rKKNwzVs/stove.png",width=300)
-        st.image("https://i.ibb.co/rGznvnmg/stove2.jpg",width=300)
+        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618375849939075/stove.png?ex=690558a8&is=69040728&hm=aea8207671a045d8cf0445b6d05ac96d77137e072bf17d7a01d49aca6a8d6bf1&=&format=webp&quality=lossless",width=300)
+        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618375434571887/stove2.jpg?ex=690558a8&is=69040728&hm=2ed10c0ad6915ccd56fa15707bd0a5ee2796cfb99f4867e65c301dae49828338&=&format=webp",width=300)
     # ---------------- TAB 3: Alternative Heating ----------------
     with tabs[2]:
         st.markdown("""
@@ -843,9 +843,9 @@ def page_heating():
 
         col1, col2 = st.columns(2)
         with col1:
-            st.image("https://i.ibb.co/k6K2XJhY/heatstuff2.jpg",width=300)
+            st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618375074119680/heatstuff.jpg?ex=690558a7&is=69040727&hm=8b9c81c76126159c03d1cdd34a7e22243c2ac0da1c61a2a28943985b1ef5fbbd&=&format=webp&width=1128&height=1128",width=300)
         with col2:
-            st.image("https://i.ibb.co/hFFNhp7M/heatstuff.jpg",width=300)
+            st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618374772003008/heatstuff2.jpg?ex=690558a7&is=69040727&hm=d1b2dba6e1fc908d48af9df3143c64890d6b6b6e0cd75aa4b00d5da3a9281dde&=&format=webp",width=300)
         st.markdown("---")
         st.markdown("## Heat Pump vs Furnace (Interactive Comparison)")
         st.markdown("""
@@ -927,9 +927,12 @@ def page_vent():
     air quality, reduces moisture, prevents mold growth, and makes indoor spaces more comfortable and healthy.
     Some systems rely on natural airflow, while others use fans to push or pull air through the building.
     """)
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618374147178577/fans.jpg?ex=690558a7&is=69040727&hm=916b70e0db10f0d39199132b2d35fbdce20441e9059bfa06f9b490990e73d272&=&format=webp&width=1128&height=635",width=300)
+    with col2:
+        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618374474076180/pipes.jpg?ex=690558a7&is=69040727&hm=56e7f88602281eb38708cde1cf3b5db83ee9745ff89a852079919e1f3a5a7bd6&=&format=webp",width=300)
 
-    st.image("https://i.ibb.co/N64ny5V0/fans.jpg",width=300)
-    st.image("https://i.ibb.co/tT1RDgS7/pipes.jpg",width=300)
     # Tabs for organized information
     tabs = st.tabs([
         "Natural Ventilation",
