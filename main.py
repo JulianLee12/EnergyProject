@@ -937,7 +937,7 @@ def page_vent():
     st.markdown("# Ventilation")
     st.subheader("What is ventilation?")
     st.markdown("""
-    Ventilation is how a type of system circulates fresh air through the house while the stale or humid air leaves the house. A good ventilation system will improve the air quality while making the space more comfortable and healthy at the same time
+    Ventilation is how a type of system circulates fresh air through the house while the stale or humid air leaves the house. A good ventilation system will improve the air quality while making the space more comfortable and healthy at the same time.
     """)
     col1, col2 = st.columns(2)
     with col1:
