@@ -941,7 +941,7 @@ def page_vent():
     air quality, reduces moisture, prevents mold growth, and makes indoor spaces more comfortable and healthy.
     Some systems rely on natural airflow, while others use fans to push or pull air through the building.
     
-    Ventilation systems is how a system circulates fresh air through the house different systems range from natural ventilation to exwhile the stale or humid air leaves the house 
+    Ventilation systems is how a system circulates fresh air through the house while the stale or humid air leaves the house. A good
     """)
     col1, col2 = st.columns(2)
     with col1:
