@@ -874,7 +874,7 @@ def page_heating():
     st.markdown("# Heating")
     st.subheader("What is home heating?")
     st.markdown("""
-    Heating throughout the house is used to warm the house when it is needed though it can be really comfortable at time you need to think about its carbon footprint and how you can fix it in the tabs there will be differemt heating systems and better heating systems
+    Heating is used to throughout the house is used to warm the house when it is needed though it can be really comfortable at time you need to think about its carbon footprint and how you can fix it in the tabs there will be differemt heating systems and better heating systems
     """)
 
     # Tabs for different heating system explanations
