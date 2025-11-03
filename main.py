@@ -352,7 +352,7 @@ def page_home():
           </a>
 
           <a href="/page_hvac" target="_self" class="info-card">
-            <img src="https://media.discordapp.net/attachments/1034040253129957476/1433618415096172554/hvac.png?ex=690558b1&is=69040731&hm=f641ac463872329d92e474768f61d6423764d46f5de87fd160c4c9f3949d069d&=&format=webp&quality=lossless" alt="HVAC">
+            <img src="hvac.png" alt="HVAC">
             <div class="card-body">
               <h3>HVAC</h3>
               <p>Heating, ventilation and air conditioning basics & tips.</p>
@@ -360,7 +360,7 @@ def page_home():
           </a>
 
           <a href="/page_energy" target="_self" class="info-card">
-            <img src="https://media.discordapp.net/attachments/1034040253129957476/1433618414198456471/conserveenergy.jpg?ex=690558b1&is=69040731&hm=fa39653a94c8cc25fddf50fb515d2b5f796ea2876a453cc9a78de028251fbc29&=&format=webp" alt="Energy Saving">
+            <img src="conserveenergy.jpg" alt="Energy Saving">
             <div class="card-body">
               <h3>Energy Saving</h3>
               <p>Renewables, efficiency and everyday conservation.</p>
@@ -576,7 +576,7 @@ def page_toilets():
         Toilets are the biggest contributor to the amount of water used in households.
         """)
     with col2:
-        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618416564178944/toilet.jpg?ex=690558b1&is=69040731&hm=3137a43fbcd3208ad4ed229986a729958bf2fc8aa4174007fcc544811c57b6b3&=&format=webp")
+        st.image("toilet.jpg")
 
 
     tabs = st.tabs([
@@ -740,8 +740,7 @@ def page_washing_machine():
             from 1-3 times a week. A load for a normal washing machine uses around **85 litres** of water.
             """)
     with col2:
-        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618415804747827/washingmachine.jpg?ex=690558b1&is=69040731&hm=fd81a80493164b7b00a8ff904166f2acc3a1b4cc0e51f555cb6cc4404ac9e37c&=&format=webp")
-
+        st.image("washingmachine.jpg")
     tabs = st.tabs([
         "Different Piles & Modes",
         "Loads"
@@ -807,8 +806,7 @@ def page_hvac():
     with col1:
         st.markdown("# HVAC\n"+HVAC_MD)
     with col2:
-        st.image("https://img.freepik.com/premium-vector/hvac-logo-design-template-cooling-heating-logo-illustration_373791-3698.jpg")
-
+        st.image("hvac.jpg")
 def page_heating():
     st.markdown("# Heating")
     st.subheader("What is home heating?")
@@ -830,8 +828,7 @@ def page_heating():
         ### Heat Pumps
         Most of the time if  you have a traditional of an really old electric or oil furnace, that could be really bad for the environment and consume a lot of energy meaning it will be really expensive. Heat pumps on the other hand is still expensive in the initial cost but could save you up to 50%. Not only that, they are generally good for the environment.
         """)
-        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618376256913561/heatpumps.png?ex=690558a8&is=69040728&hm=ccbca9dba8eec55251050fdbf1ebbba2cc368923a80ee0c7cd3bd8cf7b95c3c3&=&format=webp&quality=lossless")
-
+        st.image("heatpumps.png")
     # ---------------- TAB 2: Gas vs Electric Stoves ----------------
     with tabs[1]:
         st.markdown("""
@@ -842,12 +839,10 @@ def page_heating():
         """)
         col1, col2 = st.columns(2)
         with col1:
-            st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618375849939075/stove.png?ex=690558a8&is=69040728&hm=aea8207671a045d8cf0445b6d05ac96d77137e072bf17d7a01d49aca6a8d6bf1&=&format=webp&quality=lossless",width=300)
-
+            st.image("stove.png")
 
         with col2:
-            st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618375434571887/stove2.jpg?ex=690558a8&is=69040728&hm=2ed10c0ad6915ccd56fa15707bd0a5ee2796cfb99f4867e65c301dae49828338&=&format=webp",width=300)
-
+            st.image("stove2.jpg")
     # ---------------- TAB 3: Alternative Heating ----------------
     with tabs[2]:
         st.markdown("""
@@ -857,9 +852,9 @@ def page_heating():
 
         col1, col2 = st.columns(2)
         with col1:
-            st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618375074119680/heatstuff.jpg?ex=690558a7&is=69040727&hm=8b9c81c76126159c03d1cdd34a7e22243c2ac0da1c61a2a28943985b1ef5fbbd&=&format=webp&width=1128&height=1128",width=300)
+            st.image("heatstuff.jpg")
         with col2:
-            st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618374772003008/heatstuff2.jpg?ex=690558a7&is=69040727&hm=d1b2dba6e1fc908d48af9df3143c64890d6b6b6e0cd75aa4b00d5da3a9281dde&=&format=webp",width=300)
+            st.image("heatstuff2.jpg")
         st.markdown("---")
         st.markdown("## Heat Pump vs Furnace (Interactive Comparison)")
         st.markdown("""
@@ -890,7 +885,7 @@ def page_heating():
         st.markdown("""
         ### Furnace
         Tending to your furnace is vital, especially if it is an older model. The first step is annual servicing by a professional, which involves cleaning or replacing old parts and making sure the furnace isn't working harder than it needs to. When a furnace is clogged the system will need to work harder to push making the energy consumption higher. Finally, older furnaces loses its energy efficient over time so by tending to the worn out parts it will restore its efficiency.        """)
-        st.image("https://thorntonheating.com/wp-content/uploads/2016/04/History-of-the-Furnace.png")
+        st.image("furnace.png")
         st.markdown("---")
         st.markdown("### Furnace Quiz")
 
@@ -941,10 +936,9 @@ def page_vent():
     """)
     col1, col2 = st.columns(2)
     with col1:
-        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618374147178577/fans.jpg?ex=690558a7&is=69040727&hm=916b70e0db10f0d39199132b2d35fbdce20441e9059bfa06f9b490990e73d272&=&format=webp&width=1128&height=635",width=300)
+        st.image("fans.jpg")
     with col2:
-        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618374474076180/pipes.jpg?ex=690558a7&is=69040727&hm=56e7f88602281eb38708cde1cf3b5db83ee9745ff89a852079919e1f3a5a7bd6&=&format=webp",width=300)
-
+        st.image("pipes.jpg")
     # Tabs for organized information
     tabs = st.tabs([
         "Natural Ventilation",
@@ -1045,7 +1039,7 @@ def page_ac():
     electricity consumption** comes from air conditioning. Therefore by turning off your AC or heater and just wear a warm sweater in the winter or wear shorts in the summer could save you lots of money and energy.
     """)
 
-    st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618373815701546/fans2.jpg?ex=690558a7&is=69040727&hm=a8080060f608178c73a914ef9f5d3f44fcce834417b9901aeed8a09755cbd074&=&format=webp")
+    st.image("fans2.jpg")
     st.markdown("## AC Energy Usage Estimator")
 
     ac_type = st.selectbox(
@@ -1723,8 +1717,7 @@ def page_leaks():
         of leakages in your home.
         """)
     with col2:
-        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618415465140276/leak.jpg?ex=690558b1&is=69040731&hm=83d33e75d74f0c0d7ec79d134cfab8f6210b1e151ea7bb339157b629c7050c6f&=&format=webp&width=1128&height=753",width=300)
-
+        st.image("leak.jpg")
 
     tabs = st.tabs([
         "Frozen Pipes",
@@ -1995,8 +1988,7 @@ def page_shower():
     9.5 litres per minute (lpm).
     """)
     with col2:
-        st.image("https://media.discordapp.net/attachments/1034040253129957476/1433618416262053978/shower.jpg?ex=690558b1&is=69040731&hm=f230bfaec26feda18c6c41653de6d31b3b6364333a631382fd5513bf4c503eac&=&format=webp")
-
+        st.image("shower.jpg")
 
     st.markdown("## Showering vs Bathing")
     st.markdown("""
