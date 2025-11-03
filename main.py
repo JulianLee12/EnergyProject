@@ -344,7 +344,7 @@ def page_home():
         <div class="card-wrap">
 
           <a href="/page_water" target="_self" class="info-card">
-            <img src="https://media.discordapp.net/attachments/1034040253129957476/1433618413640487164/6417083.png?ex=690558b1&is=69040731&hm=2704a1012638a4254ac2712dc9baf9a975b1aeac813ea991ba6cafa57cf937cf&=&format=webp&quality=lossless" alt="Water Saving">
+            <img src="logo.png" alt="Water Saving">
             <div class="card-body">
               <h3>Water Saving</h3>
               <p>Toilets, showers, taps, laundry and leak prevention.</p>
