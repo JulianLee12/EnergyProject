@@ -344,7 +344,7 @@ def page_home():
         <div class="card-wrap">
 
           <a href="/page_water" target="_self" class="info-card">
-            <img src="https://drive.google.com/file/d/1jmUoA-2rzbWTwon7NrXV1YuYuKKJo5hG/view?usp=sharing" alt="Water Saving">
+            <img src="static/logo.png" alt="Water Saving">
             <div class="card-body">
               <h3>Water Saving</h3>
               <p>Toilets, showers, taps, laundry and leak prevention.</p>
@@ -352,7 +352,7 @@ def page_home():
           </a>
 
           <a href="/page_hvac" target="_self" class="info-card">
-            <img src="https://drive.google.com/file/d/1YnFsy8PiiV93Up4xMTQAEDblOtYlhtZy/view?usp=drive_link" alt="HVAC">
+            <img src="https://i.postimg.cc/nc73s2pK/hvac.png" alt="HVAC">
             <div class="card-body">
               <h3>HVAC</h3>
               <p>Heating, ventilation and air conditioning basics & tips.</p>
@@ -360,7 +360,7 @@ def page_home():
           </a>
 
           <a href="/page_energy" target="_self" class="info-card">
-            <img src="https://drive.google.com/file/d/1bdwHuqdf75o9NgjwvqjOH-vjLIfYqLOq/view?usp=sharing" alt="Energy Saving">
+            <img src="static/conserveenergy.jpg" alt="Energy Saving">
             <div class="card-body">
               <h3>Energy Saving</h3>
               <p>Renewables, efficiency and everyday conservation.</p>
