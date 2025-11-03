@@ -344,7 +344,7 @@ def page_home():
         <div class="card-wrap">
 
           <a href="/page_water" target="_self" class="info-card">
-            <img src="static/logo.png" alt="Water Saving">
+            <img src="https://i.postimg.cc/h4QrwszR/6417083.png" alt="Water Saving">
             <div class="card-body">
               <h3>Water Saving</h3>
               <p>Toilets, showers, taps, laundry and leak prevention.</p>
@@ -360,7 +360,7 @@ def page_home():
           </a>
 
           <a href="/page_energy" target="_self" class="info-card">
-            <img src="static/conserveenergy.jpg" alt="Energy Saving">
+            <img src="https://i.postimg.cc/3RVZN4qs/conserveenergy.jpg" alt="Energy Saving">
             <div class="card-body">
               <h3>Energy Saving</h3>
               <p>Renewables, efficiency and everyday conservation.</p>
