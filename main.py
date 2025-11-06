@@ -60,7 +60,14 @@ h1, h2, h3, h4, h5, h6 { color: var(--text); }
   padding: 28px 28px;
   margin-bottom: 12px;
 }
-.hero h1 { margin: 0 0 6px 0; font-size: 34px; line-height: 1.15; }
+.hero h1 {
+  margin: 0 0 6px 0;
+  font-size: clamp(64px, 8vw, 136px);  /* scales responsively */
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+
 .hero p  { margin: 6px 0 0 0; font-size: 16px; color: var(--muted); }
 
 /* Card row */
