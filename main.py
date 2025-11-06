@@ -60,12 +60,35 @@ h1, h2, h3, h4, h5, h6 { color: var(--text); }
   padding: 28px 28px;
   margin-bottom: 12px;
 }
+.hero {
+  background: linear-gradient(120deg, rgba(165,214,167,.35), rgba(255,255,255,0));
+  border: 1px solid rgba(46,125,50,.12);
+  border-radius: var(--radius);
+  padding: 60px 28px;
+  margin-bottom: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .hero h1 {
-  margin: 0 0 6px 0;
-  font-size: clamp(64px, 8vw, 136px);  /* scales responsively */
+  margin: 0 0 12px 0;
+  font-size: clamp(64px, 8vw, 136px); /* ~4× larger, responsive */
   line-height: 1.1;
   font-weight: 700;
+  text-align: center;
 }
+
+.hero p {
+  margin: 6px 0 0 0;
+  font-size: clamp(18px, 2vw, 26px);
+  color: var(--muted);
+  text-align: center;
+  max-width: 700px;
+}
+
 
 
 .hero p  { margin: 6px 0 0 0; font-size: 16px; color: var(--muted); }
